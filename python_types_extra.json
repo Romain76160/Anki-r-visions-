@@ -1,0 +1,115 @@
+{
+  "packID": "python-types-detail",
+  "title": "Python - Types détaillés",
+  "version": 1,
+  "questions": [
+    {
+      "id": "pytype-001",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un int en Python et à quoi sert-il ?",
+      "answer": "Un int représente un nombre entier, sans partie décimale. Il sert à compter, indexer, représenter un âge, un nombre d’éléments, etc.",
+      "explanation": "Exemples : age = 24, compteur = 10, index = 0. On peut faire des opérations comme +, -, *, //, %, **.",
+      "tags": ["types","int"]
+    },
+    {
+      "id": "pytype-002",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un float en Python et à quoi sert-il ?",
+      "answer": "Un float représente un nombre à virgule flottante. Il sert pour les mesures, pourcentages, moyennes, températures, calculs scientifiques, etc.",
+      "explanation": "Exemples : prix = 19.99, temperature = 21.5. Attention : certains calculs décimaux peuvent avoir de petites erreurs d’arrondi liées à la représentation binaire.",
+      "tags": ["types","float"]
+    },
+    {
+      "id": "pytype-003",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un bool en Python et à quoi sert-il ?",
+      "answer": "Un bool est une valeur logique : True ou False. Il sert surtout dans les conditions et les tests.",
+      "explanation": "Exemple : majeur = age >= 18. Ensuite : if majeur: ... Les comparaisons comme ==, <, >, in produisent souvent un booléen.",
+      "tags": ["types","bool"]
+    },
+    {
+      "id": "pytype-004",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’une str en Python et comment l’utiliser ?",
+      "answer": "Une str est une chaîne de caractères, utilisée pour stocker du texte.",
+      "explanation": "Exemple : nom = \"Romain\". On peut accéder à un caractère avec nom[0], découper avec nom[1:4], concaténer avec + et obtenir la longueur avec len(nom). Une str est immuable : on ne modifie pas directement un caractère existant.",
+      "tags": ["types","str"]
+    },
+    {
+      "id": "pytype-005",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’une list en Python et à quoi sert-elle ?",
+      "answer": "Une list est une collection ordonnée et modifiable. Elle sert à stocker plusieurs valeurs dans une même variable lorsque leur contenu peut évoluer.",
+      "explanation": "Exemple : notes = [12, 15, 18]. notes[0] donne 12. notes.append(20) ajoute une valeur. notes[1] = 16 modifie la deuxième valeur. Une liste peut contenir plusieurs types, même si on préfère souvent garder des éléments homogènes.",
+      "tags": ["types","list"]
+    },
+    {
+      "id": "pytype-006",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Quand choisir une list plutôt qu’un tuple ?",
+      "answer": "On choisit une list lorsque les éléments doivent pouvoir être ajoutés, supprimés ou modifiés pendant l’exécution du programme.",
+      "explanation": "Exemple : une liste de participants, de notes ou de tâches est susceptible de changer. Une list est donc adaptée : participants.append(\"Lina\").",
+      "tags": ["types","list","choix"]
+    },
+    {
+      "id": "pytype-007",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un tuple en Python et à quoi sert-il ?",
+      "answer": "Un tuple est une collection ordonnée mais immuable. Il sert à regrouper plusieurs valeurs qui ne sont pas censées changer.",
+      "explanation": "Exemple : point = (10, 20) ou couleur = (255, 128, 0). On lit point[0], mais point[0] = 5 provoque une erreur. Un tuple est utile pour représenter des coordonnées, des constantes ou retourner plusieurs valeurs depuis une fonction.",
+      "tags": ["types","tuple"]
+    },
+    {
+      "id": "pytype-008",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un dict en Python et à quoi sert-il ?",
+      "answer": "Un dict associe des clés à des valeurs. Il sert à représenter des données structurées que l’on veut retrouver par un nom plutôt que par une position.",
+      "explanation": "Exemple : personne = {\"nom\": \"Romain\", \"age\": 24}. personne[\"nom\"] donne \"Romain\". personne[\"age\"] = 25 modifie l’âge. On peut ajouter une clé avec personne[\"ville\"] = \"Paris\".",
+      "tags": ["types","dict"]
+    },
+    {
+      "id": "pytype-009",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Quand un dict est-il plus adapté qu’une list ?",
+      "answer": "Un dict est plus adapté quand chaque information possède un nom ou une clé explicite, et qu’on veut y accéder directement par cette clé.",
+      "explanation": "Exemple : pour une personne, personne[\"email\"] est plus clair que personne[3]. Une list est préférable quand l’ordre des éléments est l’information principale.",
+      "tags": ["types","dict","choix"]
+    },
+    {
+      "id": "pytype-010",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Qu’est-ce qu’un set en Python et à quoi sert-il ?",
+      "answer": "Un set est une collection d’éléments uniques. Il sert surtout à supprimer les doublons et à faire rapidement des tests d’appartenance.",
+      "explanation": "Exemple : valeurs = {1, 2, 2, 3} devient {1, 2, 3}. Avec 2 in valeurs, on teste rapidement si 2 est présent. On peut ajouter avec valeurs.add(4).",
+      "tags": ["types","set"]
+    },
+    {
+      "id": "pytype-011",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Dans quel cas un set est-il particulièrement pratique ?",
+      "answer": "Quand on veut garantir l’unicité des valeurs, éliminer les doublons ou comparer des ensembles.",
+      "explanation": "Exemple : uniques = set([\"A\", \"A\", \"B\"]) donne {\"A\", \"B\"}. Les sets permettent aussi union |, intersection & et différence -.",
+      "tags": ["types","set","choix"]
+    },
+    {
+      "id": "pytype-012",
+      "subject": "Python",
+      "chapter": "Types",
+      "prompt": "Que représente None en Python et quand l’utiliser ?",
+      "answer": "None représente l’absence de valeur. C’est l’unique valeur du type NoneType.",
+      "explanation": "On l’utilise par exemple pour indiquer qu’un résultat n’existe pas encore : resultat = None. Pour tester cette valeur, on écrit généralement : if resultat is None: ...",
+      "tags": ["types","None"]
+    }
+  ]
+}
