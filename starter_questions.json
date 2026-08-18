@@ -1,0 +1,772 @@
+{
+  "packID": "mooc-bases",
+  "title": "MOOC - Bases",
+  "version": 2,
+  "questions": [
+    {
+      "id": "base-001",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’un espace vectoriel ?",
+      "answer": "Un ensemble de vecteurs muni d’une addition et d’une multiplication par un scalaire, satisfaisant les propriétés usuelles : stabilité, associativité, élément nul, opposé, distributivité, etc.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-002",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’un sous-espace vectoriel ?",
+      "answer": "Une partie F d’un espace vectoriel E qui contient le vecteur nul et qui est stable par combinaison linéaire.",
+      "explanation": "Critère pratique : si u,v ∈ F et λ,μ ∈ ℝ, alors λu + μv ∈ F.",
+      "tags": []
+    },
+    {
+      "id": "base-003",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Comment vérifier rapidement qu’un ensemble est un sous-espace vectoriel ?",
+      "answer": "Vérifier qu’il contient 0 et qu’il est stable par combinaison linéaire. Pour un ensemble défini par une équation linéaire homogène, c’est souvent automatique.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-004",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une combinaison linéaire ?",
+      "answer": "Une somme de vecteurs multipliés par des scalaires.",
+      "explanation": "λ₁v₁ + λ₂v₂ + … + λₙvₙ",
+      "tags": []
+    },
+    {
+      "id": "base-005",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quand une famille de vecteurs est-elle génératrice ?",
+      "answer": "Quand tout vecteur de l’espace peut s’écrire comme combinaison linéaire des vecteurs de la famille.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-006",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quand une famille est-elle libre ?",
+      "answer": "Quand la seule combinaison linéaire donnant le vecteur nul est celle où tous les coefficients sont nuls.",
+      "explanation": "λ₁v₁+…+λₙvₙ=0 ⇒ λ₁=…=λₙ=0",
+      "tags": []
+    },
+    {
+      "id": "base-007",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une famille liée ?",
+      "answer": "Une famille qui n’est pas libre : au moins un vecteur peut s’exprimer comme combinaison linéaire des autres.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-008",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une base ?",
+      "answer": "Une famille à la fois libre et génératrice. Chaque vecteur possède alors une décomposition unique dans cette base.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-009",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quelle est la dimension de ℝⁿ ?",
+      "answer": "n.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-010",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Dans un espace de dimension n, que peut-on dire d’une famille libre de n vecteurs ?",
+      "answer": "Elle est automatiquement une base, donc aussi génératrice.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-011",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Dans un espace de dimension n, que peut-on dire d’une famille génératrice de n vecteurs ?",
+      "answer": "Elle est automatiquement une base, donc aussi libre.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-012",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une application linéaire ?",
+      "answer": "Une application f vérifiant f(u+v)=f(u)+f(v) et f(λu)=λf(u).",
+      "explanation": "Équivalent : f(λu+μv)=λf(u)+μf(v).",
+      "tags": []
+    },
+    {
+      "id": "base-013",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que le noyau Ker(f) ?",
+      "answer": "L’ensemble des vecteurs envoyés sur le vecteur nul.",
+      "explanation": "Ker(f) = {x | f(x)=0}",
+      "tags": []
+    },
+    {
+      "id": "base-014",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que l’image Im(f) ?",
+      "answer": "L’ensemble de toutes les valeurs que peut produire f.",
+      "explanation": "Im(f) = {f(x) | x ∈ E}",
+      "tags": []
+    },
+    {
+      "id": "base-015",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quel critère relie le noyau et l’injectivité ?",
+      "answer": "Une application linéaire est injective si et seulement si Ker(f) = {0}.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-016",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Pourquoi Ker(f)={0} implique-t-il l’injectivité ?",
+      "answer": "Si f(x)=f(y), alors f(x−y)=0. Donc x−y ∈ Ker(f). Si le noyau ne contient que 0, alors x−y=0 et donc x=y.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-017",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quand une application est-elle surjective ?",
+      "answer": "Quand tout élément de l’espace d’arrivée possède au moins un antécédent.",
+      "explanation": "Pour une application linéaire : Im(f) = espace d’arrivée.",
+      "tags": []
+    },
+    {
+      "id": "base-018",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quand une application est-elle bijective ?",
+      "answer": "Quand elle est à la fois injective et surjective.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-019",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Une application linéaire ℝ² → ℝ³ peut-elle être surjective ?",
+      "answer": "Non. Son image a une dimension au plus égale à 2, alors que ℝ³ est de dimension 3.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-020",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Une application linéaire ℝ² → ℝ³ peut-elle être injective ?",
+      "answer": "Oui. Par exemple f(x,y)=(x,y,0).",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-021",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que le rang d’une application linéaire ?",
+      "answer": "La dimension de son image.",
+      "explanation": "rg(f)=dim(Im(f))",
+      "tags": []
+    },
+    {
+      "id": "base-022",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quelle est la formule du théorème du rang ?",
+      "answer": "dim(E) = dim(Ker(f)) + rg(f), pour une application linéaire f : E → F en dimension finie.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-023",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Que signifie det(A)=0 ?",
+      "answer": "La matrice carrée A n’est pas inversible. Ses colonnes (et ses lignes) sont liées et son rang est strictement inférieur à n.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-024",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Que signifie det(A)≠0 ?",
+      "answer": "A est inversible. L’application linéaire associée est bijective et ses colonnes forment une base.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-025",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Peut-on effectuer des opérations sur les lignes pour simplifier un déterminant ?",
+      "answer": "Oui, mais il faut connaître leur effet : échanger deux lignes change le signe ; multiplier une ligne par k multiplie le déterminant par k ; ajouter à une ligne un multiple d’une autre ne change pas le déterminant.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-026",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une valeur propre λ de A ?",
+      "answer": "Un scalaire λ tel qu’il existe un vecteur non nul v avec Av = λv.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-027",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Comment trouver les valeurs propres d’une matrice ?",
+      "answer": "Résoudre l’équation caractéristique det(A−λI)=0.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-028",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Comment trouver un vecteur propre associé à λ ?",
+      "answer": "Résoudre (A−λI)v=0 et prendre une solution non nulle.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-029",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quand une matrice est-elle diagonalisable ?",
+      "answer": "Quand elle possède une base constituée de vecteurs propres. Pour une matrice n×n, il faut pouvoir obtenir n vecteurs propres linéairement indépendants.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-030",
+      "subject": "Algèbre linéaire",
+      "chapter": "Bases",
+      "prompt": "Quelle forme prend une diagonalisation ?",
+      "answer": "A = PDP⁻¹, où D est diagonale et les colonnes de P sont des vecteurs propres associés aux valeurs propres placées dans D.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-031",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quels sont quelques types de base en Python ?",
+      "answer": "int, float, bool, str, list, tuple, dict, set et NoneType.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-032",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quelle différence entre = et == ?",
+      "answer": "= affecte une valeur à une variable. == teste l’égalité entre deux valeurs.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-033",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que valent True and False, True or False et not True ?",
+      "answer": "False, True et False.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-034",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "À quoi sert range(5) dans une boucle ?",
+      "answer": "Il produit les entiers 0,1,2,3,4.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-035",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que produit range(2,8,2) ?",
+      "answer": "2, 4, 6.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-036",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quelle est la différence principale entre une liste et un tuple ?",
+      "answer": "Une liste est mutable ; un tuple est immutable.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-037",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Pourquoi rectangle[1] = 20 échoue si rectangle est un tuple ?",
+      "answer": "Parce qu’un tuple est immutable : ses éléments ne peuvent pas être remplacés après sa création.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-038",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que signifie un indice négatif comme liste[-1] ?",
+      "answer": "Il compte depuis la fin. -1 désigne le dernier élément, -2 l’avant-dernier, etc.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-039",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Comment fonctionne le slicing s[début:fin:pas] ?",
+      "answer": "Il extrait les éléments depuis début jusqu’avant fin, en avançant selon le pas. La borne fin est exclue.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-040",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Si s=\"12345678\", que vaut s[1:-1:2] ?",
+      "answer": "\"246\".",
+      "explanation": "Indices pris : 1, 3, 5 → caractères 2, 4, 6.",
+      "tags": []
+    },
+    {
+      "id": "base-041",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que vaut l[:2] ?",
+      "answer": "Les deux premiers éléments de l, aux indices 0 et 1.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-042",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que fait list.append(x) ?",
+      "answer": "Ajoute x à la fin de la liste et renvoie None.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-043",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que fait list.pop() ?",
+      "answer": "Supprime et renvoie le dernier élément de la liste. Avec pop(i), supprime et renvoie l’élément d’indice i.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-044",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que renvoie list.sort() ?",
+      "answer": "None. La méthode trie la liste sur place au lieu de créer une nouvelle liste.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-045",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quelle différence entre sorted(l) et l.sort() ?",
+      "answer": "sorted(l) renvoie une nouvelle liste triée ; l.sort() modifie l directement et renvoie None.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-046",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que fait l = l + l[:2] ?",
+      "answer": "Crée une nouvelle liste contenant l suivie de ses deux premiers éléments puis réaffecte cette nouvelle liste à l.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-047",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quel est le résultat de m = l.sort() ?",
+      "answer": "m vaut None, même si l est bien triée.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-048",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Comment accéder à une valeur dans un dictionnaire ?",
+      "answer": "Avec sa clé.",
+      "explanation": "d[\"nom\"]",
+      "tags": []
+    },
+    {
+      "id": "base-049",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "À quoi sert une boucle for ?",
+      "answer": "À parcourir les éléments d’un itérable ou une séquence de valeurs connue.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-050",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "À quoi sert une boucle while ?",
+      "answer": "À répéter un bloc tant qu’une condition reste vraie.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-051",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quel est le risque classique avec while ?",
+      "answer": "Créer une boucle infinie si la condition ne devient jamais fausse.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-052",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "À quoi sert def ?",
+      "answer": "À définir une fonction.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-053",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "À quoi sert return ?",
+      "answer": "À arrêter la fonction et renvoyer une valeur à l’appelant.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-054",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que vaut une fonction sans return explicite ?",
+      "answer": "Elle renvoie None.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-055",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que fait len(x) ?",
+      "answer": "Renvoie le nombre d’éléments d’une collection ou le nombre de caractères d’une chaîne.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-056",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Quelle différence entre in et == ?",
+      "answer": "in teste l’appartenance ; == teste l’égalité.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-057",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une compréhension de liste ?",
+      "answer": "Une syntaxe compacte pour construire une liste à partir d’un itérable.",
+      "explanation": "[x*x for x in range(5)] → [0,1,4,9,16]",
+      "tags": []
+    },
+    {
+      "id": "base-058",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Pourquoi faut-il être prudent avec les listes mutables ?",
+      "answer": "Deux variables peuvent référencer la même liste. Modifier la liste via l’une peut donc être visible via l’autre.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-059",
+      "subject": "Python",
+      "chapter": "Bases",
+      "prompt": "Que fait a = b pour deux listes ?",
+      "answer": "Cela ne copie pas nécessairement la liste : a et b référencent le même objet.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-060",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une base de données relationnelle ?",
+      "answer": "Une base organisée en tables reliées entre elles par des clés et des relations.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-061",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Comment appelle-t-on une ligne d’une table relationnelle ?",
+      "answer": "Un tuple, un enregistrement ou une occurrence selon le vocabulaire utilisé.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-062",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Comment appelle-t-on une colonne d’une table ?",
+      "answer": "Un attribut ou un champ.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-063",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une clé primaire ?",
+      "answer": "Un attribut ou ensemble d’attributs identifiant de manière unique chaque ligne d’une table. Elle ne doit pas être dupliquée.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-064",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une clé étrangère ?",
+      "answer": "Un attribut qui référence généralement la clé primaire d’une autre table afin de créer une relation entre les tables.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-065",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une cardinalité ?",
+      "answer": "Elle décrit combien d’occurrences d’une entité peuvent être associées à une occurrence d’une autre : 1–1, 1–N, N–N, etc.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-066",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Comment implémente-t-on généralement une relation 1–N ?",
+      "answer": "On place une clé étrangère dans la table du côté N, pointant vers la clé primaire du côté 1.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-067",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Comment implémente-t-on une relation N–N ?",
+      "answer": "Avec une table d’association contenant des clés étrangères vers les deux tables concernées.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-068",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert SELECT ?",
+      "answer": "À choisir les colonnes ou expressions à retourner dans le résultat d’une requête.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-069",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert FROM ?",
+      "answer": "À indiquer la ou les tables depuis lesquelles les données sont lues.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-070",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert WHERE ?",
+      "answer": "À filtrer les lignes avant les regroupements.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-071",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert ORDER BY ?",
+      "answer": "À trier les lignes du résultat selon une ou plusieurs colonnes.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-072",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert GROUP BY ?",
+      "answer": "À regrouper les lignes partageant certaines valeurs afin d’appliquer des fonctions d’agrégation.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-073",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Quelle différence entre WHERE et HAVING ?",
+      "answer": "WHERE filtre les lignes avant l’agrégation ; HAVING filtre les groupes après GROUP BY.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-074",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Cite quatre fonctions d’agrégation SQL classiques.",
+      "answer": "COUNT, SUM, AVG, MIN et MAX.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-075",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Que fait COUNT(*) ?",
+      "answer": "Compte le nombre de lignes.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-076",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert une jointure ?",
+      "answer": "À combiner des lignes provenant de plusieurs tables en utilisant une condition de correspondance.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-077",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Que fait INNER JOIN ?",
+      "answer": "Ne garde que les lignes pour lesquelles une correspondance existe dans les deux tables.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-078",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Que fait LEFT JOIN ?",
+      "answer": "Garde toutes les lignes de la table de gauche et ajoute les données correspondantes de droite ; sans correspondance, les colonnes de droite valent NULL.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-079",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Que représente NULL en SQL ?",
+      "answer": "Une valeur absente ou inconnue. Ce n’est ni 0 ni une chaîne vide.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-080",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Comment tester NULL en SQL ?",
+      "answer": "Avec IS NULL ou IS NOT NULL, pas avec = NULL.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-081",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "À quoi sert DISTINCT ?",
+      "answer": "À supprimer les doublons dans le résultat d’un SELECT.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-082",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une contrainte d’intégrité référentielle ?",
+      "answer": "Une règle garantissant qu’une clé étrangère référence une valeur existante dans la table cible, sauf si NULL est autorisé.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-083",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que la sélection en algèbre relationnelle ?",
+      "answer": "Une opération qui conserve certaines lignes selon une condition. Elle correspond conceptuellement à WHERE.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-084",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que la projection en algèbre relationnelle ?",
+      "answer": "Une opération qui conserve certaines colonnes. Elle correspond conceptuellement au choix des colonnes dans SELECT.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "id": "base-085",
+      "subject": "Bases relationnelles",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une sous-requête ?",
+      "answer": "Une requête SQL imbriquée à l’intérieur d’une autre requête.",
+      "explanation": null,
+      "tags": []
+    }
+  ]
+}
