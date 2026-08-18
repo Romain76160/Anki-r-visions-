@@ -1,7 +1,12 @@
 name: Generate Anki cards with OpenAI
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'If set, use this as the base branch for PR (optional). If empty, the repo default branch will be used.'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -42,14 +47,34 @@ EOF
           echo "$response" > generated/anki_raw.json
           echo "$response" | jq -r '.choices[0].message.content' > generated/anki_cards.md || true
 
-      - name: Commit generated cards
+      - name: Commit and push to a new branch, then open PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add generated/anki_cards.md generated/anki_raw.json || true
-          if ! git diff --staged --quiet; then
-            git commit -m "Generate Anki cards via OpenAI"
-            git push
-          else
+          if git diff --staged --quiet; then
             echo "No changes to commit"
+            exit 0
           fi
+
+          BRANCH="auto/generate-anki-$(date +%s)"
+          git checkout -b "$BRANCH"
+          git commit -m "Generate Anki cards via OpenAI"
+          git push --set-upstream origin "$BRANCH"
+
+          # Determine base branch: use input target_branch if provided, otherwise query the repo's default branch
+          if [ -n "${{ github.event.inputs.target_branch }}" ]; then
+            BASE_BRANCH="${{ github.event.inputs.target_branch }}"
+          else
+            BASE_BRANCH=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/${GITHUB_REPOSITORY}" | jq -r .default_branch)
+          fi
+
+          echo "Creating PR: head=$BRANCH base=$BASE_BRANCH"
+          pr_response=$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"title\":\"Generate Anki cards via OpenAI\",\"head\":\"$BRANCH\",\"base\":\"$BASE_BRANCH\",\"body\":\"This PR was opened by a workflow that generated Anki cards using OpenAI.\"}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls")
+
+          pr_url=$(echo "$pr_response" | jq -r .html_url)
+          echo "PR created: $pr_url"
