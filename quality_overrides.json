@@ -1,0 +1,98 @@
+{
+  "base-005": {
+    "answer": "Une famille est génératrice si tout vecteur de l’espace peut être obtenu comme combinaison linéaire des vecteurs de la famille.",
+    "explanation": "Méthode : pour un vecteur quelconque x de l’espace, on doit pouvoir trouver des scalaires λ₁,…,λₙ tels que x = λ₁v₁ + … + λₙvₙ. Génératrice ne veut pas forcément dire libre."
+  },
+  "base-008": {
+    "answer": "Une base est une famille de vecteurs à la fois libre et génératrice.",
+    "explanation": "Libre = aucun vecteur n’est redondant. Génératrice = on peut reconstruire tout l’espace. Conséquence essentielle : chaque vecteur possède des coordonnées uniques dans une base."
+  },
+  "base-012": {
+    "answer": "Une application f est linéaire si elle conserve les combinaisons linéaires : f(λu + μv) = λf(u) + μf(v).",
+    "explanation": "Cela regroupe deux propriétés : f(u+v)=f(u)+f(v) et f(λu)=λf(u). En particulier, toute application linéaire vérifie f(0)=0."
+  },
+  "base-013": {
+    "answer": "Le noyau Ker(f) est l’ensemble des vecteurs x du domaine tels que f(x)=0.",
+    "explanation": "Pour le trouver, on résout simplement f(x)=0. Pour une matrice A, cela revient à résoudre Ax=0. Le noyau permet notamment de tester l’injectivité."
+  },
+  "base-014": {
+    "answer": "L’image Im(f) est l’ensemble des vecteurs de l’espace d’arrivée qui sont réellement atteints par f.",
+    "explanation": "Autrement dit : Im(f)={f(x) | x appartient au domaine}. Une application est surjective exactement lorsque Im(f) est égal à tout l’espace d’arrivée."
+  },
+  "base-015": {
+    "answer": "Pour une application linéaire, f est injective si et seulement si Ker(f)={0}.",
+    "explanation": "Si le noyau contient un vecteur non nul u, alors f(u)=0=f(0), donc deux vecteurs différents ont la même image : f n’est pas injective."
+  },
+  "base-016": {
+    "answer": "Si f(x)=f(y), alors par linéarité f(x−y)=0. Donc x−y appartient à Ker(f). Si Ker(f)={0}, alors x−y=0, donc x=y.",
+    "explanation": "C’est exactement la définition de l’injectivité : deux éléments ayant la même image doivent être égaux."
+  },
+  "base-017": {
+    "answer": "Une application f:E→F est surjective si chaque élément y de F possède au moins un antécédent x dans E tel que f(x)=y.",
+    "explanation": "Méthode pratique : prends un y quelconque dans l’espace d’arrivée et cherche à résoudre f(x)=y. Si c’est possible pour tout y, l’application est surjective."
+  },
+  "base-018": {
+    "answer": "Une application est bijective lorsqu’elle est à la fois injective et surjective.",
+    "explanation": "Bijective signifie donc : chaque élément de l’espace d’arrivée possède exactement un antécédent. Une bijection admet une fonction réciproque."
+  },
+  "base-019": {
+    "answer": "Non. Une application linéaire de ℝ² vers ℝ³ ne peut pas être surjective.",
+    "explanation": "Son image a une dimension au plus égale à 2, alors que ℝ³ est de dimension 3. Il manque donc forcément au moins une direction de ℝ³."
+  },
+  "base-020": {
+    "answer": "Oui. Une application linéaire de ℝ² vers ℝ³ peut être injective.",
+    "explanation": "Exemple : f(x,y)=(x,y,0). Si f(x,y)=(0,0,0), alors x=0 et y=0, donc Ker(f)={0} et f est injective."
+  },
+  "base-022": {
+    "answer": "Le théorème du rang donne : dim(E)=dim(Ker(f))+rg(f).",
+    "explanation": "Exemple : si f:ℝ³→ℝ² a un noyau de dimension 1, alors son rang vaut 3−1=2. Son image est donc de dimension 2."
+  },
+  "base-023": {
+    "answer": "Si det(A)=0, la matrice carrée A n’est pas inversible.",
+    "explanation": "Cela équivaut à dire que ses colonnes sont linéairement dépendantes, que son rang est inférieur à n, que Ax=0 admet une solution non nulle et que l’application associée n’est pas bijective."
+  },
+  "base-024": {
+    "answer": "Si det(A)≠0, la matrice A est inversible.",
+    "explanation": "Pour une matrice carrée n×n, cela signifie aussi : rang(A)=n, Ker(A)={0}, les colonnes forment une base et l’application linéaire associée est bijective."
+  },
+  "base-025": {
+    "answer": "Oui. On peut simplifier un déterminant avec des opérations élémentaires, mais il faut suivre leur effet sur sa valeur.",
+    "explanation": "Échanger deux lignes change le signe. Multiplier une ligne par k multiplie le déterminant par k. Ajouter à une ligne un multiple d’une autre ne change pas le déterminant."
+  },
+  "base-026": {
+    "answer": "Une valeur propre λ de A est un scalaire pour lequel il existe un vecteur non nul v tel que Av=λv.",
+    "explanation": "Le vecteur v garde donc sa direction sous l’action de A : seule sa longueur et éventuellement son sens changent. v est alors appelé vecteur propre associé à λ."
+  },
+  "base-027": {
+    "answer": "Pour trouver les valeurs propres de A, on résout l’équation caractéristique det(A−λI)=0.",
+    "explanation": "Pourquoi ? λ est valeur propre exactement lorsque (A−λI)v=0 possède une solution v non nulle, ce qui arrive lorsque A−λI n’est pas inversible, donc lorsque son déterminant est nul."
+  },
+  "base-028": {
+    "answer": "Une fois λ connu, on résout le système homogène (A−λI)v=0 et on choisit une solution v non nulle.",
+    "explanation": "L’ensemble de toutes les solutions forme l’espace propre associé à λ : Ker(A−λI)."
+  },
+  "base-029": {
+    "answer": "Une matrice n×n est diagonalisable si elle possède n vecteurs propres linéairement indépendants.",
+    "explanation": "Ces vecteurs propres forment alors une base. Attention : avoir n valeurs propres distinctes suffit pour être diagonalisable, mais ce n’est pas une condition nécessaire."
+  },
+  "base-030": {
+    "answer": "Une diagonalisation s’écrit A=PDP⁻¹.",
+    "explanation": "D est diagonale et contient les valeurs propres. Les colonnes de P sont les vecteurs propres correspondants, placés dans le même ordre que les valeurs propres de D."
+  },
+  "base-032": {
+    "answer": "En Python, = sert à affecter une valeur à une variable, alors que == compare deux valeurs et renvoie True ou False.",
+    "explanation": "Exemple : x=3 stocke 3 dans x. L’expression x==3 vaut True."
+  },
+  "base-034": {
+    "answer": "range(5) représente la suite 0, 1, 2, 3, 4.",
+    "explanation": "La borne de fin est exclue. Dans for i in range(5), la boucle s’exécute donc 5 fois avec i allant de 0 à 4."
+  },
+  "base-035": {
+    "answer": "range(2,8,2) produit 2, 4, 6.",
+    "explanation": "Syntaxe : range(début, fin_exclue, pas). Ici on part de 2, on ajoute 2 à chaque fois et on s’arrête avant 8."
+  },
+  "base-036": {
+    "answer": "Une liste est mutable : on peut modifier ses éléments. Un tuple est immutable : une fois créé, ses éléments ne peuvent pas être remplacés.",
+    "explanation": "Exemple : l=[1,2]; l[0]=9 fonctionne. Avec t=(1,2), t[0]=9 provoque une erreur TypeError."
+  }
+}
