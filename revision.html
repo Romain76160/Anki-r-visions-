@@ -35,11 +35,13 @@ function render(){root.innerHTML=state.tab==='study'?study():state.tab==='librar
 function bind(){var tabs=document.querySelectorAll('[data-tab]');for(var i=0;i<tabs.length;i++){tabs[i].onclick=function(){state.tab=this.getAttribute('data-tab');render();};}var s=document.getElementById('start');if(s)s.onclick=function(){state.session=dueCards();state.index=0;state.revealed=false;state.tab='study';render();};var r=document.getElementById('reveal');if(r)r.onclick=function(){state.revealed=true;render();};var gs=document.querySelectorAll('[data-g]');for(var j=0;j<gs.length;j++){gs[j].onclick=function(){grade(parseInt(this.getAttribute('data-g'),10));};}}
 function grade(g){var c=state.session[state.index];if(!c)return;var now=Date.now(),days=g===1?0.007:g===2?1:g===3?3:7;state.progress[c.id]={count:(pfor(c.id).count||0)+1,due:now+days*86400000,last:g};save();state.index++;state.revealed=false;if(state.index>=state.session.length){state.tab='home';state.session=[];}render();}
 function applyOverrides(cards,overrides){return cards.map(function(c){var o=overrides&&overrides[c.id];if(!o)return c;var copy={};Object.keys(c).forEach(function(k){copy[k]=c[k];});Object.keys(o).forEach(function(k){copy[k]=o[k];});return copy;});}
+function mergeCards(base,extra){var map={};base.forEach(function(c){map[c.id]=c;});extra.forEach(function(c){map[c.id]=c;});return Object.keys(map).map(function(id){return map[id];});}
 load();
 Promise.all([
-  fetch('./starter_questions.json?v=4',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Questions HTTP '+r.status);return r.json();}),
-  fetch('./quality_overrides.json?v=1',{cache:'no-store'}).then(function(r){if(!r.ok)return {};return r.json();}).catch(function(){return {};})
-]).then(function(data){var pack=data[0],overrides=data[1];if(!pack||!Array.isArray(pack.questions))throw new Error('Format JSON invalide');state.cards=applyOverrides(pack.questions,overrides);render();}).catch(function(e){state.error=e.message||String(e);render();});
+  fetch('./starter_questions.json?v=5',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Questions HTTP '+r.status);return r.json();}),
+  fetch('./quality_overrides.json?v=1',{cache:'no-store'}).then(function(r){if(!r.ok)return {};return r.json();}).catch(function(){return {};}),
+  fetch('./python_types_extra.json?v=1',{cache:'no-store'}).then(function(r){if(!r.ok)return {questions:[]};return r.json();}).catch(function(){return {questions:[]};})
+]).then(function(data){var pack=data[0],overrides=data[1],extra=data[2];if(!pack||!Array.isArray(pack.questions))throw new Error('Format JSON invalide');var cards=applyOverrides(pack.questions,overrides);if(extra&&Array.isArray(extra.questions))cards=mergeCards(cards,extra.questions);state.cards=cards;render();}).catch(function(e){state.error=e.message||String(e);render();});
 })();
 </script>
 </body>
