@@ -1,4 +1,8 @@
 {
+  "base-001": {
+    "answer": "Un espace vectoriel est un ensemble de vecteurs sur lequel on peut additionner des vecteurs et les multiplier par des scalaires tout en respectant certaines règles.",
+    "explanation": "Les principales règles sont : stabilité = le résultat reste dans l’espace ; associativité = (u+v)+w=u+(v+w) ; vecteur nul = il existe 0 tel que u+0=u ; opposé = pour tout u, il existe -u tel que u+(-u)=0 ; distributivité = λ(u+v)=λu+λv. Exemple : ℝ² est un espace vectoriel, car on peut additionner deux couples (x,y) et multiplier un couple par un réel sans sortir de ℝ²."
+  },
   "base-005": {
     "answer": "Une famille est génératrice si tout vecteur de l’espace peut être obtenu comme combinaison linéaire des vecteurs de la famille.",
     "explanation": "Méthode : pour un vecteur quelconque x de l’espace, on doit pouvoir trouver des scalaires λ₁,…,λₙ tels que x = λ₁v₁ + … + λₙvₙ. Génératrice ne veut pas forcément dire libre."
@@ -6,6 +10,14 @@
   "base-008": {
     "answer": "Une base est une famille de vecteurs à la fois libre et génératrice.",
     "explanation": "Libre = aucun vecteur n’est redondant. Génératrice = on peut reconstruire tout l’espace. Conséquence essentielle : chaque vecteur possède des coordonnées uniques dans une base."
+  },
+  "base-010": {
+    "answer": "Dans un espace de dimension n, une famille libre de n vecteurs est automatiquement une base, donc aussi génératrice.",
+    "explanation": "Pourquoi ? La dimension n signifie qu’on ne peut pas avoir plus de n vecteurs linéairement indépendants. Si on possède déjà n vecteurs libres, on a atteint le nombre maximal de directions indépendantes : ils suffisent donc à engendrer tout l’espace. Exemple : dans ℝ³, 3 vecteurs libres forment forcément une base."
+  },
+  "base-011": {
+    "answer": "Dans un espace de dimension n, une famille génératrice de n vecteurs est automatiquement une base, donc aussi libre.",
+    "explanation": "Pourquoi ? Il faut au moins n directions indépendantes pour engendrer un espace de dimension n. Si une famille de n vecteurs engendre déjà tout l’espace, aucun de ces vecteurs ne peut être redondant : la famille est donc libre."
   },
   "base-012": {
     "answer": "Une application f est linéaire si elle conserve les combinaisons linéaires : f(λu + μv) = λf(u) + μf(v).",
