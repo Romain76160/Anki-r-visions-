@@ -1,0 +1,1 @@
+Plugin write test — OK
