@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MOOC Révision</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#18233c;--text:#f7f8fb;--muted:#9aa6bd;--accent:#6c63ff;--danger:#d14343;--hard:#d9811e;--good:#2f9e61;--easy:#3978d7;--border:rgba(255,255,255,.08)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:760px;margin:auto;padding:18px 16px 110px}.top{font-size:24px;font-weight:800;margin-bottom:16px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:22px;padding:18px;margin-bottom:14px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stat{background:var(--panel2);border-radius:16px;padding:12px}.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted)}button{width:100%;border:0;border-radius:15px;padding:14px;font:inherit;font-weight:700;color:#fff;background:var(--accent)}
+.question-wrap{padding:24px 4px 18px}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:10px}.question{font-size:25px;line-height:1.3;font-weight:750}.answer-box{margin-top:18px;padding:18px;border-radius:18px;background:var(--panel2);border:1px solid var(--border)}.answer{font-size:18px;line-height:1.55}.explanation{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:15px;line-height:1.5;color:#c8d0df;white-space:pre-line}.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:16px}.grades button{padding:10px 3px;font-size:12px;line-height:1.15}.grades small{display:block;font-size:10px;margin-top:5px;font-weight:600;opacity:.9}.again{background:var(--danger)}.hard{background:var(--hard)}.good{background:var(--good)}.easy{background:var(--easy)}.next-note{text-align:center;color:var(--muted);font-size:12px;margin-top:10px}.nav{position:fixed;left:0;right:0;bottom:0;background:#0a0f1ddd;padding:8px 12px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center}.navin{width:min(760px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.nav button{background:transparent;color:var(--muted);font-size:12px}.nav button.active{background:var(--panel2);color:#fff}.subject{display:inline-block;background:#2a245c;padding:6px 9px;border-radius:999px;font-size:12px;font-weight:700}.chapter{font-size:12px;color:var(--muted);margin-left:8px}.error{background:#3a1515;border-radius:16px;padding:14px}.list{display:flex;flex-direction:column;gap:8px}.item{background:var(--panel2);border-radius:14px;padding:12px}
+</style>
+</head>
+<body>
+<div id="root"><div class="wrap"><div class="top">MOOC Révision</div><div class="panel"><b>Chargement…</b></div></div></div>
+<script>
+(function(){
+'use strict';
+var root=document.getElementById('root');
+var KEY='moocRevisionSafe.v2';
+var OLD_KEY='moocRevisionSafe.v1';
+var DAY=86400000,MIN=60000;
+var W=[0.212,1.2931,2.3065,8.2956,6.4133,0.8334,3.0194,0.001,1.8722,0.1666,0.796,1.4835,0.0614,0.2629,1.6483,0.6014,1.8729,0.5425,0.0912,0.0658,0.1542];
+var state={cards:[],progress:{},tab:'home',session:[],index:0,revealed:false,error:null,retention:.90};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function clamp(v,a,b){return Math.min(b,Math.max(a,v));}
+function load(){try{var x=JSON.parse(localStorage.getItem(KEY));if(x&&x.progress)state.progress=x.progress;else{var old=JSON.parse(localStorage.getItem(OLD_KEY));if(old&&old.progress){Object.keys(old.progress).forEach(function(id){var p=old.progress[id]||{};state.progress[id]={reviewCount:p.count||0,lapseCount:p.last===1?1:0,dueAt:p.due||0,lastReviewedAt:null,stability:null,difficulty:null,lastGrade:p.last||null,isRelearning:false};});save();}}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({progress:state.progress}));}catch(e){}}
+function pfor(id){return state.progress[id]||{reviewCount:0,lapseCount:0,dueAt:0,lastReviewedAt:null,stability:null,difficulty:null,lastGrade:null,isRelearning:false};}
+function initialStability(g){return W[g-1];}
+function initialDifficulty(g){return clamp(W[4]-Math.exp(W[5]*(g-1))+1,1,10);}
+function nextDifficulty(d,g){var delta=-W[6]*(g-3),damped=d+delta*(10-d)/9,target=initialDifficulty(4);return clamp(W[7]*target+(1-W[7])*damped,1,10);}
+function retrievability(t,s){var decay=W[20],factor=Math.pow(.9,-1/decay)-1;return Math.pow(1+factor*t/s,-decay);}
+function intervalDays(s){var decay=W[20],factor=Math.pow(.9,-1/decay)-1,r=clamp(state.retention,.80,.97);return s/factor*(Math.pow(r,-1/decay)-1);}
+function sameDayStability(s,g){var inc=Math.exp(W[17]*(g-3+W[18]))*Math.pow(s,-W[19]);if(g>=2)inc=Math.max(1,inc);return Math.max(.001,s*inc);}
+function recallStability(d,s,r,g){var hard=g===2?W[15]:1,easy=g===4?W[16]:1,growth=Math.exp(W[8])*(11-d)*Math.pow(s,-W[9])*(Math.exp(W[10]*(1-r))-1)*hard*easy;return Math.max(s,s*(growth+1));}
+function forgettingStability(d,s,r){var v=W[11]*Math.pow(d,-W[12])*(Math.pow(s+1,W[13])-1)*Math.exp(W[14]*(1-r));return Math.max(.001,Math.min(v,s));}
+function reviewCalc(old,g,t){t=t||Date.now();var p={};Object.keys(old).forEach(function(k){p[k]=old[k];});if(!old.reviewCount||old.stability==null||old.difficulty==null){p.stability=initialStability(g);p.difficulty=initialDifficulty(g);}else{var s=Math.max(old.stability,.001),d=clamp(old.difficulty,1,10),elapsed=Math.max(0,(t-(old.lastReviewedAt||t))/DAY),r=retrievability(elapsed,s);p.difficulty=nextDifficulty(d,g);if(elapsed<1)p.stability=sameDayStability(s,g);else if(g===1)p.stability=forgettingStability(d,s,r);else p.stability=recallStability(d,s,r,g);}p.reviewCount=(old.reviewCount||0)+1;p.lapseCount=(old.lapseCount||0)+(g===1?1:0);p.lastReviewedAt=t;p.lastGrade=g;var interval;if(g===1){interval=10*MIN;p.isRelearning=true;}else{interval=Math.max(MIN,Math.min(intervalDays(Math.max(p.stability,.001)),36500)*DAY);p.isRelearning=false;}p.dueAt=t+interval;return{progress:p,interval:interval};}
+function fmt(ms){if(ms<3600000)return Math.max(1,Math.round(ms/MIN))+' min';if(ms<DAY)return Math.max(1,Math.round(ms/3600000))+' h';var d=ms/DAY;if(d<30)return Math.max(1,Math.round(d))+' j';if(d<365)return Math.max(1,Math.round(d/30))+' mois';return Math.max(1,Math.round(d/365))+' an'+(d>=730?'s':'');}
+function previews(id){var p=pfor(id);return[1,2,3,4].map(function(g){return reviewCalc(p,g).interval;});}
+function dueCards(){var t=Date.now();return state.cards.filter(function(c){var p=pfor(c.id);return !p.reviewCount||(p.dueAt||0)<=t;});}
+function counts(){var d=dueCards().length,n=0,l=0;state.cards.forEach(function(c){if(pfor(c.id).reviewCount)n++;else l++;});return{due:d,newc:l,learned:n,total:state.cards.length};}
+function home(){if(state.error)return'<div class="wrap"><div class="top">MOOC Révision</div><div class="error"><b>Erreur</b><p>'+esc(state.error)+'</p></div></div>'+nav('home');var c=counts();return'<div class="wrap"><div class="top">MOOC Révision</div><div class="panel"><h1 style="margin:0 0 8px">'+c.due+' carte'+(c.due>1?'s':'')+' à réviser</h1><p class="muted">Les délais s’adaptent à tes réussites et à tes oublis.</p><div class="stats"><div class="stat"><b>'+c.due+'</b><span>À revoir</span></div><div class="stat"><b>'+c.newc+'</b><span>Nouvelles</span></div><div class="stat"><b>'+c.learned+'</b><span>Apprises</span></div></div><button id="start">Commencer</button></div></div>'+nav('home');}
+function study(){var c=state.session[state.index];if(!c)return home();var body='<div class="wrap"><div class="top">Révision '+(state.index+1)+'/'+state.session.length+'</div><div class="panel"><span class="subject">'+esc(c.subject||'Autre')+'</span>'+(c.chapter?'<span class="chapter">'+esc(c.chapter)+'</span>':'')+'<div class="question-wrap"><div class="label">Question</div><div class="question">'+esc(c.prompt)+'</div></div>';if(!state.revealed){body+='<button id="reveal">Afficher la réponse</button>';}else{var ints=previews(c.id);body+='<div class="answer-box"><div class="label">Réponse</div><div class="answer">'+esc(c.answer)+'</div>'+(c.explanation?'<div class="explanation"><b>À retenir / explication</b><br>'+esc(c.explanation)+'</div>':'')+'</div><div class="grades"><button class="again" data-g="1">Encore<small>'+fmt(ints[0])+'</small></button><button class="hard" data-g="2">Difficile<small>'+fmt(ints[1])+'</small></button><button class="good" data-g="3">Bien<small>'+fmt(ints[2])+'</small></button><button class="easy" data-g="4">Facile<small>'+fmt(ints[3])+'</small></button></div><div class="next-note">Le délai affiché est la prochaine date de révision prévue pour cette carte.</div>';}return body+'</div></div>';}
+function library(){var by={};state.cards.forEach(function(c){var s=c.subject||'Autre';by[s]=(by[s]||0)+1;});var h='<div class="wrap"><div class="top">Bibliothèque</div><div class="panel"><b>'+state.cards.length+' cartes</b><p class="muted">Planification adaptative v9</p></div><div class="list">';Object.keys(by).forEach(function(s){h+='<div class="item"><b>'+esc(s)+'</b><div class="muted">'+by[s]+' cartes</div></div>';});return h+'</div></div>'+nav('library');}
+function statsPage(){var c=counts(),r=0,l=0;Object.keys(state.progress).forEach(function(k){r+=state.progress[k].reviewCount||0;l+=state.progress[k].lapseCount||0;});return'<div class="wrap"><div class="top">Statistiques</div><div class="panel"><b>'+r+' réponses enregistrées</b><p class="muted">'+l+' oubli(s) · '+c.learned+'/'+c.total+' cartes étudiées.</p></div></div>'+nav('stats');}
+function nav(active){return'<div class="nav"><div class="navin"><button data-tab="home" class="'+(active==='home'?'active':'')+'">Révision</button><button data-tab="library" class="'+(active==='library'?'active':'')+'">Bibliothèque</button><button data-tab="stats" class="'+(active==='stats'?'active':'')+'">Stats</button></div></div>';}
+function render(){root.innerHTML=state.tab==='study'?study():state.tab==='library'?library():state.tab==='stats'?statsPage():home();bind();}
+function bind(){var tabs=document.querySelectorAll('[data-tab]');for(var i=0;i<tabs.length;i++)tabs[i].onclick=function(){state.tab=this.getAttribute('data-tab');render();};var s=document.getElementById('start');if(s)s.onclick=function(){state.session=dueCards();state.index=0;state.revealed=false;state.tab='study';render();};var r=document.getElementById('reveal');if(r)r.onclick=function(){state.revealed=true;render();};var gs=document.querySelectorAll('[data-g]');for(var j=0;j<gs.length;j++)gs[j].onclick=function(){grade(parseInt(this.getAttribute('data-g'),10));};}
+function grade(g){var c=state.session[state.index];if(!c)return;state.progress[c.id]=reviewCalc(pfor(c.id),g).progress;save();state.index++;state.revealed=false;if(state.index>=state.session.length){state.tab='home';state.session=[];}render();}
+function applyOverrides(cards,overrides){return cards.map(function(c){var o=overrides&&overrides[c.id];if(!o)return c;var x={};Object.keys(c).forEach(function(k){x[k]=c[k];});Object.keys(o).forEach(function(k){x[k]=o[k];});return x;});}
+function mergeCards(base,extra){var map={};base.forEach(function(c){map[c.id]=c;});extra.forEach(function(c){map[c.id]=c;});return Object.keys(map).map(function(id){return map[id];});}
+load();
+Promise.all([
+fetch('./starter_questions.json?v=9',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Questions HTTP '+r.status);return r.json();}),
+fetch('./quality_overrides.json?v=9',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).catch(function(){return{};}),
+fetch('./python_types_extra.json?v=9',{cache:'no-store'}).then(function(r){return r.ok?r.json():{questions:[]};}).catch(function(){return{questions:[]};})
+]).then(function(data){var pack=data[0],overrides=data[1],extra=data[2];if(!pack||!Array.isArray(pack.questions))throw new Error('Format JSON invalide');var cards=applyOverrides(pack.questions,overrides);if(extra&&Array.isArray(extra.questions))cards=mergeCards(cards,extra.questions);state.cards=cards;render();}).catch(function(e){state.error=e.message||String(e);render();});
+})();
+</script>
+</body>
+</html>
