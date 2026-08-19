@@ -107,6 +107,10 @@
     "answer": "Une liste est mutable : on peut modifier ses éléments. Un tuple est immutable : une fois créé, ses éléments ne peuvent pas être remplacés.",
     "explanation": "Exemple : l=[1,2]; l[0]=9 fonctionne. Avec t=(1,2), t[0]=9 provoque une erreur TypeError."
   },
+  "base-059": {
+    "answer": "Si b est une liste, a = b ne crée pas une nouvelle liste : a et b désignent la même liste en mémoire.",
+    "explanation": "Exemple : b=[1,2,3] puis a=b. Si on fait a[0]=99, alors a vaut [99,2,3] mais b vaut aussi [99,2,3], car les deux variables pointent vers le même objet. Si on veut une copie indépendante, on peut écrire a=b.copy() ou a=b[:]. Dans ce cas, modifier a ne modifie plus b."
+  },
   "base-083": {
     "answer": "La sélection garde uniquement les lignes qui vérifient une condition. Sa notation standard est σ_condition(R).",
     "explanation": "Exemple : σ_age≥18(Étudiant) garde seulement les étudiants majeurs. En SQL, cela correspond conceptuellement à WHERE. Mémo des symboles courants : σ = sélection, π = projection, ⋈ = jointure, × = produit cartésien, ∪ = union, ∩ = intersection, − = différence, ρ = renommage."
