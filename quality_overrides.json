@@ -111,6 +111,10 @@
     "answer": "Si b est une liste, a = b ne crée pas une nouvelle liste : a et b désignent la même liste en mémoire.",
     "explanation": "Exemple : b=[1,2,3] puis a=b. Si on fait a[0]=99, alors a vaut [99,2,3] mais b vaut aussi [99,2,3], car les deux variables pointent vers le même objet. Si on veut une copie indépendante, on peut écrire a=b.copy() ou a=b[:]. Dans ce cas, modifier a ne modifie plus b."
   },
+  "base-078": {
+    "answer": "LEFT JOIN garde toutes les lignes de la table de gauche, même lorsqu’aucune ligne correspondante n’existe dans la table de droite.",
+    "explanation": "Exemple : table Etudiant = (1,Alice), (2,Bob), (3,Chloé) et table Note = (1,15), (3,12). Avec SELECT Etudiant.nom, Note.note FROM Etudiant LEFT JOIN Note ON Etudiant.id = Note.etudiant_id, on obtient Alice | 15 ; Bob | NULL ; Chloé | 12. Bob reste dans le résultat parce qu’il est présent dans la table de gauche, même s’il n’a aucune note dans la table de droite. La valeur manquante devient NULL. À retenir : LEFT JOIN = je garde tout ce qu’il y a à gauche et j’ajoute ce que je trouve à droite. Avec INNER JOIN, Bob aurait disparu du résultat."
+  },
   "base-083": {
     "answer": "La sélection garde uniquement les lignes qui vérifient une condition. Sa notation standard est σ_condition(R).",
     "explanation": "Exemple : σ_age≥18(Étudiant) garde seulement les étudiants majeurs. En SQL, cela correspond conceptuellement à WHERE. Mémo des symboles courants : σ = sélection, π = projection, ⋈ = jointure, × = produit cartésien, ∪ = union, ∩ = intersection, − = différence, ρ = renommage."
