@@ -1,0 +1,277 @@
+{
+  "packID": "probabilites-bases",
+  "title": "Probabilités - Bases",
+  "version": 1,
+  "questions": [
+    {
+      "id": "prob-001",
+      "subject": "Probabilités",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’une expérience aléatoire ?",
+      "answer": "Une expérience dont on connaît les résultats possibles, mais dont on ne peut pas prévoir avec certitude le résultat avant de la réaliser.",
+      "explanation": "Exemple : lancer un dé. On sait que le résultat sera 1, 2, 3, 4, 5 ou 6, mais on ne sait pas lequel sortira avant le lancer.",
+      "tags": ["vocabulaire"]
+    },
+    {
+      "id": "prob-002",
+      "subject": "Probabilités",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce que l’univers Ω d’une expérience aléatoire ?",
+      "answer": "L’univers Ω est l’ensemble de tous les résultats possibles de l’expérience.",
+      "explanation": "Exemple : pour un dé à 6 faces, Ω = {1,2,3,4,5,6}. Pour une pièce, Ω = {Pile, Face}.",
+      "tags": ["vocabulaire"]
+    },
+    {
+      "id": "prob-003",
+      "subject": "Probabilités",
+      "chapter": "Bases",
+      "prompt": "Qu’est-ce qu’un événement ?",
+      "answer": "Un événement est un ensemble de résultats possibles, donc une partie de l’univers Ω.",
+      "explanation": "Exemple : avec un dé, l’événement A = « obtenir un nombre pair » correspond à A = {2,4,6}.",
+      "tags": ["vocabulaire"]
+    },
+    {
+      "id": "prob-004",
+      "subject": "Probabilités",
+      "chapter": "Bases",
+      "prompt": "Quelle est la différence entre un événement certain et un événement impossible ?",
+      "answer": "L’événement certain est Ω et a une probabilité de 1. L’événement impossible est ∅ et a une probabilité de 0.",
+      "explanation": "Sur un dé classique, « obtenir un nombre entre 1 et 6 » est certain ; « obtenir 8 » est impossible.",
+      "tags": ["vocabulaire"]
+    },
+    {
+      "id": "prob-005",
+      "subject": "Probabilités",
+      "chapter": "Bases",
+      "prompt": "Dans un cas équiprobable, comment calcule-t-on P(A) ?",
+      "answer": "P(A) = nombre de cas favorables / nombre total de cas possibles.",
+      "explanation": "Cette formule ne s’utilise directement que lorsque tous les résultats élémentaires ont la même probabilité. Exemple : sur un dé équilibré, P(nombre pair)=3/6=1/2.",
+      "tags": ["calcul"]
+    },
+    {
+      "id": "prob-006",
+      "subject": "Probabilités",
+      "chapter": "Opérations sur les événements",
+      "prompt": "Que signifie A ∪ B ?",
+      "answer": "A ∪ B signifie : l’événement A ou l’événement B se produit, éventuellement les deux.",
+      "explanation": "Exemple : A = « nombre pair », B = « nombre supérieur à 4 ». A ∪ B contient les résultats qui vérifient au moins une des deux conditions.",
+      "tags": ["ensembles"]
+    },
+    {
+      "id": "prob-007",
+      "subject": "Probabilités",
+      "chapter": "Opérations sur les événements",
+      "prompt": "Que signifie A ∩ B ?",
+      "answer": "A ∩ B signifie : les événements A et B se produisent en même temps.",
+      "explanation": "Exemple : avec un dé, si A = « nombre pair » et B = « nombre > 3 », alors A ∩ B = {4,6}.",
+      "tags": ["ensembles"]
+    },
+    {
+      "id": "prob-008",
+      "subject": "Probabilités",
+      "chapter": "Opérations sur les événements",
+      "prompt": "Qu’est-ce que l’événement contraire de A ?",
+      "answer": "L’événement contraire, noté Ā ou Aᶜ, correspond à tous les résultats où A ne se produit pas.",
+      "explanation": "On a toujours P(Aᶜ)=1−P(A). Exemple : si P(A)=0,7, alors P(Aᶜ)=0,3.",
+      "tags": ["ensembles"]
+    },
+    {
+      "id": "prob-009",
+      "subject": "Probabilités",
+      "chapter": "Opérations sur les événements",
+      "prompt": "Quelle formule permet de calculer P(A ∪ B) ?",
+      "answer": "P(A ∪ B)=P(A)+P(B)−P(A ∩ B).",
+      "explanation": "On soustrait P(A ∩ B) car les cas appartenant aux deux événements ont été comptés deux fois dans P(A)+P(B).",
+      "tags": ["formule"]
+    },
+    {
+      "id": "prob-010",
+      "subject": "Probabilités",
+      "chapter": "Opérations sur les événements",
+      "prompt": "Que signifie que deux événements sont incompatibles ?",
+      "answer": "Ils ne peuvent pas se produire simultanément : A ∩ B = ∅.",
+      "explanation": "Dans ce cas P(A ∩ B)=0, donc P(A ∪ B)=P(A)+P(B). Incompatible ne veut pas dire indépendant.",
+      "tags": ["vocabulaire"]
+    },
+    {
+      "id": "prob-011",
+      "subject": "Probabilités",
+      "chapter": "Probabilités conditionnelles",
+      "prompt": "Qu’est-ce qu’une probabilité conditionnelle P(A|B) ?",
+      "answer": "C’est la probabilité que A se produise sachant que B s’est déjà produit.",
+      "explanation": "Le fait de savoir que B est réalisé réduit l’univers aux cas appartenant à B. On ne raisonne donc plus sur tous les cas possibles.",
+      "tags": ["conditionnelle"]
+    },
+    {
+      "id": "prob-012",
+      "subject": "Probabilités",
+      "chapter": "Probabilités conditionnelles",
+      "prompt": "Quelle est la formule de P(A|B) ?",
+      "answer": "P(A|B)=P(A ∩ B)/P(B), à condition que P(B)>0.",
+      "explanation": "On cherche la proportion de cas où A et B se produisent parmi les cas où B est déjà réalisé.",
+      "tags": ["formule"]
+    },
+    {
+      "id": "prob-013",
+      "subject": "Probabilités",
+      "chapter": "Probabilités conditionnelles",
+      "prompt": "Comment retrouver P(A ∩ B) à partir d’une probabilité conditionnelle ?",
+      "answer": "P(A ∩ B)=P(B)×P(A|B).",
+      "explanation": "On peut aussi écrire P(A ∩ B)=P(A)×P(B|A). Cette formule est à la base des arbres de probabilités.",
+      "tags": ["formule"]
+    },
+    {
+      "id": "prob-014",
+      "subject": "Probabilités",
+      "chapter": "Indépendance",
+      "prompt": "Quand deux événements A et B sont-ils indépendants ?",
+      "answer": "Ils sont indépendants lorsque le fait que l’un se produise ne change pas la probabilité de l’autre.",
+      "explanation": "Critère : P(A ∩ B)=P(A)P(B). Si P(B)>0, cela équivaut à P(A|B)=P(A).",
+      "tags": ["independance"]
+    },
+    {
+      "id": "prob-015",
+      "subject": "Probabilités",
+      "chapter": "Indépendance",
+      "prompt": "Quelle est la différence entre événements indépendants et événements incompatibles ?",
+      "answer": "Indépendants : l’un n’influence pas l’autre. Incompatibles : ils ne peuvent jamais arriver ensemble.",
+      "explanation": "Deux événements incompatibles de probabilités non nulles ne sont pas indépendants, car savoir que A s’est produit rend B impossible.",
+      "tags": ["independance"]
+    },
+    {
+      "id": "prob-016",
+      "subject": "Probabilités",
+      "chapter": "Probabilités totales",
+      "prompt": "À quoi sert la formule des probabilités totales ?",
+      "answer": "Elle permet de calculer la probabilité d’un événement en le décomposant selon plusieurs cas possibles qui forment une partition de l’univers.",
+      "explanation": "Si B₁,…,Bₙ forment une partition : P(A)=Σ P(Bᵢ)P(A|Bᵢ). Très utile avec un arbre de probabilités.",
+      "tags": ["formule"]
+    },
+    {
+      "id": "prob-017",
+      "subject": "Probabilités",
+      "chapter": "Bayes",
+      "prompt": "À quoi sert la formule de Bayes ?",
+      "answer": "Elle permet d’inverser une probabilité conditionnelle : passer de P(B|A) à P(A|B).",
+      "explanation": "Elle sert par exemple à déterminer la probabilité d’avoir une maladie sachant qu’un test est positif, alors que l’on connaît souvent plutôt la probabilité que le test soit positif sachant que la personne est malade.",
+      "tags": ["bayes"]
+    },
+    {
+      "id": "prob-018",
+      "subject": "Probabilités",
+      "chapter": "Bayes",
+      "prompt": "Quelle est la formule de Bayes pour deux événements A et B ?",
+      "answer": "P(A|B)=P(B|A)P(A)/P(B), lorsque P(B)>0.",
+      "explanation": "Le numérateur correspond à P(A ∩ B). Le dénominateur P(B) peut souvent être calculé avec la formule des probabilités totales.",
+      "tags": ["bayes", "formule"]
+    },
+    {
+      "id": "prob-019",
+      "subject": "Probabilités",
+      "chapter": "Variables aléatoires",
+      "prompt": "Qu’est-ce qu’une variable aléatoire ?",
+      "answer": "Une fonction qui associe une valeur numérique à chaque résultat d’une expérience aléatoire.",
+      "explanation": "Exemple : on lance deux dés et X désigne leur somme. Chaque résultat (dé1,dé2) est associé à une valeur de X comprise entre 2 et 12.",
+      "tags": ["variable-aleatoire"]
+    },
+    {
+      "id": "prob-020",
+      "subject": "Probabilités",
+      "chapter": "Variables aléatoires",
+      "prompt": "Qu’est-ce que la loi d’une variable aléatoire discrète X ?",
+      "answer": "La loi de X donne toutes les valeurs possibles de X et la probabilité associée à chacune.",
+      "explanation": "On peut la représenter par un tableau : valeur xᵢ puis P(X=xᵢ). La somme de toutes ces probabilités doit être égale à 1.",
+      "tags": ["variable-aleatoire"]
+    },
+    {
+      "id": "prob-021",
+      "subject": "Probabilités",
+      "chapter": "Espérance",
+      "prompt": "Que représente l’espérance E(X) ?",
+      "answer": "L’espérance est la valeur moyenne théorique que l’on obtiendrait sur un très grand nombre de répétitions de l’expérience.",
+      "explanation": "Ce n’est pas forcément une valeur que X peut réellement prendre. Par exemple, l’espérance d’un dé équilibré vaut 3,5.",
+      "tags": ["esperance"]
+    },
+    {
+      "id": "prob-022",
+      "subject": "Probabilités",
+      "chapter": "Espérance",
+      "prompt": "Comment calcule-t-on l’espérance d’une variable aléatoire discrète ?",
+      "answer": "E(X)=Σ xᵢ×P(X=xᵢ).",
+      "explanation": "On multiplie chaque valeur possible par sa probabilité, puis on additionne. C’est une moyenne pondérée par les probabilités.",
+      "tags": ["esperance", "formule"]
+    },
+    {
+      "id": "prob-023",
+      "subject": "Probabilités",
+      "chapter": "Variance",
+      "prompt": "À quoi sert la variance V(X) ?",
+      "answer": "Elle mesure à quel point les valeurs de X sont dispersées autour de l’espérance.",
+      "explanation": "Une variance faible signifie que les valeurs sont souvent proches de la moyenne ; une variance élevée indique davantage de dispersion.",
+      "tags": ["variance"]
+    },
+    {
+      "id": "prob-024",
+      "subject": "Probabilités",
+      "chapter": "Variance",
+      "prompt": "Quelle formule pratique permet de calculer V(X) ?",
+      "answer": "V(X)=E(X²)−[E(X)]².",
+      "explanation": "On calcule d’abord E(X²)=Σ xᵢ²P(X=xᵢ), puis on soustrait le carré de l’espérance.",
+      "tags": ["variance", "formule"]
+    },
+    {
+      "id": "prob-025",
+      "subject": "Probabilités",
+      "chapter": "Variance",
+      "prompt": "Qu’est-ce que l’écart-type σ(X) ?",
+      "answer": "L’écart-type est la racine carrée de la variance : σ(X)=√V(X).",
+      "explanation": "Contrairement à la variance, l’écart-type est exprimé dans la même unité que X, ce qui le rend plus facile à interpréter.",
+      "tags": ["variance"]
+    },
+    {
+      "id": "prob-026",
+      "subject": "Probabilités",
+      "chapter": "Loi de Bernoulli",
+      "prompt": "Qu’est-ce qu’une épreuve de Bernoulli ?",
+      "answer": "Une expérience aléatoire qui possède seulement deux issues : succès et échec.",
+      "explanation": "On note généralement p la probabilité du succès et 1−p celle de l’échec. Exemple : « la pièce tombe sur Face » peut être considéré comme un succès.",
+      "tags": ["bernoulli"]
+    },
+    {
+      "id": "prob-027",
+      "subject": "Probabilités",
+      "chapter": "Loi binomiale",
+      "prompt": "Quand une variable X suit-elle une loi binomiale B(n,p) ?",
+      "answer": "Quand X compte le nombre de succès obtenus lors de n épreuves de Bernoulli indépendantes ayant toutes la même probabilité de succès p.",
+      "explanation": "Exemple : lancer 10 fois une pièce équilibrée et compter le nombre de Faces donne X ~ B(10,0,5).",
+      "tags": ["binomiale"]
+    },
+    {
+      "id": "prob-028",
+      "subject": "Probabilités",
+      "chapter": "Loi binomiale",
+      "prompt": "Quelle est la probabilité d’obtenir exactement k succès si X ~ B(n,p) ?",
+      "answer": "P(X=k)=C(n,k) p^k (1−p)^(n−k).",
+      "explanation": "C(n,k) compte le nombre de façons de placer k succès parmi n essais. p^k correspond aux k succès et (1−p)^(n−k) aux échecs.",
+      "tags": ["binomiale", "formule"]
+    },
+    {
+      "id": "prob-029",
+      "subject": "Probabilités",
+      "chapter": "Loi binomiale",
+      "prompt": "Quelle est l’espérance d’une loi binomiale B(n,p) ?",
+      "answer": "E(X)=np.",
+      "explanation": "Sur n essais avec une probabilité de succès p à chaque essai, on s’attend en moyenne à obtenir environ np succès.",
+      "tags": ["binomiale", "esperance"]
+    },
+    {
+      "id": "prob-030",
+      "subject": "Probabilités",
+      "chapter": "Loi binomiale",
+      "prompt": "Quelle est la variance d’une loi binomiale B(n,p) ?",
+      "answer": "V(X)=np(1−p).",
+      "explanation": "L’écart-type vaut donc √[np(1−p)].",
+      "tags": ["binomiale", "variance"]
+    }
+  ]
+}
