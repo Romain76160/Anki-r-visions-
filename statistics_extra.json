@@ -1,0 +1,409 @@
+{
+  "questions": [
+    {
+      "id": "stat-001",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "À quoi servent les statistiques descriptives ?",
+      "answer": "À résumer et décrire les données que l’on possède, sans chercher à généraliser à une population plus grande.",
+      "explanation": "Exemples : calculer une moyenne, une médiane, un écart-type ou construire un histogramme pour décrire une série de notes.",
+      "tags": ["descriptif"]
+    },
+    {
+      "id": "stat-002",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Quelle différence entre une population et un échantillon ?",
+      "answer": "La population est l’ensemble complet que l’on veut étudier ; un échantillon est seulement une partie de cette population.",
+      "explanation": "Exemple : tous les étudiants d’une université = population ; 200 étudiants interrogés = échantillon. On utilise souvent l’échantillon pour estimer des caractéristiques de la population.",
+      "tags": ["population", "échantillon"]
+    },
+    {
+      "id": "stat-003",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Comment calcule-t-on la moyenne d’une série x₁,…,xₙ ?",
+      "answer": "x̄ = (1/n) Σxᵢ, c’est-à-dire la somme des valeurs divisée par leur nombre.",
+      "explanation": "Exemple : pour 8, 10, 12 : x̄=(8+10+12)/3=10.",
+      "tags": ["moyenne"]
+    },
+    {
+      "id": "stat-004",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Que représente la médiane ?",
+      "answer": "La médiane est la valeur qui partage les données ordonnées en deux : environ 50 % en dessous et 50 % au-dessus.",
+      "explanation": "Exemple : 3, 5, 8, 10, 20 → médiane = 8. Si le nombre de valeurs est pair, on prend généralement la moyenne des deux valeurs centrales.",
+      "tags": ["médiane"]
+    },
+    {
+      "id": "stat-005",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Pourquoi la médiane peut-elle être préférable à la moyenne ?",
+      "answer": "Parce qu’elle est beaucoup moins sensible aux valeurs extrêmes.",
+      "explanation": "Exemple : salaires 1500, 1600, 1700, 1800, 15000. La moyenne vaut 4320 €, alors que la médiane vaut 1700 € et représente mieux le groupe.",
+      "tags": ["médiane", "valeurs extrêmes"]
+    },
+    {
+      "id": "stat-006",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Qu’est-ce que le mode d’une série ?",
+      "answer": "C’est la valeur qui apparaît le plus souvent.",
+      "explanation": "Exemple : 2, 2, 3, 4, 4, 4, 7 → mode = 4. Une série peut avoir plusieurs modes.",
+      "tags": ["mode"]
+    },
+    {
+      "id": "stat-007",
+      "subject": "Statistiques",
+      "chapter": "Bases descriptives",
+      "prompt": "Que représentent les quartiles Q₁, Q₂ et Q₃ ?",
+      "answer": "Q₁ correspond au voisinage des 25 %, Q₂ à 50 % et Q₃ à 75 % des données ordonnées. Q₂ est la médiane.",
+      "explanation": "Ils servent à situer une valeur dans une distribution. La convention exacte de calcul peut légèrement varier selon les logiciels ou les cours.",
+      "tags": ["quartiles"]
+    },
+    {
+      "id": "stat-008",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Comment calcule-t-on l’étendue d’une série ?",
+      "answer": "Étendue = maximum − minimum.",
+      "explanation": "Exemple : 8, 10, 12, 15 → étendue = 15−8 = 7. Elle est simple mais dépend uniquement des deux valeurs extrêmes.",
+      "tags": ["étendue"]
+    },
+    {
+      "id": "stat-009",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Pourquoi la moyenne seule ne suffit-elle pas à décrire une série ?",
+      "answer": "Deux séries peuvent avoir la même moyenne mais des dispersions complètement différentes.",
+      "explanation": "Exemple : 9,10,10,10,11 et 0,5,10,15,20 ont toutes deux une moyenne de 10, mais la deuxième est beaucoup plus dispersée.",
+      "tags": ["dispersion"]
+    },
+    {
+      "id": "stat-010",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Qu’est-ce que la variance ?",
+      "answer": "La variance mesure la dispersion des valeurs autour de leur moyenne en moyennant les carrés des écarts à la moyenne.",
+      "explanation": "Pour une population : σ²=(1/n)Σ(xᵢ−x̄)². Plus la variance est grande, plus les données sont dispersées.",
+      "tags": ["variance"]
+    },
+    {
+      "id": "stat-011",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Pourquoi met-on les écarts à la moyenne au carré dans la variance ?",
+      "answer": "Pour éviter que les écarts positifs et négatifs se compensent.",
+      "explanation": "Exemple : pour 8,10,12 de moyenne 10, les écarts sont −2,0,+2 et leur somme vaut 0. Les carrés donnent 4,0,4 et mesurent réellement la dispersion.",
+      "tags": ["variance"]
+    },
+    {
+      "id": "stat-012",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Quelle est la variance de la population 8, 10, 12 ?",
+      "answer": "8/3 ≈ 2,67.",
+      "explanation": "Moyenne = 10. Carrés des écarts : (8−10)²=4, (10−10)²=0, (12−10)²=4. Donc σ²=(4+0+4)/3=8/3.",
+      "tags": ["variance", "calcul"]
+    },
+    {
+      "id": "stat-013",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Qu’est-ce que l’écart-type ?",
+      "answer": "L’écart-type est la racine carrée de la variance : σ=√(σ²). Il mesure la dispersion dans la même unité que les données.",
+      "explanation": "Si une variance vaut 9 cm², l’écart-type vaut 3 cm. C’est généralement plus facile à interpréter que la variance.",
+      "tags": ["écart-type"]
+    },
+    {
+      "id": "stat-014",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Pourquoi utilise-t-on souvent n−1 pour calculer la variance d’un échantillon ?",
+      "answer": "Parce que la correction par n−1 réduit le biais lorsqu’on utilise un échantillon pour estimer la variance de toute une population.",
+      "explanation": "Mémo : population complète → division par n ; variance d’échantillon utilisée comme estimateur de la variance de population → généralement n−1. Cette correction est appelée correction de Bessel.",
+      "tags": ["variance", "échantillon"]
+    },
+    {
+      "id": "stat-015",
+      "subject": "Statistiques",
+      "chapter": "Dispersion",
+      "prompt": "Qu’est-ce que l’écart interquartile ?",
+      "answer": "C’est Q₃−Q₁. Il mesure la dispersion de la moitié centrale des données.",
+      "explanation": "Il est plus robuste aux valeurs extrêmes que l’étendue. Il est notamment utilisé dans les boîtes à moustaches.",
+      "tags": ["quartiles", "dispersion"]
+    },
+    {
+      "id": "stat-016",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "À quoi sert la covariance entre X et Y ?",
+      "answer": "À indiquer si deux variables ont tendance à évoluer dans le même sens ou dans des sens opposés.",
+      "explanation": "Cov(X,Y)>0 : elles ont tendance à augmenter ensemble. Cov(X,Y)<0 : quand l’une augmente, l’autre tend à diminuer. Une covariance proche de 0 indique l’absence de relation linéaire nette, pas forcément l’absence de toute relation.",
+      "tags": ["covariance"]
+    },
+    {
+      "id": "stat-017",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "Quelle est la formule de la covariance d’une population ?",
+      "answer": "Cov(X,Y)=(1/n)Σ(xᵢ−x̄)(yᵢ−ȳ).",
+      "explanation": "On regarde si les écarts à la moyenne de X et de Y ont généralement le même signe ou des signes opposés.",
+      "tags": ["covariance", "formule"]
+    },
+    {
+      "id": "stat-018",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "Pourquoi préfère-t-on souvent la corrélation à la covariance ?",
+      "answer": "Parce que la corrélation est normalisée : elle ne dépend pas directement des unités et reste comprise entre −1 et 1.",
+      "explanation": "Une covariance en heures×points est difficile à comparer à une autre. La corrélation permet une lecture plus standardisée.",
+      "tags": ["corrélation", "covariance"]
+    },
+    {
+      "id": "stat-019",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "Quelle est la formule du coefficient de corrélation de Pearson ?",
+      "answer": "r = Cov(X,Y)/(σₓσᵧ).",
+      "explanation": "Le coefficient r est compris entre −1 et 1 et mesure la force d’une relation linéaire.",
+      "tags": ["corrélation", "Pearson"]
+    },
+    {
+      "id": "stat-020",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "Comment interpréter r≈1, r≈−1 et r≈0 ?",
+      "answer": "r≈1 : forte relation linéaire positive ; r≈−1 : forte relation linéaire négative ; r≈0 : faible relation linéaire.",
+      "explanation": "Attention : r≈0 n’exclut pas une relation non linéaire. Par exemple une relation en U peut avoir une corrélation linéaire proche de 0.",
+      "tags": ["corrélation"]
+    },
+    {
+      "id": "stat-021",
+      "subject": "Statistiques",
+      "chapter": "Relations entre variables",
+      "prompt": "Pourquoi dit-on que corrélation ne signifie pas causalité ?",
+      "answer": "Parce que deux variables peuvent évoluer ensemble sans que l’une provoque l’autre.",
+      "explanation": "Exemple : ventes de glaces et noyades augmentent toutes les deux en été. La température influence les deux ; manger une glace ne cause pas une noyade.",
+      "tags": ["corrélation", "causalité"]
+    },
+    {
+      "id": "stat-022",
+      "subject": "Statistiques",
+      "chapter": "Variables aléatoires",
+      "prompt": "Qu’est-ce qu’une variable aléatoire ?",
+      "answer": "C’est une fonction qui associe une valeur numérique à chaque résultat possible d’une expérience aléatoire.",
+      "explanation": "Exemple : on lance deux pièces et X=nombre de piles. Alors X peut valoir 0, 1 ou 2.",
+      "tags": ["variable aléatoire"]
+    },
+    {
+      "id": "stat-023",
+      "subject": "Statistiques",
+      "chapter": "Variables aléatoires",
+      "prompt": "Qu’est-ce que l’espérance E(X) d’une variable aléatoire ?",
+      "answer": "C’est sa moyenne théorique à long terme.",
+      "explanation": "Pour une variable discrète : E(X)=ΣxᵢP(X=xᵢ). Elle ne correspond pas forcément à une valeur réellement possible de X.",
+      "tags": ["espérance"]
+    },
+    {
+      "id": "stat-024",
+      "subject": "Statistiques",
+      "chapter": "Variables aléatoires",
+      "prompt": "Si X est le nombre de piles obtenus en deux lancers équilibrés, quelle est E(X) ?",
+      "answer": "E(X)=1.",
+      "explanation": "P(X=0)=1/4, P(X=1)=1/2, P(X=2)=1/4. Donc E(X)=0×1/4+1×1/2+2×1/4=1.",
+      "tags": ["espérance", "calcul"]
+    },
+    {
+      "id": "stat-025",
+      "subject": "Statistiques",
+      "chapter": "Loi normale",
+      "prompt": "Qu’est-ce qu’une loi normale ?",
+      "answer": "C’est une distribution continue en forme de cloche, symétrique autour de sa moyenne.",
+      "explanation": "Elle est caractérisée par sa moyenne μ et son écart-type σ. Elle apparaît souvent comme modèle approximatif de phénomènes influencés par de nombreux petits effets.",
+      "tags": ["loi normale"]
+    },
+    {
+      "id": "stat-026",
+      "subject": "Statistiques",
+      "chapter": "Loi normale",
+      "prompt": "Que signifie X ~ N(μ,σ²) ?",
+      "answer": "Cela signifie que X suit une loi normale de moyenne μ et de variance σ².",
+      "explanation": "Exemple : X~N(170,10²) signifie moyenne 170 et écart-type 10.",
+      "tags": ["loi normale", "notation"]
+    },
+    {
+      "id": "stat-027",
+      "subject": "Statistiques",
+      "chapter": "Loi normale",
+      "prompt": "Quelle est la règle 68–95–99,7 % pour une loi normale ?",
+      "answer": "Environ 68 % des valeurs sont à moins de 1σ de μ, 95 % à moins de 2σ et 99,7 % à moins de 3σ.",
+      "explanation": "Exemple : μ=100, σ=15 → environ 95 % des valeurs sont entre 70 et 130.",
+      "tags": ["loi normale"]
+    },
+    {
+      "id": "stat-028",
+      "subject": "Statistiques",
+      "chapter": "Loi normale",
+      "prompt": "Qu’est-ce qu’un score z ?",
+      "answer": "Le score z indique à combien d’écarts-types une valeur se trouve de la moyenne : z=(x−μ)/σ.",
+      "explanation": "z=0 : à la moyenne. z=2 : deux écarts-types au-dessus. z=−1 : un écart-type en dessous.",
+      "tags": ["score z"]
+    },
+    {
+      "id": "stat-029",
+      "subject": "Statistiques",
+      "chapter": "Loi normale",
+      "prompt": "Si μ=100, σ=15 et x=130, quel est le score z ?",
+      "answer": "z=2.",
+      "explanation": "z=(130−100)/15=30/15=2. La valeur 130 est donc deux écarts-types au-dessus de la moyenne.",
+      "tags": ["score z", "calcul"]
+    },
+    {
+      "id": "stat-030",
+      "subject": "Statistiques",
+      "chapter": "Échantillonnage",
+      "prompt": "Qu’est-ce que la variabilité d’échantillonnage ?",
+      "answer": "C’est le fait que deux échantillons différents tirés d’une même population donnent généralement des statistiques légèrement différentes.",
+      "explanation": "Par exemple, deux groupes de 100 étudiants ne donneront presque jamais exactement la même moyenne de taille.",
+      "tags": ["échantillonnage"]
+    },
+    {
+      "id": "stat-031",
+      "subject": "Statistiques",
+      "chapter": "Échantillonnage",
+      "prompt": "Qu’est-ce qu’un biais d’échantillonnage ?",
+      "answer": "C’est une erreur systématique due à un échantillon qui ne représente pas correctement la population étudiée.",
+      "explanation": "Exemple : estimer l’activité sportive de tous les étudiants en interrogeant uniquement les personnes présentes dans une salle de sport donnera probablement une estimation trop élevée.",
+      "tags": ["biais", "échantillonnage"]
+    },
+    {
+      "id": "stat-032",
+      "subject": "Statistiques",
+      "chapter": "Échantillonnage",
+      "prompt": "Que dit intuitivement la loi des grands nombres ?",
+      "answer": "Quand le nombre d’observations indépendantes augmente, la moyenne observée tend à se rapprocher de l’espérance théorique.",
+      "explanation": "Exemple : sur quelques lancers d’une pièce, la proportion de piles peut être loin de 50 %. Sur un très grand nombre de lancers, elle tend à se rapprocher de 50 %.",
+      "tags": ["loi des grands nombres"]
+    },
+    {
+      "id": "stat-033",
+      "subject": "Statistiques",
+      "chapter": "Échantillonnage",
+      "prompt": "Que dit intuitivement le théorème central limite ?",
+      "answer": "Sous des conditions assez générales, la distribution des moyennes d’échantillons devient approximativement normale quand la taille des échantillons augmente.",
+      "explanation": "C’est une raison majeure pour laquelle la loi normale apparaît souvent dans les méthodes d’estimation et les intervalles de confiance.",
+      "tags": ["TCL"]
+    },
+    {
+      "id": "stat-034",
+      "subject": "Statistiques",
+      "chapter": "Inférence",
+      "prompt": "Qu’est-ce qu’une estimation ponctuelle ?",
+      "answer": "C’est une seule valeur calculée sur un échantillon pour estimer un paramètre inconnu de la population.",
+      "explanation": "Exemple : la moyenne d’un échantillon vaut 174 cm ; on utilise 174 cm comme estimation ponctuelle de la vraie moyenne de la population.",
+      "tags": ["estimation"]
+    },
+    {
+      "id": "stat-035",
+      "subject": "Statistiques",
+      "chapter": "Inférence",
+      "prompt": "Qu’est-ce que l’erreur standard de la moyenne ?",
+      "answer": "Elle mesure la variabilité attendue de la moyenne d’échantillon d’un échantillon à l’autre.",
+      "explanation": "Si l’écart-type de population σ est connu, SE(x̄)=σ/√n. Plus n augmente, plus la moyenne est précise.",
+      "tags": ["erreur standard"]
+    },
+    {
+      "id": "stat-036",
+      "subject": "Statistiques",
+      "chapter": "Inférence",
+      "prompt": "Que se passe-t-il approximativement si on multiplie la taille n d’un échantillon par 4 ?",
+      "answer": "L’erreur standard de la moyenne est divisée par 2.",
+      "explanation": "Parce que SE∝1/√n. Si n devient 4n, alors √(4n)=2√n.",
+      "tags": ["erreur standard", "calcul"]
+    },
+    {
+      "id": "stat-037",
+      "subject": "Statistiques",
+      "chapter": "Inférence",
+      "prompt": "À quoi sert un intervalle de confiance ?",
+      "answer": "À fournir une plage de valeurs plausibles pour un paramètre inconnu de la population à partir d’un échantillon.",
+      "explanation": "Il exprime l’incertitude de l’estimation. Un estimateur ponctuel seul, par exemple 174 cm, ne montre pas cette incertitude.",
+      "tags": ["intervalle de confiance"]
+    },
+    {
+      "id": "stat-038",
+      "subject": "Statistiques",
+      "chapter": "Inférence",
+      "prompt": "Quelle forme prend souvent un intervalle de confiance à 95 % pour une moyenne quand σ est connu ou l’approximation normale est valable ?",
+      "answer": "x̄ ± 1,96 × σ/√n.",
+      "explanation": "1,96 vient de la loi normale standard. Selon le problème, notamment quand σ est inconnu et l’échantillon petit, on utilise plutôt une loi de Student.",
+      "tags": ["intervalle de confiance", "formule"]
+    },
+    {
+      "id": "stat-039",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Qu’est-ce que l’hypothèse nulle H₀ ?",
+      "answer": "C’est l’hypothèse de référence que l’on confronte aux données.",
+      "explanation": "Exemple : H₀: μ=100. On demande ensuite si les observations sont suffisamment incompatibles avec cette hypothèse pour la rejeter.",
+      "tags": ["H0", "test"]
+    },
+    {
+      "id": "stat-040",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Qu’est-ce que l’hypothèse alternative H₁ ?",
+      "answer": "C’est l’hypothèse concurrente à H₀, correspondant à l’effet ou à la différence que l’on cherche à détecter.",
+      "explanation": "Exemple bilatéral : H₀: μ=100 et H₁: μ≠100. Exemple unilatéral : H₁: μ>100.",
+      "tags": ["H1", "test"]
+    },
+    {
+      "id": "stat-041",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Que représente une p-value ?",
+      "answer": "Sous l’hypothèse H₀, c’est la probabilité d’obtenir un résultat au moins aussi extrême que celui observé.",
+      "explanation": "Une petite p-value signifie que les données observées seraient assez surprenantes si H₀ était vraie. Elle n’est pas la probabilité que H₀ soit vraie.",
+      "tags": ["p-value"]
+    },
+    {
+      "id": "stat-042",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Que fait-on généralement si p<0,05 avec un seuil α=0,05 ?",
+      "answer": "On rejette H₀ au seuil de 5 %.",
+      "explanation": "Cela ne prouve pas H₁ avec certitude et ne signifie pas qu’il y a 95 % de chances que H₁ soit vraie. Le seuil de 5 % est une convention, pas une loi universelle.",
+      "tags": ["p-value", "alpha"]
+    },
+    {
+      "id": "stat-043",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Qu’est-ce qu’une erreur de type I ?",
+      "answer": "C’est rejeter H₀ alors qu’elle est en réalité vraie : un faux positif.",
+      "explanation": "Le risque de type I est contrôlé par le seuil α choisi pour le test, par exemple α=0,05.",
+      "tags": ["type I", "test"]
+    },
+    {
+      "id": "stat-044",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Qu’est-ce qu’une erreur de type II ?",
+      "answer": "C’est ne pas rejeter H₀ alors qu’elle est fausse : un faux négatif.",
+      "explanation": "Sa probabilité est souvent notée β. La puissance d’un test vaut 1−β et représente sa capacité à détecter un effet réel.",
+      "tags": ["type II", "test"]
+    },
+    {
+      "id": "stat-045",
+      "subject": "Statistiques",
+      "chapter": "Tests d’hypothèses",
+      "prompt": "Pourquoi 'ne pas rejeter H₀' n’est-il pas la même chose que 'prouver H₀' ?",
+      "answer": "Parce que les données peuvent simplement être insuffisantes pour détecter une différence, même si H₀ est fausse.",
+      "explanation": "Un petit échantillon ou des données très variables peuvent donner un test peu puissant. L’absence de preuve contre H₀ n’est donc pas une preuve que H₀ est vraie.",
+      "tags": ["test", "interprétation"]
+    }
+  ]
+}
