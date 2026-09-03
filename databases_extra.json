@@ -1,0 +1,373 @@
+{
+  "questions": [
+    {
+      "id": "db-acid-001",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "Que signifie l’acronyme ACID ?",
+      "answer": "Atomicité, Cohérence, Isolation, Durabilité.",
+      "explanation": "Ces quatre propriétés encadrent l’exécution fiable des transactions dans les SGBD traditionnels.",
+      "tags": [
+        "ACID",
+        "transactions"
+      ]
+    },
+    {
+      "id": "db-acid-002",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "À quoi sert l’atomicité d’une transaction ?",
+      "answer": "À garantir que la transaction est exécutée entièrement ou pas du tout.",
+      "explanation": "Si une étape échoue, les modifications partielles doivent être annulées.",
+      "tags": [
+        "ACID",
+        "atomicité"
+      ]
+    },
+    {
+      "id": "db-acid-003",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "À quoi sert la cohérence dans ACID ?",
+      "answer": "À garantir qu’une transaction fait passer la base d’un état valide à un autre état valide.",
+      "explanation": "Les contraintes d’intégrité doivent rester respectées après la transaction.",
+      "tags": [
+        "ACID",
+        "cohérence"
+      ]
+    },
+    {
+      "id": "db-acid-004",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "À quoi sert l’isolation dans ACID ?",
+      "answer": "À éviter que des transactions concurrentes interfèrent de manière incohérente entre elles.",
+      "explanation": "Chaque transaction doit se comporter comme si elle était suffisamment isolée des autres.",
+      "tags": [
+        "ACID",
+        "isolation",
+        "concurrence"
+      ]
+    },
+    {
+      "id": "db-acid-005",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "À quoi sert la durabilité dans ACID ?",
+      "answer": "À garantir qu’une transaction validée reste enregistrée même après une panne.",
+      "explanation": "Une fois le COMMIT effectué, le résultat ne doit pas être perdu.",
+      "tags": [
+        "ACID",
+        "durabilité"
+      ]
+    },
+    {
+      "id": "db-acid-006",
+      "subject": "Bases de données",
+      "chapter": "Transactions ACID",
+      "prompt": "Dans le quiz, quels sont les deux rôles principaux associés aux transactions ACID ?",
+      "answer": "Gérer correctement la concurrence entre utilisateurs et garantir la cohérence des données même en cas de panne.",
+      "explanation": "ACID ne sert pas directement à accélérer les requêtes ni à séparer modèle logique et stockage physique.",
+      "tags": [
+        "ACID",
+        "quiz"
+      ]
+    },
+    {
+      "id": "db-rel-001",
+      "subject": "Bases de données",
+      "chapter": "Limites des SGBD relationnels",
+      "prompt": "Quels types de situations peuvent pousser à choisir un SGBD NoSQL plutôt qu’un SGBD relationnel classique ?",
+      "answer": "Très gros volumes, très fort débit de requêtes et données très diverses ou peu structurées.",
+      "explanation": "Le choix dépend du besoin de scalabilité, de souplesse du schéma et du compromis avec les transactions et requêtes complexes.",
+      "tags": [
+        "relationnel",
+        "NoSQL"
+      ]
+    },
+    {
+      "id": "db-rel-002",
+      "subject": "Bases de données",
+      "chapter": "Limites des SGBD relationnels",
+      "prompt": "Le fait d’avoir des requêtes complexes est-il en soi une faiblesse des SGBD relationnels ?",
+      "answer": "Non. Les SGBD relationnels sont justement très adaptés aux requêtes riches et aux jointures complexes.",
+      "explanation": "SQL est un point fort des SGBD relationnels.",
+      "tags": [
+        "SQL",
+        "relationnel"
+      ]
+    },
+    {
+      "id": "db-rel-003",
+      "subject": "Bases de données",
+      "chapter": "Limites des SGBD relationnels",
+      "prompt": "Le besoin de contraintes d’intégrité pousse-t-il naturellement vers NoSQL ?",
+      "answer": "Non. Les SGBD relationnels sont généralement très bons pour imposer des contraintes d’intégrité.",
+      "explanation": "Clés étrangères, unicité, contraintes CHECK et transactions sont des points forts du modèle relationnel.",
+      "tags": [
+        "intégrité",
+        "relationnel"
+      ]
+    },
+    {
+      "id": "db-rel-004",
+      "subject": "Bases de données",
+      "chapter": "Limites des SGBD relationnels",
+      "prompt": "Pourquoi un très fort nombre de requêtes par seconde peut-il favoriser une architecture NoSQL ?",
+      "answer": "Parce que certains systèmes NoSQL sont conçus pour se répartir horizontalement sur plusieurs machines et absorber de très forts débits.",
+      "explanation": "On parle de montée en charge horizontale ou scale-out.",
+      "tags": [
+        "scalabilité",
+        "NoSQL"
+      ]
+    },
+    {
+      "id": "db-nosql-001",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — principes",
+      "prompt": "Que signifie NoSQL dans l’esprit du cours ?",
+      "answer": "Une famille de SGBD qui n’utilisent pas exclusivement le modèle relationnel classique et privilégient souvent scalabilité, distribution ou souplesse du schéma.",
+      "explanation": "NoSQL ne désigne pas un seul modèle de données.",
+      "tags": [
+        "NoSQL"
+      ]
+    },
+    {
+      "id": "db-nosql-002",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — principes",
+      "prompt": "NoSQL signifie-t-il forcément « simple stockage clef/valeur » ?",
+      "answer": "Non. Il existe plusieurs familles : documents, graphes, clef/valeur, colonnes larges, XML/RDF, etc.",
+      "explanation": "Tous les systèmes NoSQL ne stockent donc pas les données de la même manière.",
+      "tags": [
+        "NoSQL",
+        "modèles"
+      ]
+    },
+    {
+      "id": "db-nosql-003",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — documents",
+      "prompt": "À quelle grande famille appartiennent MongoDB et CouchDB ?",
+      "answer": "Aux bases orientées documents.",
+      "explanation": "Elles stockent des documents structurés plutôt que des lignes de tables relationnelles classiques.",
+      "tags": [
+        "MongoDB",
+        "CouchDB",
+        "documents"
+      ]
+    },
+    {
+      "id": "db-nosql-004",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — documents",
+      "prompt": "Dans le cadre du quiz, quelles propriétés associe-t-on à MongoDB et CouchDB ?",
+      "answer": "Un modèle de données non relationnel et une bonne capacité de montée en charge.",
+      "explanation": "Le quiz ne les présente pas comme de simples magasins clef/valeur ni comme des systèmes offrant nécessairement des requêtes aussi riches que SQL.",
+      "tags": [
+        "MongoDB",
+        "CouchDB",
+        "quiz"
+      ]
+    },
+    {
+      "id": "db-nosql-005",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — graphes/XML/RDF",
+      "prompt": "Quels types de données représentent BaseX, Neo4j et OpenRDF Sesame ?",
+      "answer": "BaseX : XML ; Neo4j : graphes ; OpenRDF Sesame : RDF.",
+      "explanation": "Ces systèmes utilisent des modèles différents du modèle relationnel.",
+      "tags": [
+        "BaseX",
+        "Neo4j",
+        "RDF"
+      ]
+    },
+    {
+      "id": "db-nosql-006",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — graphes/XML/RDF",
+      "prompt": "Pourquoi BaseX, Neo4j ou Sesame peuvent-ils proposer des requêtes complexes ?",
+      "answer": "Parce qu’ils disposent de langages adaptés à leur modèle, comme XQuery, Cypher ou SPARQL.",
+      "explanation": "Ils ne sont pas limités à une simple recherche par clef.",
+      "tags": [
+        "XQuery",
+        "Cypher",
+        "SPARQL"
+      ]
+    },
+    {
+      "id": "db-nosql-007",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — clef/valeur",
+      "prompt": "À quelle famille appartiennent DynamoDB, Voldemort et MemcacheDB dans le cadre du cours ?",
+      "answer": "Aux systèmes de type clef/valeur.",
+      "explanation": "Ils privilégient des accès simples, rapides et facilement distribuables.",
+      "tags": [
+        "DynamoDB",
+        "Voldemort",
+        "clef-valeur"
+      ]
+    },
+    {
+      "id": "db-nosql-008",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — clef/valeur",
+      "prompt": "Dans le cadre du quiz, quelles caractéristiques associe-t-on aux systèmes clef/valeur comme DynamoDB ou Voldemort ?",
+      "answer": "Modèle non relationnel, forte scalabilité, stockage clef/valeur et très faible latence.",
+      "explanation": "Le compromis est généralement un langage de requêtes moins riche qu’en SQL relationnel.",
+      "tags": [
+        "clef-valeur",
+        "quiz"
+      ]
+    },
+    {
+      "id": "db-nosql-009",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — colonnes larges",
+      "prompt": "À quelle famille appartiennent BigTable, HBase et Cassandra ?",
+      "answer": "Aux bases orientées colonnes larges (wide-column / column-family).",
+      "explanation": "Elles ne sont pas de simples magasins clef/valeur sans structure supplémentaire.",
+      "tags": [
+        "BigTable",
+        "HBase",
+        "Cassandra"
+      ]
+    },
+    {
+      "id": "db-nosql-010",
+      "subject": "Bases de données",
+      "chapter": "NoSQL — colonnes larges",
+      "prompt": "Dans le cadre du quiz, quelles propriétés associe-t-on à BigTable, HBase et Cassandra ?",
+      "answer": "Un modèle non relationnel et une forte capacité de passage à l’échelle.",
+      "explanation": "Leur objectif principal est le stockage distribué massif, pas l’exécution de requêtes relationnelles complexes.",
+      "tags": [
+        "BigTable",
+        "HBase",
+        "Cassandra",
+        "quiz"
+      ]
+    },
+    {
+      "id": "db-newsql-001",
+      "subject": "Bases de données",
+      "chapter": "NewSQL",
+      "prompt": "Pourquoi les systèmes NewSQL ont-ils été introduits ?",
+      "answer": "Pour combiner la scalabilité des systèmes distribués modernes avec SQL et des transactions ACID fortes.",
+      "explanation": "Ils cherchent à conserver les avantages relationnels sans renoncer à la montée en charge.",
+      "tags": [
+        "NewSQL"
+      ]
+    },
+    {
+      "id": "db-newsql-002",
+      "subject": "Bases de données",
+      "chapter": "NewSQL",
+      "prompt": "Quelles limites du NoSQL classique le NewSQL cherche-t-il notamment à corriger ?",
+      "answer": "La faiblesse des langages de requêtes et le support limité des transactions ACID.",
+      "explanation": "Dans le quiz, ce sont les deux réponses principales.",
+      "tags": [
+        "NewSQL",
+        "ACID",
+        "SQL"
+      ]
+    },
+    {
+      "id": "db-newsql-003",
+      "subject": "Bases de données",
+      "chapter": "NewSQL",
+      "prompt": "Citer trois exemples de systèmes NewSQL donnés dans le cours.",
+      "answer": "Google Spanner, Clustrix et VoltDB.",
+      "explanation": "Ils illustrent l’idée de bases distribuées capables de conserver SQL et des transactions fortes.",
+      "tags": [
+        "Spanner",
+        "Clustrix",
+        "VoltDB"
+      ]
+    },
+    {
+      "id": "db-newsql-004",
+      "subject": "Bases de données",
+      "chapter": "NewSQL",
+      "prompt": "Peut-on faire des requêtes de complexité comparable entre SQL classique et NewSQL ?",
+      "answer": "Oui, dans l’esprit du cours, car NewSQL conserve un langage SQL riche.",
+      "explanation": "C’est une différence importante avec de nombreux systèmes NoSQL plus spécialisés.",
+      "tags": [
+        "NewSQL",
+        "SQL"
+      ]
+    },
+    {
+      "id": "db-perf-001",
+      "subject": "Bases de données",
+      "chapter": "Performances et compromis",
+      "prompt": "Pourquoi les transactions ACID peuvent-elles coûter en performance ?",
+      "answer": "Parce qu’elles nécessitent des mécanismes de synchronisation, journalisation, verrouillage ou coordination.",
+      "explanation": "Ces garanties supplémentaires ont un coût par rapport à des systèmes qui relâchent certaines contraintes.",
+      "tags": [
+        "ACID",
+        "performance"
+      ]
+    },
+    {
+      "id": "db-perf-002",
+      "subject": "Bases de données",
+      "chapter": "Performances et compromis",
+      "prompt": "Quel goulot d’étranglement classique est cité dans le quiz pour les bases de données ?",
+      "answer": "L’écriture des données sur disque.",
+      "explanation": "Les accès persistants peuvent être beaucoup plus lents que les opérations en mémoire.",
+      "tags": [
+        "performance",
+        "disque"
+      ]
+    },
+    {
+      "id": "db-perf-003",
+      "subject": "Bases de données",
+      "chapter": "Performances et compromis",
+      "prompt": "Pourquoi certains volumes ou débits peuvent-ils rendre un SGBD classique mal adapté ?",
+      "answer": "Parce qu’un serveur unique ou une architecture relationnelle classique peut devenir difficile à faire évoluer suffisamment pour absorber le volume ou le débit.",
+      "explanation": "Les architectures distribuées NoSQL/NewSQL visent notamment ce problème.",
+      "tags": [
+        "scalabilité",
+        "performance"
+      ]
+    },
+    {
+      "id": "db-perf-004",
+      "subject": "Bases de données",
+      "chapter": "Performances et compromis",
+      "prompt": "Les systèmes NoSQL ont-ils uniquement des avantages sur les SGBD relationnels ?",
+      "answer": "Non. Ils gagnent souvent en scalabilité ou flexibilité mais peuvent perdre en richesse des requêtes, transactions, jointures ou contraintes d’intégrité.",
+      "explanation": "Le choix d’un SGBD est un compromis dépendant du besoin.",
+      "tags": [
+        "NoSQL",
+        "compromis"
+      ]
+    },
+    {
+      "id": "db-quiz-001",
+      "subject": "Bases de données",
+      "chapter": "Quiz — synthèse",
+      "prompt": "Quelles affirmations finales du quiz sont vraies ?",
+      "answer": "Les transactions ACID ont un coût de performance ; certains volumes/débits dépassent les SGBD classiques ; l’écriture disque est un goulot classique ; SQL et NewSQL peuvent offrir des requêtes de complexité comparable.",
+      "explanation": "Sont fausses : « SQL et NoSQL courant ont toujours la même richesse de requêtes » et « NoSQL n’a que des avantages ».",
+      "tags": [
+        "quiz",
+        "synthèse"
+      ]
+    },
+    {
+      "id": "db-quiz-002",
+      "subject": "Bases de données",
+      "chapter": "Quiz — synthèse",
+      "prompt": "Associer chaque famille à ses exemples : documents, graphes/XML/RDF, clef/valeur, colonnes larges, NewSQL.",
+      "answer": "Documents : MongoDB/CouchDB ; graphes/XML/RDF : Neo4j/BaseX/Sesame ; clef/valeur : DynamoDB/Voldemort/MemcacheDB ; colonnes larges : BigTable/HBase/Cassandra ; NewSQL : Spanner/Clustrix/VoltDB.",
+      "explanation": "Cette carte résume les familles principales citées dans le quiz.",
+      "tags": [
+        "quiz",
+        "familles"
+      ]
+    }
+  ]
+}
