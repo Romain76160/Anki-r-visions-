@@ -1,0 +1,441 @@
+{
+  "questions": [
+    {
+      "id": "alg-orth-001",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Comment calcule-t-on le produit scalaire de u=(u₁,…,uₙ) et v=(v₁,…,vₙ) ?",
+      "answer": "⟨u,v⟩ = u₁v₁ + … + uₙvₙ.",
+      "explanation": "On multiplie les coordonnées correspondantes puis on additionne.",
+      "tags": [
+        "produit scalaire"
+      ]
+    },
+    {
+      "id": "alg-orth-002",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Quand deux vecteurs u et v sont-ils orthogonaux ?",
+      "answer": "Quand leur produit scalaire est nul : ⟨u,v⟩=0.",
+      "explanation": "Orthogonal signifie perpendiculaire dans la géométrie euclidienne.",
+      "tags": [
+        "orthogonalité",
+        "produit scalaire"
+      ]
+    },
+    {
+      "id": "alg-orth-003",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Comment calcule-t-on la norme euclidienne d’un vecteur u ?",
+      "answer": "‖u‖ = √⟨u,u⟩.",
+      "explanation": "Pour u=(x,y), ‖u‖=√(x²+y²).",
+      "tags": [
+        "norme"
+      ]
+    },
+    {
+      "id": "alg-orth-004",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Comment normaliser un vecteur non nul u ?",
+      "answer": "On le divise par sa norme : u/‖u‖.",
+      "explanation": "Le vecteur obtenu a la même direction que u et une norme égale à 1.",
+      "tags": [
+        "norme",
+        "normalisation"
+      ]
+    },
+    {
+      "id": "alg-orth-005",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Dans ℝ², quel vecteur peut-on construire directement orthogonal à (a,b) ?",
+      "answer": "(-b,a), ou son opposé (b,-a).",
+      "explanation": "a(-b)+b(a)=0.",
+      "tags": [
+        "orthogonalité",
+        "R2"
+      ]
+    },
+    {
+      "id": "alg-orth-006",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Qu’est-ce qu’une famille orthonormée ?",
+      "answer": "Une famille dont les vecteurs sont orthogonaux deux à deux et tous de norme 1.",
+      "explanation": "Ainsi ⟨uᵢ,uⱼ⟩=0 si i≠j et ⟨uᵢ,uᵢ⟩=1.",
+      "tags": [
+        "base orthonormée"
+      ]
+    },
+    {
+      "id": "alg-orth-007",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Quelle condition caractérise une matrice orthogonale Q ?",
+      "answer": "QᵀQ=I.",
+      "explanation": "Ses colonnes forment alors une base orthonormée.",
+      "tags": [
+        "matrice orthogonale"
+      ]
+    },
+    {
+      "id": "alg-orth-008",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Quelle est l’inverse d’une matrice orthogonale Q ?",
+      "answer": "Q⁻¹=Qᵀ.",
+      "explanation": "Cela vient directement de QᵀQ=I.",
+      "tags": [
+        "matrice orthogonale",
+        "inverse"
+      ]
+    },
+    {
+      "id": "alg-orth-009",
+      "subject": "Algèbre linéaire",
+      "chapter": "Produit scalaire et orthogonalité",
+      "prompt": "Que conserve une transformation orthogonale ?",
+      "answer": "Les produits scalaires, donc aussi les normes, les distances et les angles.",
+      "explanation": "⟨Qu,Qv⟩=⟨u,v⟩.",
+      "tags": [
+        "transformation orthogonale"
+      ]
+    },
+    {
+      "id": "alg-proj-001",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Quelle est la projection orthogonale de w sur la droite engendrée par u≠0 ?",
+      "answer": "projᵤ(w) = (⟨w,u⟩ / ⟨u,u⟩)u.",
+      "explanation": "Le coefficient ⟨w,u⟩/⟨u,u⟩ donne la quantité de u présente dans w.",
+      "tags": [
+        "projection"
+      ]
+    },
+    {
+      "id": "alg-proj-002",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Comment se simplifie la projection de w sur u si u est unitaire ?",
+      "answer": "projᵤ(w)=⟨w,u⟩u.",
+      "explanation": "Comme ‖u‖=1, on a ⟨u,u⟩=1.",
+      "tags": [
+        "projection",
+        "vecteur unitaire"
+      ]
+    },
+    {
+      "id": "alg-proj-003",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Quelle décomposition caractérise la projection orthogonale de w sur un SEV F ?",
+      "answer": "w = P_F(w) + w⊥, avec P_F(w)∈F et w⊥∈F⊥.",
+      "explanation": "La projection garde la composante dans F et retire la composante orthogonale à F.",
+      "tags": [
+        "projection",
+        "SEV"
+      ]
+    },
+    {
+      "id": "alg-proj-004",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Comment projeter w sur F si (u₁,…,uₖ) est une base orthonormée de F ?",
+      "answer": "P_F(w)=Σᵢ ⟨w,uᵢ⟩uᵢ.",
+      "explanation": "Chaque terme est la projection de w sur une direction orthonormée de F.",
+      "tags": [
+        "projection",
+        "base orthonormée"
+      ]
+    },
+    {
+      "id": "alg-proj-005",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Comment projeter w sur F si (u₁,…,uₖ) est seulement une base orthogonale ?",
+      "answer": "P_F(w)=Σᵢ (⟨w,uᵢ⟩/⟨uᵢ,uᵢ⟩)uᵢ.",
+      "explanation": "On doit diviser par ⟨uᵢ,uᵢ⟩=‖uᵢ‖² car les vecteurs ne sont pas forcément unitaires.",
+      "tags": [
+        "projection",
+        "base orthogonale"
+      ]
+    },
+    {
+      "id": "alg-proj-006",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Si F=Vect(u,v), comment vérifier que w est orthogonal à tout F ?",
+      "answer": "Il suffit de vérifier ⟨w,u⟩=0 et ⟨w,v⟩=0.",
+      "explanation": "Par linéarité du produit scalaire, w sera alors orthogonal à toute combinaison linéaire de u et v.",
+      "tags": [
+        "orthogonalité",
+        "SEV"
+      ]
+    },
+    {
+      "id": "alg-proj-007",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Quelle propriété algébrique vérifie tout projecteur P ?",
+      "answer": "P²=P.",
+      "explanation": "Une fois un vecteur projeté, le projeter une deuxième fois ne change plus rien.",
+      "tags": [
+        "projecteur"
+      ]
+    },
+    {
+      "id": "alg-proj-008",
+      "subject": "Algèbre linéaire",
+      "chapter": "Projection orthogonale",
+      "prompt": "Une matrice de rotation générale est-elle un projecteur orthogonal ?",
+      "answer": "Non, car une rotation générale ne vérifie pas P²=P.",
+      "explanation": "Exception : l’identité, correspondant à une rotation d’angle multiple de 2π, est aussi un projecteur.",
+      "tags": [
+        "projecteur",
+        "rotation"
+      ]
+    },
+    {
+      "id": "alg-diag-001",
+      "subject": "Algèbre linéaire",
+      "chapter": "Diagonalisation",
+      "prompt": "Si la matrice de f dans la base (u₁,…,uₙ) est diagonale diag(λ₁,…,λₙ), que vaut f(uᵢ) ?",
+      "answer": "f(uᵢ)=λᵢuᵢ.",
+      "explanation": "Les vecteurs de cette base sont des vecteurs propres.",
+      "tags": [
+        "diagonalisation",
+        "vecteur propre"
+      ]
+    },
+    {
+      "id": "alg-diag-002",
+      "subject": "Algèbre linéaire",
+      "chapter": "Diagonalisation",
+      "prompt": "Comment lire le rang d’une matrice diagonale ?",
+      "answer": "Le rang est le nombre de coefficients diagonaux non nuls.",
+      "explanation": "Chaque coefficient diagonal non nul fournit une direction indépendante dans l’image.",
+      "tags": [
+        "rang",
+        "diagonalisation"
+      ]
+    },
+    {
+      "id": "alg-diag-003",
+      "subject": "Algèbre linéaire",
+      "chapter": "Diagonalisation",
+      "prompt": "Que garantit le théorème spectral pour une matrice réelle symétrique ?",
+      "answer": "Elle est diagonalisable dans une base orthonormée.",
+      "explanation": "C’est cette propriété qui intervient notamment dans la construction de la SVD via MᵀM.",
+      "tags": [
+        "symétrique",
+        "diagonalisation"
+      ]
+    },
+    {
+      "id": "alg-svd-001",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quelle est la forme d’une décomposition en valeurs singulières de M ?",
+      "answer": "M=UΣVᵀ.",
+      "explanation": "U et V sont orthogonales ; Σ contient les valeurs singulières sur sa diagonale.",
+      "tags": [
+        "SVD"
+      ]
+    },
+    {
+      "id": "alg-svd-002",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Une matrice doit-elle être carrée ou orthogonale pour posséder une SVD ?",
+      "answer": "Non. Toute matrice réelle, carrée ou rectangulaire, possède une SVD.",
+      "explanation": "C’est un avantage majeur de la SVD par rapport à la diagonalisation classique.",
+      "tags": [
+        "SVD"
+      ]
+    },
+    {
+      "id": "alg-svd-003",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Si M est de taille m×n dans M=UΣVᵀ, quelles sont les tailles de U, Σ et V pour la SVD complète ?",
+      "answer": "U est m×m, Σ est m×n et V est n×n.",
+      "explanation": "Le produit (m×m)(m×n)(n×n) redonne bien une matrice m×n.",
+      "tags": [
+        "SVD",
+        "dimensions"
+      ]
+    },
+    {
+      "id": "alg-svd-004",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quelle relation fondamentale lie M, vᵢ, uᵢ et la valeur singulière σᵢ ?",
+      "answer": "Mvᵢ=σᵢuᵢ.",
+      "explanation": "vᵢ est une direction de départ, σᵢ le facteur d’étirement et uᵢ la direction d’arrivée.",
+      "tags": [
+        "SVD",
+        "valeur singulière"
+      ]
+    },
+    {
+      "id": "alg-svd-005",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Les valeurs singulières peuvent-elles être négatives ?",
+      "answer": "Non. Par définition, σᵢ≥0.",
+      "explanation": "Elles sont les racines carrées des valeurs propres de MᵀM.",
+      "tags": [
+        "SVD",
+        "valeur singulière"
+      ]
+    },
+    {
+      "id": "alg-svd-006",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quelle matrice calcule-t-on d’abord pour construire une SVD à la main ?",
+      "answer": "MᵀM.",
+      "explanation": "Même si M n’est pas carrée, MᵀM est toujours carrée et symétrique.",
+      "tags": [
+        "SVD",
+        "algorithme"
+      ]
+    },
+    {
+      "id": "alg-svd-007",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Si M est de taille m×n, quelle est la taille de MᵀM ?",
+      "answer": "n×n.",
+      "explanation": "Mᵀ est n×m, donc (n×m)(m×n)=n×n.",
+      "tags": [
+        "SVD",
+        "dimensions"
+      ]
+    },
+    {
+      "id": "alg-svd-008",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quel lien existe entre les valeurs propres λᵢ de MᵀM et les valeurs singulières σᵢ de M ?",
+      "answer": "σᵢ=√λᵢ.",
+      "explanation": "Les valeurs propres de MᵀM sont non négatives.",
+      "tags": [
+        "SVD",
+        "valeur propre"
+      ]
+    },
+    {
+      "id": "alg-svd-009",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Comment obtient-on les vecteurs vᵢ de la SVD ?",
+      "answer": "Ce sont des vecteurs propres orthonormés de MᵀM.",
+      "explanation": "On diagonalise MᵀM ; les vecteurs propres normalisés deviennent les colonnes de V.",
+      "tags": [
+        "SVD",
+        "vecteur propre"
+      ]
+    },
+    {
+      "id": "alg-svd-010",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Comment calcule-t-on uᵢ à partir de vᵢ lorsque σᵢ≠0 ?",
+      "answer": "uᵢ = Mvᵢ / σᵢ.",
+      "explanation": "Cette formule vient de Mvᵢ=σᵢuᵢ.",
+      "tags": [
+        "SVD",
+        "algorithme"
+      ]
+    },
+    {
+      "id": "alg-svd-011",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Comment lire le rang de M à partir de sa SVD ?",
+      "answer": "Le rang est le nombre de valeurs singulières non nulles.",
+      "explanation": "Chaque σᵢ non nulle correspond à une direction qui n’est pas écrasée.",
+      "tags": [
+        "SVD",
+        "rang"
+      ]
+    },
+    {
+      "id": "alg-svd-012",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Que signifie σᵢ=0 pour le vecteur vᵢ ?",
+      "answer": "Mvᵢ=0, donc vᵢ∈Ker(M).",
+      "explanation": "La direction vᵢ est complètement écrasée par M.",
+      "tags": [
+        "SVD",
+        "noyau"
+      ]
+    },
+    {
+      "id": "alg-svd-013",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quand MᵀM est-elle inversible ?",
+      "answer": "Exactement quand Ker(M)={0}, c’est-à-dire quand les colonnes de M sont linéairement indépendantes.",
+      "explanation": "On a Ker(MᵀM)=Ker(M).",
+      "tags": [
+        "SVD",
+        "inverse",
+        "noyau"
+      ]
+    },
+    {
+      "id": "alg-svd-014",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Si M possède plus de colonnes que de lignes (m<n), MᵀM peut-elle être inversible ?",
+      "answer": "Non.",
+      "explanation": "Le rang de M est au plus m<n, donc M ne peut pas avoir n colonnes indépendantes et MᵀM est singulière.",
+      "tags": [
+        "SVD",
+        "rang",
+        "inverse"
+      ]
+    },
+    {
+      "id": "alg-svd-015",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quel est l’algorithme simplifié pour calculer une SVD à la main ?",
+      "answer": "Calculer MᵀM → trouver ses valeurs propres λᵢ et vecteurs propres vᵢ → σᵢ=√λᵢ → uᵢ=Mvᵢ/σᵢ pour σᵢ≠0.",
+      "explanation": "On complète ensuite U par des vecteurs orthonormés si nécessaire et on place les σᵢ dans Σ.",
+      "tags": [
+        "SVD",
+        "algorithme"
+      ]
+    },
+    {
+      "id": "alg-svd-016",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quelle est l’interprétation géométrique simple de M=UΣVᵀ ?",
+      "answer": "Changement de directions par Vᵀ, étirement/écrasement par Σ, puis changement de directions par U.",
+      "explanation": "On résume souvent cela par : rotation/réflexion → étirement → rotation/réflexion.",
+      "tags": [
+        "SVD",
+        "géométrie"
+      ]
+    },
+    {
+      "id": "alg-svd-017",
+      "subject": "Algèbre linéaire",
+      "chapter": "SVD",
+      "prompt": "Quelle différence essentielle entre diagonalisation et SVD concernant les vecteurs ?",
+      "answer": "En diagonalisation, Avᵢ=λᵢvᵢ ; en SVD, Mvᵢ=σᵢuᵢ.",
+      "explanation": "La diagonalisation garde la même direction propre vᵢ ; la SVD relie une direction de départ vᵢ à une direction d’arrivée uᵢ.",
+      "tags": [
+        "SVD",
+        "diagonalisation"
+      ]
+    }
+  ]
+}
