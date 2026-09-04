@@ -72,5 +72,26 @@ function bind(){
 }
 packInput.addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{mergePack(JSON.parse(await f.text()));render();}catch(err){alert('Fichier invalide : '+err.message);}e.target.value='';});
 backupInput.addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const b=JSON.parse(await f.text());if(b.type!=='mooc-revision-backup')throw new Error('Ce fichier n’est pas une sauvegarde');state.cards=b.cards||[];state.packs=b.packs||{};state.progress=b.progress||{};state.settings=b.settings||{retention:.90};save();render();}catch(err){alert('Sauvegarde invalide : '+err.message);}e.target.value='';});
-async function seed(){state.loading=true;state.error=null;render();try{if(!state.cards.length){const response=await fetch('./starter_questions.json?v=2',{cache:'no-store'});if(!response.ok)throw new Error(`Questions indisponibles (${response.status})`);mergePack(await response.json(),false);}state.loading=false;save();render();}catch(err){console.error(err);state.loading=false;state.error=err?.message||String(err);render();}}
+async function seed(){
+  state.loading=true;state.error=null;render();
+  try{
+    const sources=[
+      './starter_questions.json?v=5',
+      './python_types_extra.json?v=5',
+      './probabilities_extra.json?v=5',
+      './statistics_extra.json?v=5',
+      './linear_algebra_extra.json?v=5',
+      './databases_extra.json?v=5'
+    ];
+    const packs=await Promise.all(sources.map(async src=>{
+      const response=await fetch(src,{cache:'no-store'});
+      if(!response.ok)throw new Error(`Pack indisponible : ${src} (${response.status})`);
+      return response.json();
+    }));
+    packs.forEach(pack=>mergePack(pack,false));
+    state.loading=false;save();render();
+  }catch(err){
+    console.error(err);state.loading=false;state.error=err?.message||String(err);render();
+  }
+}
 load();render();seed();
