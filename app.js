@@ -31,7 +31,23 @@ function dueCards(){const t=now();return state.cards.filter(c=>{const p=progress
 function counts(){const t=now();let due=0,newc=0,learned=0;for(const c of state.cards){const p=progressFor(c.id);if(!p.reviewCount)newc++;else learned++;if(!p.reviewCount||(p.dueAt||0)<=t)due++}return{due,newc,learned,total:state.cards.length}}
 function toast(msg){const el=document.createElement('div');el.className='toast';el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),1800)}
 
-async function seed(){if(state.cards.length)return;const pack=await fetch('starter_questions.json').then(r=>r.json());mergePack(pack,false);save()}
+async function seed(){
+  const sources=[
+    'starter_questions.json?v=6',
+    'python_types_extra.json?v=6',
+    'probabilities_extra.json?v=6',
+    'statistics_extra.json?v=6',
+    'linear_algebra_extra.json?v=6',
+    'databases_extra.json?v=6'
+  ];
+  const packs=await Promise.all(sources.map(async src=>{
+    const r=await fetch(src,{cache:'no-store'});
+    if(!r.ok)throw new Error('Pack indisponible : '+src+' ('+r.status+')');
+    return r.json();
+  }));
+  packs.forEach(pack=>mergePack(pack,false));
+  save();
+}
 function mergePack(pack,notify=true){if(!pack||!Array.isArray(pack.questions))throw new Error('Format de pack invalide');const map=new Map(state.cards.map(c=>[c.id,c]));for(const q of pack.questions){if(!q.id||!q.prompt||!q.answer)continue;map.set(q.id,{id:q.id,subject:q.subject||'Autre',chapter:q.chapter||'',prompt:q.prompt,answer:q.answer,explanation:q.explanation||null,tags:q.tags||[],packID:pack.packID||'import'})}state.cards=[...map.values()];state.packs[pack.packID||`pack-${Date.now()}`]={title:pack.title||'Pack importé',version:pack.version||1,count:pack.questions.length,importedAt:Date.now()};save();if(notify)toast(`${pack.questions.length} questions importées`)}
 function startStudy(){state.session=dueCards();state.index=0;state.revealed=false;state.tab='study';render()}
 function grade(g){const c=state.session[state.index];if(!c)return;state.progress[c.id]=reviewCalc(progressFor(c.id),g).progress;save();state.index++;state.revealed=false;if(state.index>=state.session.length){state.tab='home';state.session=[];toast('Session terminée')}render()}
