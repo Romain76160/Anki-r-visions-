@@ -1,0 +1,670 @@
+{
+  "packID": "linux-basics-1",
+  "title": "Linux - Commandes essentielles",
+  "version": 1,
+  "questions": [
+    {
+      "id": "linux-nav-001",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait la commande pwd ?",
+      "answer": "Elle affiche le chemin absolu du dossier courant.",
+      "explanation": "pwd signifie Print Working Directory.",
+      "tags": [
+        "linux",
+        "navigation",
+        "pwd"
+      ]
+    },
+    {
+      "id": "linux-nav-002",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait la commande ls ?",
+      "answer": "Elle affiche le contenu d’un dossier : les fichiers ET les sous-dossiers.",
+      "explanation": "Sans argument, ls affiche le contenu du dossier courant.",
+      "tags": [
+        "linux",
+        "navigation",
+        "ls"
+      ]
+    },
+    {
+      "id": "linux-nav-003",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait ls -l ?",
+      "answer": "Elle affiche le contenu sous forme détaillée : droits, propriétaire, taille, date, nom, etc.",
+      "explanation": "Dans la première colonne, d indique un dossier et - un fichier ordinaire.",
+      "tags": [
+        "linux",
+        "ls",
+        "options"
+      ]
+    },
+    {
+      "id": "linux-nav-004",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait ls -a ?",
+      "answer": "Elle affiche aussi les fichiers et dossiers cachés.",
+      "explanation": "Sous Linux, un nom commençant par . est généralement caché.",
+      "tags": [
+        "linux",
+        "ls",
+        "hidden"
+      ]
+    },
+    {
+      "id": "linux-nav-005",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait ls -la ?",
+      "answer": "Elle combine l’affichage détaillé (-l) et les éléments cachés (-a).",
+      "explanation": "Les options courtes peuvent souvent être regroupées.",
+      "tags": [
+        "linux",
+        "ls",
+        "options"
+      ]
+    },
+    {
+      "id": "linux-nav-006",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "À quoi sert cd ?",
+      "answer": "À changer de dossier courant.",
+      "explanation": "Exemple : cd Documents entre dans le dossier Documents.",
+      "tags": [
+        "linux",
+        "navigation",
+        "cd"
+      ]
+    },
+    {
+      "id": "linux-nav-007",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que fait cd .. ?",
+      "answer": "Elle remonte dans le dossier parent.",
+      "explanation": ".. représente le dossier parent.",
+      "tags": [
+        "linux",
+        "navigation",
+        "cd"
+      ]
+    },
+    {
+      "id": "linux-nav-008",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que représente . dans un chemin Linux ?",
+      "answer": "Le dossier courant.",
+      "explanation": "Exemple : find . lance une recherche à partir du dossier courant.",
+      "tags": [
+        "linux",
+        "paths"
+      ]
+    },
+    {
+      "id": "linux-nav-009",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que représente .. dans un chemin Linux ?",
+      "answer": "Le dossier parent.",
+      "explanation": "cd .. permet de remonter d’un niveau.",
+      "tags": [
+        "linux",
+        "paths"
+      ]
+    },
+    {
+      "id": "linux-nav-010",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que représente ~ ?",
+      "answer": "Le dossier personnel de l’utilisateur courant.",
+      "explanation": "cd ~ ramène dans le dossier personnel.",
+      "tags": [
+        "linux",
+        "paths"
+      ]
+    },
+    {
+      "id": "linux-nav-011",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Que représente / tout seul ?",
+      "answer": "La racine du système de fichiers Linux.",
+      "explanation": "Tous les chemins absolus commencent par /.",
+      "tags": [
+        "linux",
+        "paths"
+      ]
+    },
+    {
+      "id": "linux-nav-012",
+      "subject": "Linux",
+      "chapter": "Navigation",
+      "prompt": "Quelle différence entre chemin absolu et chemin relatif ?",
+      "answer": "Un chemin absolu part de / ; un chemin relatif part du dossier courant.",
+      "explanation": "Exemples : /home/romain/Documents est absolu ; Documents est relatif.",
+      "tags": [
+        "linux",
+        "paths"
+      ]
+    },
+    {
+      "id": "linux-file-001",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait mkdir projet ?",
+      "answer": "Elle crée un dossier nommé projet.",
+      "explanation": "mkdir signifie Make Directory.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "mkdir"
+      ]
+    },
+    {
+      "id": "linux-file-002",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait touch fichier.txt ?",
+      "answer": "Elle crée un fichier vide s’il n’existe pas, ou met à jour sa date de modification s’il existe.",
+      "explanation": "Pour débuter, on l’utilise souvent pour créer rapidement un fichier vide.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "touch"
+      ]
+    },
+    {
+      "id": "linux-file-003",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait cp source.txt copie.txt ?",
+      "answer": "Elle copie source.txt vers copie.txt.",
+      "explanation": "cp signifie Copy.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "cp"
+      ]
+    },
+    {
+      "id": "linux-file-004",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Pourquoi utiliser cp -r pour un dossier ?",
+      "answer": "Parce que -r copie récursivement le dossier et tout son contenu.",
+      "explanation": "Sans -r, cp ne copie normalement pas un dossier complet.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "cp",
+        "recursive"
+      ]
+    },
+    {
+      "id": "linux-file-005",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "À quoi sert mv ?",
+      "answer": "À déplacer ou renommer un fichier ou un dossier.",
+      "explanation": "Exemple : mv ancien.txt nouveau.txt renomme le fichier.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "mv"
+      ]
+    },
+    {
+      "id": "linux-file-006",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait rm fichier.txt ?",
+      "answer": "Elle supprime le fichier fichier.txt.",
+      "explanation": "La suppression en ligne de commande ne passe généralement pas par une corbeille.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "rm"
+      ]
+    },
+    {
+      "id": "linux-file-007",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait rmdir dossier ?",
+      "answer": "Elle supprime un dossier vide.",
+      "explanation": "Si le dossier contient des éléments, rmdir échoue.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "rmdir"
+      ]
+    },
+    {
+      "id": "linux-file-008",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait rm -r dossier ?",
+      "answer": "Elle supprime récursivement le dossier et son contenu.",
+      "explanation": "Commande à utiliser avec prudence.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "rm",
+        "recursive"
+      ]
+    },
+    {
+      "id": "linux-file-009",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que signifie -f dans rm -rf ?",
+      "answer": "Force : la commande supprime sans demander certaines confirmations et ignore certains fichiers inexistants.",
+      "explanation": "rm -rf est potentiellement destructeur.",
+      "tags": [
+        "linux",
+        "filesystem",
+        "rm",
+        "force"
+      ]
+    },
+    {
+      "id": "linux-file-010",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que signifie généralement le joker * ?",
+      "answer": "Il correspond à n’importe quelle suite de caractères.",
+      "explanation": "Exemple : ls *.py sélectionne les noms se terminant par .py.",
+      "tags": [
+        "linux",
+        "shell",
+        "wildcard"
+      ]
+    },
+    {
+      "id": "linux-read-001",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait cat fichier.txt ?",
+      "answer": "Elle affiche le contenu du fichier dans le terminal.",
+      "explanation": "Pratique surtout pour les petits fichiers.",
+      "tags": [
+        "linux",
+        "cat",
+        "files"
+      ]
+    },
+    {
+      "id": "linux-read-002",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "À quoi sert less fichier.txt ?",
+      "answer": "À lire progressivement un fichier, avec navigation.",
+      "explanation": "On quitte généralement less avec q.",
+      "tags": [
+        "linux",
+        "less",
+        "files"
+      ]
+    },
+    {
+      "id": "linux-read-003",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait head fichier.txt ?",
+      "answer": "Elle affiche le début du fichier.",
+      "explanation": "head -n 20 affiche par exemple les 20 premières lignes.",
+      "tags": [
+        "linux",
+        "head",
+        "files"
+      ]
+    },
+    {
+      "id": "linux-read-004",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait tail fichier.txt ?",
+      "answer": "Elle affiche la fin du fichier.",
+      "explanation": "Très utile pour consulter les dernières lignes de logs.",
+      "tags": [
+        "linux",
+        "tail",
+        "logs"
+      ]
+    },
+    {
+      "id": "linux-read-005",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "À quoi sert tail -f application.log ?",
+      "answer": "À suivre en temps réel les nouvelles lignes ajoutées au fichier.",
+      "explanation": "Très courant pour surveiller des logs.",
+      "tags": [
+        "linux",
+        "tail",
+        "logs"
+      ]
+    },
+    {
+      "id": "linux-read-006",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "À quoi sert nano fichier.txt ?",
+      "answer": "À ouvrir et modifier le fichier avec l’éditeur Nano.",
+      "explanation": "Dans Nano : Ctrl+O sauvegarde et Ctrl+X quitte.",
+      "tags": [
+        "linux",
+        "nano",
+        "editor"
+      ]
+    },
+    {
+      "id": "linux-read-007",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait find . -name \"*.py\" ?",
+      "answer": "Elle cherche, depuis le dossier courant, les fichiers ou dossiers dont le nom correspond à *.py.",
+      "explanation": ". indique le point de départ de la recherche.",
+      "tags": [
+        "linux",
+        "find",
+        "search"
+      ]
+    },
+    {
+      "id": "linux-read-008",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "À quoi sert grep ?",
+      "answer": "À rechercher du texte correspondant à un motif.",
+      "explanation": "Exemple : grep \"error\" application.log.",
+      "tags": [
+        "linux",
+        "grep",
+        "search"
+      ]
+    },
+    {
+      "id": "linux-read-009",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait grep -i \"error\" fichier.log ?",
+      "answer": "Elle recherche error sans distinguer majuscules et minuscules.",
+      "explanation": "-i signifie case-insensitive.",
+      "tags": [
+        "linux",
+        "grep",
+        "search"
+      ]
+    },
+    {
+      "id": "linux-read-010",
+      "subject": "Linux",
+      "chapter": "Lecture et recherche",
+      "prompt": "Que fait grep -r \"mot\" . ?",
+      "answer": "Elle recherche récursivement mot dans les fichiers à partir du dossier courant.",
+      "explanation": "-r signifie récursif.",
+      "tags": [
+        "linux",
+        "grep",
+        "recursive"
+      ]
+    },
+    {
+      "id": "linux-shell-001",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "Que fait echo \"Bonjour\" > fichier.txt ?",
+      "answer": "Elle écrit Bonjour dans le fichier en remplaçant son contenu précédent.",
+      "explanation": "> redirige la sortie standard et écrase le fichier cible.",
+      "tags": [
+        "linux",
+        "redirection",
+        "shell"
+      ]
+    },
+    {
+      "id": "linux-shell-002",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "Quelle différence entre > et >> ?",
+      "answer": "> remplace le contenu du fichier ; >> ajoute à la fin.",
+      "explanation": "Les deux redirigent la sortie d’une commande.",
+      "tags": [
+        "linux",
+        "redirection",
+        "shell"
+      ]
+    },
+    {
+      "id": "linux-shell-003",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "À quoi sert le pipe | ?",
+      "answer": "À envoyer la sortie d’une commande comme entrée d’une autre commande.",
+      "explanation": "Exemple : ps aux | grep python.",
+      "tags": [
+        "linux",
+        "pipe",
+        "shell"
+      ]
+    },
+    {
+      "id": "linux-shell-004",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "Que fait ls | grep \".py\" ?",
+      "answer": "Elle liste le contenu puis ne conserve que les lignes contenant .py.",
+      "explanation": "Le résultat de ls est transmis à grep grâce au pipe.",
+      "tags": [
+        "linux",
+        "pipe",
+        "grep",
+        "ls"
+      ]
+    },
+    {
+      "id": "linux-shell-005",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "À quoi sert Ctrl+C dans un terminal ?",
+      "answer": "À interrompre le processus en cours au premier plan.",
+      "explanation": "Très utile pour arrêter ping ou une commande bloquée.",
+      "tags": [
+        "linux",
+        "terminal",
+        "signals"
+      ]
+    },
+    {
+      "id": "linux-shell-006",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "Que fait history ?",
+      "answer": "Elle affiche l’historique des commandes exécutées dans le shell.",
+      "explanation": "La flèche ↑ permet aussi de rappeler les commandes précédentes.",
+      "tags": [
+        "linux",
+        "history",
+        "shell"
+      ]
+    },
+    {
+      "id": "linux-shell-007",
+      "subject": "Linux",
+      "chapter": "Shell et redirections",
+      "prompt": "À quoi sert Ctrl+R dans de nombreux shells ?",
+      "answer": "À rechercher une commande précédente dans l’historique.",
+      "explanation": "On tape ensuite une partie de la commande recherchée.",
+      "tags": [
+        "linux",
+        "history",
+        "shell"
+      ]
+    },
+    {
+      "id": "linux-sys-001",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "Que fait ps ?",
+      "answer": "Elle affiche les processus associés au terminal courant.",
+      "explanation": "ps aux donne une vue beaucoup plus complète des processus.",
+      "tags": [
+        "linux",
+        "process",
+        "ps"
+      ]
+    },
+    {
+      "id": "linux-sys-002",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "Que fait ps aux ?",
+      "answer": "Elle affiche une liste détaillée des processus du système.",
+      "explanation": "On l’associe souvent à grep pour retrouver un processus.",
+      "tags": [
+        "linux",
+        "process",
+        "ps"
+      ]
+    },
+    {
+      "id": "linux-sys-003",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "À quoi sert top ?",
+      "answer": "À surveiller en temps réel les processus et l’utilisation des ressources.",
+      "explanation": "On peut généralement quitter avec q.",
+      "tags": [
+        "linux",
+        "process",
+        "top"
+      ]
+    },
+    {
+      "id": "linux-sys-004",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "Que fait kill 1234 ?",
+      "answer": "Elle envoie par défaut un signal d’arrêt au processus dont le PID est 1234.",
+      "explanation": "Le PID identifie un processus.",
+      "tags": [
+        "linux",
+        "process",
+        "kill"
+      ]
+    },
+    {
+      "id": "linux-sys-005",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "À quoi sert sudo ?",
+      "answer": "À exécuter une commande avec des privilèges élevés, généralement ceux de l’administrateur.",
+      "explanation": "Il faut vérifier attentivement une commande avant de la lancer avec sudo.",
+      "tags": [
+        "linux",
+        "sudo",
+        "permissions"
+      ]
+    },
+    {
+      "id": "linux-sys-006",
+      "subject": "Linux",
+      "chapter": "Système et processus",
+      "prompt": "À quoi sert man ls ?",
+      "answer": "À afficher la page de manuel de la commande ls.",
+      "explanation": "De nombreuses commandes proposent aussi --help.",
+      "tags": [
+        "linux",
+        "manual",
+        "help"
+      ]
+    },
+    {
+      "id": "linux-net-001",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "Que fait ip addr ?",
+      "answer": "Elle affiche les interfaces réseau et leurs adresses.",
+      "explanation": "Commande courante pour inspecter la configuration IP.",
+      "tags": [
+        "linux",
+        "network",
+        "ip"
+      ]
+    },
+    {
+      "id": "linux-net-002",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "À quoi sert ping google.com ?",
+      "answer": "À tester la joignabilité réseau de la machine distante et mesurer les temps de réponse.",
+      "explanation": "On arrête généralement ping avec Ctrl+C.",
+      "tags": [
+        "linux",
+        "network",
+        "ping"
+      ]
+    },
+    {
+      "id": "linux-net-003",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "À quoi sert curl ?",
+      "answer": "À transférer des données vers ou depuis une URL, notamment pour tester des API HTTP.",
+      "explanation": "Exemple : curl https://example.com.",
+      "tags": [
+        "linux",
+        "network",
+        "curl",
+        "http"
+      ]
+    },
+    {
+      "id": "linux-net-004",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "Que fait sudo apt update sur Debian/Ubuntu ?",
+      "answer": "Elle met à jour la liste des paquets disponibles et leurs versions.",
+      "explanation": "Elle n’installe pas à elle seule les mises à jour des logiciels.",
+      "tags": [
+        "linux",
+        "apt",
+        "packages"
+      ]
+    },
+    {
+      "id": "linux-net-005",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "Que fait sudo apt install git ?",
+      "answer": "Elle installe le paquet git sur Debian/Ubuntu.",
+      "explanation": "apt est le gestionnaire de paquets utilisé notamment par Debian et Ubuntu.",
+      "tags": [
+        "linux",
+        "apt",
+        "packages"
+      ]
+    },
+    {
+      "id": "linux-net-006",
+      "subject": "Linux",
+      "chapter": "Réseau et paquets",
+      "prompt": "Que fait sudo apt remove git ?",
+      "answer": "Elle désinstalle le paquet git.",
+      "explanation": "Les dépendances et fichiers de configuration peuvent être gérés séparément selon la commande utilisée.",
+      "tags": [
+        "linux",
+        "apt",
+        "packages"
+      ]
+    }
+  ]
+}
