@@ -1,0 +1,421 @@
+{
+  "packID": "statistiques-cours",
+  "title": "Statistiques — Estimation, TCL, IC et tests",
+  "version": 1,
+  "questions": [
+    {
+      "id": "statc-001",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce qu’une population en statistique ?",
+      "answer": "La population est l’ensemble complet des individus ou observations que l’on souhaite étudier.",
+      "explanation": "Un échantillon est seulement une partie de cette population.",
+      "tags": ["population"]
+    },
+    {
+      "id": "statc-002",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce qu’un échantillon ?",
+      "answer": "Un ensemble d’observations prélevées dans une population afin d’en tirer des informations sur cette population.",
+      "explanation": "On utilise l’échantillon lorsque l’étude de toute la population est impossible ou trop coûteuse.",
+      "tags": ["echantillon"]
+    },
+    {
+      "id": "statc-003",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Que signifie que X₁,…,Xₙ sont i.i.d. ?",
+      "answer": "Elles sont indépendantes et identiquement distribuées.",
+      "explanation": "Indépendantes : une observation n’influence pas les autres. Identiquement distribuées : elles suivent toutes la même loi.",
+      "tags": ["iid"]
+    },
+    {
+      "id": "statc-004",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce qu’un paramètre θ ?",
+      "answer": "Une quantité inconnue caractérisant la loi de la population que l’on cherche à estimer.",
+      "explanation": "Exemples : une moyenne μ, une proportion p ou une variance σ².",
+      "tags": ["parametre"]
+    },
+    {
+      "id": "statc-005",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce qu’un estimateur θ̂ ?",
+      "answer": "Une fonction des observations utilisée pour estimer le paramètre inconnu θ.",
+      "explanation": "Un estimateur est lui-même une variable aléatoire car il dépend de l’échantillon observé.",
+      "tags": ["estimateur"]
+    },
+    {
+      "id": "statc-006",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce que la moyenne empirique X̄ₙ ?",
+      "answer": "X̄ₙ = (1/n) Σᵢ Xᵢ.",
+      "explanation": "C’est la moyenne calculée à partir des n observations de l’échantillon.",
+      "tags": ["moyenne-empirique"]
+    },
+    {
+      "id": "statc-007",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Pour des variables de Bernoulli, que représente la moyenne empirique X̄ₙ ?",
+      "answer": "La proportion de succès observée dans l’échantillon.",
+      "explanation": "Si Xᵢ vaut 1 pour un succès et 0 sinon, X̄ₙ = nombre de succès / n.",
+      "tags": ["bernoulli", "proportion"]
+    },
+    {
+      "id": "statc-008",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce que le biais d’un estimateur θ̂ ?",
+      "answer": "Biais(θ̂) = E(θ̂) − θ.",
+      "explanation": "Il mesure l’écart systématique entre la valeur moyenne de l’estimateur et le vrai paramètre.",
+      "tags": ["biais"]
+    },
+    {
+      "id": "statc-009",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Quand un estimateur est-il sans biais ?",
+      "answer": "Quand E(θ̂) = θ.",
+      "explanation": "Son biais est alors nul.",
+      "tags": ["biais"]
+    },
+    {
+      "id": "statc-010",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "La moyenne empirique d’un échantillon de Bernoulli est-elle sans biais pour p ?",
+      "answer": "Oui : E(X̄ₙ)=p.",
+      "explanation": "Elle estime donc naturellement la proportion inconnue p.",
+      "tags": ["bernoulli", "biais"]
+    },
+    {
+      "id": "statc-011",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Si les Xᵢ sont i.i.d. de variance σ², que vaut Var(X̄ₙ) ?",
+      "answer": "Var(X̄ₙ)=σ²/n.",
+      "explanation": "La variance de la moyenne diminue quand la taille de l’échantillon augmente.",
+      "tags": ["variance", "moyenne-empirique"]
+    },
+    {
+      "id": "statc-012",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Pour des Bernoulli de paramètre p, que vaut Var(X̄ₙ) ?",
+      "answer": "Var(X̄ₙ)=p(1−p)/n.",
+      "explanation": "Car la variance d’une Bernoulli vaut p(1−p).",
+      "tags": ["bernoulli", "variance"]
+    },
+    {
+      "id": "statc-013",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Que vaut l’écart-type de la moyenne empirique si Var(Xᵢ)=σ² ?",
+      "answer": "σ/√n.",
+      "explanation": "On l’appelle aussi erreur standard de la moyenne lorsque σ est l’écart-type de la population.",
+      "tags": ["erreur-standard"]
+    },
+    {
+      "id": "statc-014",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "À quelle vitesse l’erreur standard de la moyenne diminue-t-elle avec n ?",
+      "answer": "Comme 1/√n.",
+      "explanation": "Pour diviser l’erreur standard par 2, il faut multiplier n par 4.",
+      "tags": ["erreur-standard"]
+    },
+    {
+      "id": "statc-015",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Qu’est-ce que l’erreur quadratique moyenne, ou EQM ?",
+      "answer": "EQM(θ̂)=E[(θ̂−θ)²].",
+      "explanation": "Elle mesure l’erreur quadratique moyenne commise par l’estimateur.",
+      "tags": ["eqm"]
+    },
+    {
+      "id": "statc-016",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Quelle est la décomposition biais-variance de l’EQM ?",
+      "answer": "EQM(θ̂)=Var(θ̂)+Biais(θ̂)².",
+      "explanation": "La qualité d’un estimateur dépend donc à la fois de sa variance et de son biais.",
+      "tags": ["eqm", "biais-variance"]
+    },
+    {
+      "id": "statc-017",
+      "subject": "Statistiques",
+      "chapter": "Stat 1 — Estimation et échantillonnage",
+      "prompt": "Que devient l’EQM d’un estimateur sans biais ?",
+      "answer": "EQM(θ̂)=Var(θ̂).",
+      "explanation": "Le terme de biais est alors nul.",
+      "tags": ["eqm"]
+    },
+    {
+      "id": "statc-018",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Que dit intuitivement la loi des grands nombres ?",
+      "answer": "Quand n devient grand, la moyenne empirique se rapproche de l’espérance théorique.",
+      "explanation": "Les fluctuations aléatoires se compensent progressivement.",
+      "tags": ["lgn"]
+    },
+    {
+      "id": "statc-019",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Quelle est l’écriture essentielle de la loi des grands nombres ?",
+      "answer": "X̄ₙ → E(X) quand n→∞.",
+      "explanation": "Dans le cas Bernoulli, la fréquence observée converge vers p.",
+      "tags": ["lgn"]
+    },
+    {
+      "id": "statc-020",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Pour une Bernoulli de paramètre p, vers quoi converge X̄ₙ ?",
+      "answer": "Vers p.",
+      "explanation": "La fréquence observée se rapproche de la vraie proportion.",
+      "tags": ["lgn", "bernoulli"]
+    },
+    {
+      "id": "statc-021",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Qu’est-ce que la loi normale centrée réduite ?",
+      "answer": "La loi normale de moyenne 0 et de variance 1, notée N(0,1).",
+      "explanation": "Elle sert de référence pour standardiser de nombreuses variables.",
+      "tags": ["normale"]
+    },
+    {
+      "id": "statc-022",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Que permet le théorème central limite, ou TCL ?",
+      "answer": "D’approximer la distribution de la moyenne empirique par une loi normale lorsque n est suffisamment grand.",
+      "explanation": "Il décrit les fluctuations de X̄ₙ autour de la vraie moyenne.",
+      "tags": ["tcl"]
+    },
+    {
+      "id": "statc-023",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Si E(Xᵢ)=μ et Var(Xᵢ)=σ², quelle quantité converge vers N(0,1) par le TCL ?",
+      "answer": "√n (X̄ₙ−μ) / σ.",
+      "explanation": "C’est la moyenne empirique centrée puis standardisée.",
+      "tags": ["tcl", "formule"]
+    },
+    {
+      "id": "statc-024",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Quelle approximation le TCL donne-t-il pour X̄ₙ ?",
+      "answer": "X̄ₙ ≈ N(μ, σ²/n).",
+      "explanation": "Sa moyenne est μ et sa variance diminue comme 1/n.",
+      "tags": ["tcl", "normale"]
+    },
+    {
+      "id": "statc-025",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Quelle est la différence fondamentale entre la LGN et le TCL ?",
+      "answer": "La LGN indique vers quelle valeur X̄ₙ converge ; le TCL décrit la forme de ses fluctuations autour de cette valeur.",
+      "explanation": "LGN = convergence. TCL = distribution approximative des fluctuations.",
+      "tags": ["lgn", "tcl", "piege"]
+    },
+    {
+      "id": "statc-026",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Pour Xᵢ ~ Ber(p), quelle approximation donne le TCL pour X̄ₙ ?",
+      "answer": "X̄ₙ ≈ N(p, p(1−p)/n).",
+      "explanation": "C’est l’approximation normale de la proportion observée.",
+      "tags": ["tcl", "bernoulli"]
+    },
+    {
+      "id": "statc-027",
+      "subject": "Statistiques",
+      "chapter": "Stat 2 — LGN, TCL et loi normale",
+      "prompt": "Pour Z ~ N(0,1), que vaut approximativement P(−1,96 ≤ Z ≤ 1,96) ?",
+      "answer": "Environ 0,95, soit 95 %.",
+      "explanation": "C’est l’origine du coefficient 1,96 dans de nombreux intervalles de confiance à 95 %.",
+      "tags": ["normale", "1.96"]
+    },
+    {
+      "id": "statc-028",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Qu’est-ce qu’un intervalle de confiance ?",
+      "answer": "Un intervalle construit à partir de l’échantillon pour encadrer un paramètre inconnu avec un niveau de confiance donné.",
+      "explanation": "Il quantifie l’incertitude liée à l’échantillonnage.",
+      "tags": ["ic"]
+    },
+    {
+      "id": "statc-029",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Quelle est la forme asymptotique d’un IC à 95 % pour une proportion p ?",
+      "answer": "X̄ₙ ± 1,96 √[X̄ₙ(1−X̄ₙ)/n].",
+      "explanation": "On utilise X̄ₙ pour estimer p dans l’erreur standard.",
+      "tags": ["ic", "proportion"]
+    },
+    {
+      "id": "statc-030",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Pourquoi remplace-t-on p par X̄ₙ dans l’IC d’une proportion ?",
+      "answer": "Parce que p est inconnu et que X̄ₙ est son estimateur naturel.",
+      "explanation": "On remplace donc la quantité inconnue par son estimation issue des données.",
+      "tags": ["ic", "proportion"]
+    },
+    {
+      "id": "statc-031",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Que représente 1,96 dans un intervalle de confiance asymptotique à 95 % ?",
+      "answer": "Le quantile de la loi normale centrée réduite qui laisse environ 95 % de probabilité entre −1,96 et 1,96.",
+      "explanation": "",
+      "tags": ["ic", "normale"]
+    },
+    {
+      "id": "statc-032",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Comment évolue généralement la largeur d’un intervalle de confiance quand n augmente ?",
+      "answer": "Elle diminue approximativement comme 1/√n.",
+      "explanation": "Un échantillon plus grand permet une estimation plus précise.",
+      "tags": ["ic", "precision"]
+    },
+    {
+      "id": "statc-033",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Un intervalle obtenu avec Tchebychev est-il généralement plus large ou plus étroit qu’un IC basé sur le TCL ?",
+      "answer": "Plus large.",
+      "explanation": "Tchebychev fait moins d’hypothèses et fournit donc souvent une borne plus conservative.",
+      "tags": ["ic", "tchebychev"]
+    },
+    {
+      "id": "statc-034",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Que représente l’effectif d’une classe dans un histogramme ?",
+      "answer": "Le nombre d’observations qui appartiennent à cette classe.",
+      "explanation": "Divisé par n, il donne la fréquence observée de la classe.",
+      "tags": ["histogramme"]
+    },
+    {
+      "id": "statc-035",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Pour une classe de largeur h, comment estime-t-on une densité avec un histogramme ?",
+      "answer": "densité ≈ effectif de la classe / (n h).",
+      "explanation": "Ainsi, l’aire du rectangle correspond à la fréquence de la classe.",
+      "tags": ["histogramme", "densite"]
+    },
+    {
+      "id": "statc-036",
+      "subject": "Statistiques",
+      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
+      "prompt": "Pourquoi divise-t-on par la largeur h dans un histogramme de densité ?",
+      "answer": "Pour que l’aire de chaque rectangle, et non seulement sa hauteur, représente une probabilité ou une fréquence.",
+      "explanation": "C’est indispensable lorsque les classes n’ont pas toutes la même largeur.",
+      "tags": ["histogramme"]
+    },
+    {
+      "id": "statc-037",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quel est le principe général d’un test d’hypothèse ?",
+      "answer": "Utiliser les données d’un échantillon pour décider si une hypothèse de référence est suffisamment incompatible avec les observations.",
+      "explanation": "On quantifie si l’écart observé peut raisonnablement être attribué au hasard.",
+      "tags": ["test"]
+    },
+    {
+      "id": "statc-038",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Qu’est-ce que l’hypothèse nulle H₀ ?",
+      "answer": "L’hypothèse de référence que l’on cherche à confronter aux données.",
+      "explanation": "Dans un A/B test, H₀ peut représenter l’absence de différence entre A et B.",
+      "tags": ["test", "h0"]
+    },
+    {
+      "id": "statc-039",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Qu’est-ce que l’hypothèse alternative H₁ ?",
+      "answer": "L’hypothèse concurrente à H₀, correspondant à l’effet ou à la différence que l’on cherche à mettre en évidence.",
+      "explanation": "",
+      "tags": ["test", "h1"]
+    },
+    {
+      "id": "statc-040",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Dans un A/B test comparant deux proportions, quelle statistique simple peut-on examiner ?",
+      "answer": "La différence des proportions observées : X̄ − Ȳ.",
+      "explanation": "Une différence observée ne suffit cependant pas à conclure qu’il existe un effet réel.",
+      "tags": ["ab-test"]
+    },
+    {
+      "id": "statc-041",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Pourquoi une différence observée entre deux groupes ne suffit-elle pas à conclure ?",
+      "answer": "Parce qu’une différence peut apparaître uniquement à cause des fluctuations aléatoires de l’échantillonnage.",
+      "explanation": "Un test statistique sert à évaluer si l’écart est suffisamment grand par rapport au hasard attendu.",
+      "tags": ["ab-test", "test"]
+    },
+    {
+      "id": "statc-042",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Qu’est-ce qu’une p-value ?",
+      "answer": "Sous H₀, c’est la probabilité d’obtenir un résultat au moins aussi extrême que celui observé.",
+      "explanation": "Ce n’est pas la probabilité que H₀ soit vraie.",
+      "tags": ["p-value"]
+    },
+    {
+      "id": "statc-043",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Avec un seuil α=0,05, que fait-on généralement si p-value < 0,05 ?",
+      "answer": "On rejette H₀ au seuil de 5 %.",
+      "explanation": "Cela ne signifie pas qu’il y a 95 % de chances que H₁ soit vraie.",
+      "tags": ["p-value", "alpha"]
+    },
+    {
+      "id": "statc-044",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Qu’est-ce qu’une erreur de type I ?",
+      "answer": "Rejeter H₀ alors qu’elle est vraie : un faux positif.",
+      "explanation": "Le risque associé est contrôlé par le seuil α.",
+      "tags": ["type-i"]
+    },
+    {
+      "id": "statc-045",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Qu’est-ce qu’une erreur de type II ?",
+      "answer": "Ne pas rejeter H₀ alors qu’elle est fausse : un faux négatif.",
+      "explanation": "Sa probabilité est souvent notée β.",
+      "tags": ["type-ii"]
+    },
+    {
+      "id": "statc-046",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Pourquoi « ne pas rejeter H₀ » ne signifie-t-il pas « H₀ est vraie » ?",
+      "answer": "Parce que les données peuvent simplement être insuffisantes pour détecter un effet réel.",
+      "explanation": "L’absence de preuve contre H₀ n’est pas une preuve de H₀.",
+      "tags": ["test", "piege"]
+    }
+  ]
+}
