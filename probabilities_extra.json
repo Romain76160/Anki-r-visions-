@@ -1,277 +1,1239 @@
 {
-  "packID": "probabilites-bases",
-  "title": "Probabilités - Bases",
-  "version": 1,
+  "packID": "probabilites",
+  "title": "Probabilités — 3 chapitres",
+  "version": 2,
   "questions": [
     {
-      "id": "prob-001",
+      "id": "p1-001",
       "subject": "Probabilités",
-      "chapter": "Bases",
+      "chapter": "Proba 1 — Bases et lois discrètes",
       "prompt": "Qu’est-ce qu’une expérience aléatoire ?",
       "answer": "Une expérience dont on connaît les résultats possibles, mais dont on ne peut pas prévoir avec certitude le résultat avant de la réaliser.",
-      "explanation": "Exemple : lancer un dé. On sait que le résultat sera 1, 2, 3, 4, 5 ou 6, mais on ne sait pas lequel sortira avant le lancer.",
-      "tags": ["vocabulaire"]
+      "explanation": "Exemple : lancer un dé.",
+      "tags": [
+        "vocabulaire"
+      ]
     },
     {
-      "id": "prob-002",
+      "id": "p1-002",
       "subject": "Probabilités",
-      "chapter": "Bases",
-      "prompt": "Qu’est-ce que l’univers Ω d’une expérience aléatoire ?",
-      "answer": "L’univers Ω est l’ensemble de tous les résultats possibles de l’expérience.",
-      "explanation": "Exemple : pour un dé à 6 faces, Ω = {1,2,3,4,5,6}. Pour une pièce, Ω = {Pile, Face}.",
-      "tags": ["vocabulaire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce que Ω en probabilités ?",
+      "answer": "Ω est l’univers : l’ensemble de toutes les issues possibles d’une expérience aléatoire.",
+      "explanation": "Pour un dé : Ω = {1,2,3,4,5,6}.",
+      "tags": [
+        "vocabulaire"
+      ]
     },
     {
-      "id": "prob-003",
+      "id": "p1-003",
       "subject": "Probabilités",
-      "chapter": "Bases",
-      "prompt": "Qu’est-ce qu’un événement ?",
-      "answer": "Un événement est un ensemble de résultats possibles, donc une partie de l’univers Ω.",
-      "explanation": "Exemple : avec un dé, l’événement A = « obtenir un nombre pair » correspond à A = {2,4,6}.",
-      "tags": ["vocabulaire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce que ∅ en probabilités ?",
+      "answer": "∅ est l’ensemble vide. Il représente l’événement impossible.",
+      "explanation": "Un événement impossible a une probabilité égale à 0.",
+      "tags": [
+        "vocabulaire"
+      ]
     },
     {
-      "id": "prob-004",
+      "id": "p1-004",
       "subject": "Probabilités",
-      "chapter": "Bases",
-      "prompt": "Quelle est la différence entre un événement certain et un événement impossible ?",
-      "answer": "L’événement certain est Ω et a une probabilité de 1. L’événement impossible est ∅ et a une probabilité de 0.",
-      "explanation": "Sur un dé classique, « obtenir un nombre entre 1 et 6 » est certain ; « obtenir 8 » est impossible.",
-      "tags": ["vocabulaire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce qu’un événement A ?",
+      "answer": "Un événement est un ensemble d’issues possibles, donc A ⊆ Ω.",
+      "explanation": "Exemple : avec un dé, A = « obtenir un nombre pair » = {2,4,6}.",
+      "tags": [
+        "vocabulaire"
+      ]
     },
     {
-      "id": "prob-005",
+      "id": "p1-005",
       "subject": "Probabilités",
-      "chapter": "Bases",
-      "prompt": "Dans un cas équiprobable, comment calcule-t-on P(A) ?",
-      "answer": "P(A) = nombre de cas favorables / nombre total de cas possibles.",
-      "explanation": "Cette formule ne s’utilise directement que lorsque tous les résultats élémentaires ont la même probabilité. Exemple : sur un dé équilibré, P(nombre pair)=3/6=1/2.",
-      "tags": ["calcul"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que vaut P(Ω) ?",
+      "answer": "P(Ω) = 1.",
+      "explanation": "Une issue appartenant à l’univers se produit forcément.",
+      "tags": [
+        "formule"
+      ]
     },
     {
-      "id": "prob-006",
+      "id": "p1-006",
       "subject": "Probabilités",
-      "chapter": "Opérations sur les événements",
-      "prompt": "Que signifie A ∪ B ?",
-      "answer": "A ∪ B signifie : l’événement A ou l’événement B se produit, éventuellement les deux.",
-      "explanation": "Exemple : A = « nombre pair », B = « nombre supérieur à 4 ». A ∪ B contient les résultats qui vérifient au moins une des deux conditions.",
-      "tags": ["ensembles"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que vaut P(∅) ?",
+      "answer": "P(∅) = 0.",
+      "explanation": "L’événement impossible ne peut pas se produire.",
+      "tags": [
+        "formule"
+      ]
     },
     {
-      "id": "prob-007",
+      "id": "p1-007",
       "subject": "Probabilités",
-      "chapter": "Opérations sur les événements",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce que l’événement contraire Aᶜ ?",
+      "answer": "Aᶜ contient toutes les issues de Ω qui ne sont pas dans A.",
+      "explanation": "A et Aᶜ couvrent ensemble tout Ω.",
+      "tags": [
+        "ensembles"
+      ]
+    },
+    {
+      "id": "p1-008",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que vaut P(Aᶜ) ?",
+      "answer": "P(Aᶜ) = 1 − P(A).",
+      "explanation": "",
+      "tags": [
+        "formule"
+      ]
+    },
+    {
+      "id": "p1-009",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
       "prompt": "Que signifie A ∩ B ?",
-      "answer": "A ∩ B signifie : les événements A et B se produisent en même temps.",
-      "explanation": "Exemple : avec un dé, si A = « nombre pair » et B = « nombre > 3 », alors A ∩ B = {4,6}.",
-      "tags": ["ensembles"]
+      "answer": "A ∩ B signifie : A ET B se produisent.",
+      "explanation": "C’est l’intersection des deux événements.",
+      "tags": [
+        "ensembles"
+      ]
     },
     {
-      "id": "prob-008",
+      "id": "p1-010",
       "subject": "Probabilités",
-      "chapter": "Opérations sur les événements",
-      "prompt": "Qu’est-ce que l’événement contraire de A ?",
-      "answer": "L’événement contraire, noté Ā ou Aᶜ, correspond à tous les résultats où A ne se produit pas.",
-      "explanation": "On a toujours P(Aᶜ)=1−P(A). Exemple : si P(A)=0,7, alors P(Aᶜ)=0,3.",
-      "tags": ["ensembles"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que signifie A ∪ B ?",
+      "answer": "A ∪ B signifie : A OU B se produit, éventuellement les deux.",
+      "explanation": "C’est l’union des deux événements.",
+      "tags": [
+        "ensembles"
+      ]
     },
     {
-      "id": "prob-009",
+      "id": "p1-011",
       "subject": "Probabilités",
-      "chapter": "Opérations sur les événements",
-      "prompt": "Quelle formule permet de calculer P(A ∪ B) ?",
-      "answer": "P(A ∪ B)=P(A)+P(B)−P(A ∩ B).",
-      "explanation": "On soustrait P(A ∩ B) car les cas appartenant aux deux événements ont été comptés deux fois dans P(A)+P(B).",
-      "tags": ["formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule de P(A ∪ B) ?",
+      "answer": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B).",
+      "explanation": "On retire l’intersection car elle a été comptée deux fois.",
+      "tags": [
+        "formule"
+      ]
     },
     {
-      "id": "prob-010",
+      "id": "p1-012",
       "subject": "Probabilités",
-      "chapter": "Opérations sur les événements",
-      "prompt": "Que signifie que deux événements sont incompatibles ?",
-      "answer": "Ils ne peuvent pas se produire simultanément : A ∩ B = ∅.",
-      "explanation": "Dans ce cas P(A ∩ B)=0, donc P(A ∪ B)=P(A)+P(B). Incompatible ne veut pas dire indépendant.",
-      "tags": ["vocabulaire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Dans un univers fini équiprobable, comment calcule-t-on P(A) ?",
+      "answer": "P(A) = nombre d’issues favorables / nombre total d’issues.",
+      "explanation": "Cette formule suppose que toutes les issues élémentaires sont équiprobables.",
+      "tags": [
+        "calcul"
+      ]
     },
     {
-      "id": "prob-011",
+      "id": "p1-013",
       "subject": "Probabilités",
-      "chapter": "Probabilités conditionnelles",
-      "prompt": "Qu’est-ce qu’une probabilité conditionnelle P(A|B) ?",
-      "answer": "C’est la probabilité que A se produise sachant que B s’est déjà produit.",
-      "explanation": "Le fait de savoir que B est réalisé réduit l’univers aux cas appartenant à B. On ne raisonne donc plus sur tous les cas possibles.",
-      "tags": ["conditionnelle"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que signifie P(A|B) ?",
+      "answer": "C’est la probabilité que A se produise sachant que B s’est produit.",
+      "explanation": "Dans P(A|B), B est l’information connue.",
+      "tags": [
+        "conditionnelle"
+      ]
     },
     {
-      "id": "prob-012",
+      "id": "p1-014",
       "subject": "Probabilités",
-      "chapter": "Probabilités conditionnelles",
+      "chapter": "Proba 1 — Bases et lois discrètes",
       "prompt": "Quelle est la formule de P(A|B) ?",
-      "answer": "P(A|B)=P(A ∩ B)/P(B), à condition que P(B)>0.",
-      "explanation": "On cherche la proportion de cas où A et B se produisent parmi les cas où B est déjà réalisé.",
-      "tags": ["formule"]
+      "answer": "P(A|B) = P(A ∩ B) / P(B), si P(B) > 0.",
+      "explanation": "On se restreint aux cas où B est réalisé.",
+      "tags": [
+        "formule"
+      ]
     },
     {
-      "id": "prob-013",
+      "id": "p1-015",
       "subject": "Probabilités",
-      "chapter": "Probabilités conditionnelles",
-      "prompt": "Comment retrouver P(A ∩ B) à partir d’une probabilité conditionnelle ?",
-      "answer": "P(A ∩ B)=P(B)×P(A|B).",
-      "explanation": "On peut aussi écrire P(A ∩ B)=P(A)×P(B|A). Cette formule est à la base des arbres de probabilités.",
-      "tags": ["formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment calculer P(A ∩ B) avec une probabilité conditionnelle ?",
+      "answer": "P(A ∩ B) = P(A|B) × P(B).",
+      "explanation": "On peut aussi écrire P(A ∩ B) = P(B|A) × P(A).",
+      "tags": [
+        "formule"
+      ]
     },
     {
-      "id": "prob-014",
+      "id": "p1-016",
       "subject": "Probabilités",
-      "chapter": "Indépendance",
-      "prompt": "Quand deux événements A et B sont-ils indépendants ?",
-      "answer": "Ils sont indépendants lorsque le fait que l’un se produise ne change pas la probabilité de l’autre.",
-      "explanation": "Critère : P(A ∩ B)=P(A)P(B). Si P(B)>0, cela équivaut à P(A|B)=P(A).",
-      "tags": ["independance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Dans P(A|B), quel événement est supposé déjà réalisé ?",
+      "answer": "B.",
+      "explanation": "On lit « probabilité de A sachant B ».",
+      "tags": [
+        "conditionnelle"
+      ]
     },
     {
-      "id": "prob-015",
+      "id": "p1-017",
       "subject": "Probabilités",
-      "chapter": "Indépendance",
-      "prompt": "Quelle est la différence entre événements indépendants et événements incompatibles ?",
-      "answer": "Indépendants : l’un n’influence pas l’autre. Incompatibles : ils ne peuvent jamais arriver ensemble.",
-      "explanation": "Deux événements incompatibles de probabilités non nulles ne sont pas indépendants, car savoir que A s’est produit rend B impossible.",
-      "tags": ["independance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que signifie que A et B sont indépendants ?",
+      "answer": "Savoir que l’un s’est produit ne change pas la probabilité de l’autre.",
+      "explanation": "Par exemple, si P(B)>0 : P(A|B)=P(A).",
+      "tags": [
+        "independance"
+      ]
     },
     {
-      "id": "prob-016",
+      "id": "p1-018",
       "subject": "Probabilités",
-      "chapter": "Probabilités totales",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle formule caractérise l’indépendance de A et B ?",
+      "answer": "P(A ∩ B) = P(A)P(B).",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p1-019",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Si A et B sont indépendants, que vaut P(A|B) ?",
+      "answer": "P(A|B) = P(A), si P(B)>0.",
+      "explanation": "La connaissance de B n’apporte aucune information sur A.",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p1-020",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que signifie que A et B sont incompatibles ?",
+      "answer": "Ils ne peuvent pas se produire en même temps : A ∩ B = ∅.",
+      "explanation": "Donc P(A ∩ B)=0.",
+      "tags": [
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "p1-021",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Indépendance et incompatibilité sont-elles la même chose ?",
+      "answer": "Non.",
+      "explanation": "Incompatibles = jamais ensemble. Indépendants = la réalisation de l’un n’influence pas la probabilité de l’autre.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p1-022",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Deux événements incompatibles de probabilités non nulles peuvent-ils être indépendants ?",
+      "answer": "Non.",
+      "explanation": "Ils ont P(A ∩ B)=0 alors que P(A)P(B)>0.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p1-023",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce qu’une partition de Ω ?",
+      "answer": "Des événements B₁,…,Bₙ incompatibles deux à deux et dont l’union vaut Ω.",
+      "explanation": "Exactement un des cas de la partition se produit.",
+      "tags": [
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "p1-024",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule des probabilités totales ?",
+      "answer": "Si B₁,…,Bₙ forment une partition : P(A) = Σᵢ P(A|Bᵢ)P(Bᵢ).",
+      "explanation": "On décompose le calcul de P(A) selon plusieurs cas possibles.",
+      "tags": [
+        "formule"
+      ]
+    },
+    {
+      "id": "p1-025",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
       "prompt": "À quoi sert la formule des probabilités totales ?",
-      "answer": "Elle permet de calculer la probabilité d’un événement en le décomposant selon plusieurs cas possibles qui forment une partition de l’univers.",
-      "explanation": "Si B₁,…,Bₙ forment une partition : P(A)=Σ P(Bᵢ)P(A|Bᵢ). Très utile avec un arbre de probabilités.",
-      "tags": ["formule"]
+      "answer": "À calculer P(A) en séparant le problème en plusieurs cas possibles.",
+      "explanation": "Très utile avec un arbre de probabilités.",
+      "tags": [
+        "comprehension"
+      ]
     },
     {
-      "id": "prob-017",
+      "id": "p1-026",
       "subject": "Probabilités",
-      "chapter": "Bayes",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule de Bayes ?",
+      "answer": "P(B|A) = P(A|B)P(B) / P(A), si P(A)>0.",
+      "explanation": "Elle permet d’inverser le conditionnement.",
+      "tags": [
+        "bayes"
+      ]
+    },
+    {
+      "id": "p1-027",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
       "prompt": "À quoi sert la formule de Bayes ?",
-      "answer": "Elle permet d’inverser une probabilité conditionnelle : passer de P(B|A) à P(A|B).",
-      "explanation": "Elle sert par exemple à déterminer la probabilité d’avoir une maladie sachant qu’un test est positif, alors que l’on connaît souvent plutôt la probabilité que le test soit positif sachant que la personne est malade.",
-      "tags": ["bayes"]
+      "answer": "À inverser un conditionnement : retrouver P(B|A) à partir notamment de P(A|B).",
+      "explanation": "Exemple classique : diagnostic médical.",
+      "tags": [
+        "bayes"
+      ]
     },
     {
-      "id": "prob-018",
+      "id": "p1-028",
       "subject": "Probabilités",
-      "chapter": "Bayes",
-      "prompt": "Quelle est la formule de Bayes pour deux événements A et B ?",
-      "answer": "P(A|B)=P(B|A)P(A)/P(B), lorsque P(B)>0.",
-      "explanation": "Le numérateur correspond à P(A ∩ B). Le dénominateur P(B) peut souvent être calculé avec la formule des probabilités totales.",
-      "tags": ["bayes", "formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce qu’une variable aléatoire X ?",
+      "answer": "Une fonction qui associe une valeur numérique à chaque issue de l’expérience.",
+      "explanation": "Exemple : X peut représenter la somme de deux dés.",
+      "tags": [
+        "variable-aleatoire"
+      ]
     },
     {
-      "id": "prob-019",
+      "id": "p1-029",
       "subject": "Probabilités",
-      "chapter": "Variables aléatoires",
-      "prompt": "Qu’est-ce qu’une variable aléatoire ?",
-      "answer": "Une fonction qui associe une valeur numérique à chaque résultat d’une expérience aléatoire.",
-      "explanation": "Exemple : on lance deux dés et X désigne leur somme. Chaque résultat (dé1,dé2) est associé à une valeur de X comprise entre 2 et 12.",
-      "tags": ["variable-aleatoire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que représente P(X=k) ?",
+      "answer": "La probabilité que la variable aléatoire X prenne la valeur k.",
+      "explanation": "",
+      "tags": [
+        "variable-aleatoire"
+      ]
     },
     {
-      "id": "prob-020",
+      "id": "p1-030",
       "subject": "Probabilités",
-      "chapter": "Variables aléatoires",
-      "prompt": "Qu’est-ce que la loi d’une variable aléatoire discrète X ?",
-      "answer": "La loi de X donne toutes les valeurs possibles de X et la probabilité associée à chacune.",
-      "explanation": "On peut la représenter par un tableau : valeur xᵢ puis P(X=xᵢ). La somme de toutes ces probabilités doit être égale à 1.",
-      "tags": ["variable-aleatoire"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle condition doit respecter la loi d’une variable aléatoire discrète ?",
+      "answer": "Σₖ P(X=k) = 1.",
+      "explanation": "La somme des probabilités de toutes les valeurs possibles vaut 1.",
+      "tags": [
+        "variable-aleatoire"
+      ]
     },
     {
-      "id": "prob-021",
+      "id": "p1-031",
       "subject": "Probabilités",
-      "chapter": "Espérance",
-      "prompt": "Que représente l’espérance E(X) ?",
-      "answer": "L’espérance est la valeur moyenne théorique que l’on obtiendrait sur un très grand nombre de répétitions de l’expérience.",
-      "explanation": "Ce n’est pas forcément une valeur que X peut réellement prendre. Par exemple, l’espérance d’un dé équilibré vaut 3,5.",
-      "tags": ["esperance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce que la loi jointe de deux variables discrètes X et Y ?",
+      "answer": "L’ensemble des probabilités P(X=k, Y=l) pour toutes les valeurs possibles k et l.",
+      "explanation": "Elle décrit simultanément X et Y.",
+      "tags": [
+        "loi-jointe"
+      ]
     },
     {
-      "id": "prob-022",
+      "id": "p1-032",
       "subject": "Probabilités",
-      "chapter": "Espérance",
-      "prompt": "Comment calcule-t-on l’espérance d’une variable aléatoire discrète ?",
-      "answer": "E(X)=Σ xᵢ×P(X=xᵢ).",
-      "explanation": "On multiplie chaque valeur possible par sa probabilité, puis on additionne. C’est une moyenne pondérée par les probabilités.",
-      "tags": ["esperance", "formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce qu’une loi marginale ?",
+      "answer": "La loi d’une seule variable obtenue à partir de la loi jointe.",
+      "explanation": "On « somme » sur toutes les valeurs possibles de l’autre variable.",
+      "tags": [
+        "marginale"
+      ]
     },
     {
-      "id": "prob-023",
+      "id": "p1-033",
       "subject": "Probabilités",
-      "chapter": "Variance",
-      "prompt": "À quoi sert la variance V(X) ?",
-      "answer": "Elle mesure à quel point les valeurs de X sont dispersées autour de l’espérance.",
-      "explanation": "Une variance faible signifie que les valeurs sont souvent proches de la moyenne ; une variance élevée indique davantage de dispersion.",
-      "tags": ["variance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment obtenir la loi marginale de X à partir de la loi jointe ?",
+      "answer": "P(X=k) = Σₗ P(X=k, Y=l).",
+      "explanation": "",
+      "tags": [
+        "marginale"
+      ]
     },
     {
-      "id": "prob-024",
+      "id": "p1-034",
       "subject": "Probabilités",
-      "chapter": "Variance",
-      "prompt": "Quelle formule pratique permet de calculer V(X) ?",
-      "answer": "V(X)=E(X²)−[E(X)]².",
-      "explanation": "On calcule d’abord E(X²)=Σ xᵢ²P(X=xᵢ), puis on soustrait le carré de l’espérance.",
-      "tags": ["variance", "formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quand deux variables aléatoires discrètes X et Y sont-elles indépendantes ?",
+      "answer": "Quand P(X=k,Y=l)=P(X=k)P(Y=l) pour toutes les valeurs k et l.",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
     },
     {
-      "id": "prob-025",
+      "id": "p1-035",
       "subject": "Probabilités",
-      "chapter": "Variance",
-      "prompt": "Qu’est-ce que l’écart-type σ(X) ?",
-      "answer": "L’écart-type est la racine carrée de la variance : σ(X)=√V(X).",
-      "explanation": "Contrairement à la variance, l’écart-type est exprimé dans la même unité que X, ce qui le rend plus facile à interpréter.",
-      "tags": ["variance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que représente intuitivement l’espérance E(X) ?",
+      "answer": "La moyenne théorique de X sur un très grand nombre de répétitions.",
+      "explanation": "Ce n’est pas forcément une valeur que X peut réellement prendre.",
+      "tags": [
+        "esperance"
+      ]
     },
     {
-      "id": "prob-026",
+      "id": "p1-036",
       "subject": "Probabilités",
-      "chapter": "Loi de Bernoulli",
-      "prompt": "Qu’est-ce qu’une épreuve de Bernoulli ?",
-      "answer": "Une expérience aléatoire qui possède seulement deux issues : succès et échec.",
-      "explanation": "On note généralement p la probabilité du succès et 1−p celle de l’échec. Exemple : « la pièce tombe sur Face » peut être considéré comme un succès.",
-      "tags": ["bernoulli"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment calcule-t-on l’espérance d’une variable discrète ?",
+      "answer": "E(X) = Σₖ k P(X=k).",
+      "explanation": "C’est une moyenne pondérée par les probabilités.",
+      "tags": [
+        "esperance"
+      ]
     },
     {
-      "id": "prob-027",
+      "id": "p1-037",
       "subject": "Probabilités",
-      "chapter": "Loi binomiale",
-      "prompt": "Quand une variable X suit-elle une loi binomiale B(n,p) ?",
-      "answer": "Quand X compte le nombre de succès obtenus lors de n épreuves de Bernoulli indépendantes ayant toutes la même probabilité de succès p.",
-      "explanation": "Exemple : lancer 10 fois une pièce équilibrée et compter le nombre de Faces donne X ~ B(10,0,5).",
-      "tags": ["binomiale"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la propriété de linéarité de l’espérance ?",
+      "answer": "E(aX+bY) = aE(X) + bE(Y).",
+      "explanation": "",
+      "tags": [
+        "esperance"
+      ]
     },
     {
-      "id": "prob-028",
+      "id": "p1-038",
       "subject": "Probabilités",
-      "chapter": "Loi binomiale",
-      "prompt": "Quelle est la probabilité d’obtenir exactement k succès si X ~ B(n,p) ?",
-      "answer": "P(X=k)=C(n,k) p^k (1−p)^(n−k).",
-      "explanation": "C(n,k) compte le nombre de façons de placer k succès parmi n essais. p^k correspond aux k succès et (1−p)^(n−k) aux échecs.",
-      "tags": ["binomiale", "formule"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Faut-il que X et Y soient indépendantes pour utiliser la linéarité de l’espérance ?",
+      "answer": "Non.",
+      "explanation": "La linéarité de l’espérance est vraie sans hypothèse d’indépendance.",
+      "tags": [
+        "piege"
+      ]
     },
     {
-      "id": "prob-029",
+      "id": "p1-039",
       "subject": "Probabilités",
-      "chapter": "Loi binomiale",
-      "prompt": "Quelle est l’espérance d’une loi binomiale B(n,p) ?",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Qu’est-ce que le théorème de transfert discret ?",
+      "answer": "E[f(X)] = Σₖ f(k)P(X=k).",
+      "explanation": "Il permet de calculer l’espérance d’une fonction de X sans chercher d’abord la loi de f(X).",
+      "tags": [
+        "transfert"
+      ]
+    },
+    {
+      "id": "p1-040",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que modélise une loi de Bernoulli ?",
+      "answer": "Une expérience à deux résultats : succès = 1 et échec = 0.",
+      "explanation": "La probabilité de succès est p.",
+      "tags": [
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "p1-041",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment note-t-on une loi de Bernoulli ?",
+      "answer": "X ~ Ber(p).",
+      "explanation": "",
+      "tags": [
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "p1-042",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelles sont les probabilités d’une Bernoulli de paramètre p ?",
+      "answer": "P(X=1)=p et P(X=0)=1−p.",
+      "explanation": "",
+      "tags": [
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "p1-043",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est l’espérance d’une Bernoulli ?",
+      "answer": "E(X)=p.",
+      "explanation": "",
+      "tags": [
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "p1-044",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la variance d’une Bernoulli ?",
+      "answer": "Var(X)=p(1−p).",
+      "explanation": "",
+      "tags": [
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "p1-045",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que modélise une loi binomiale ?",
+      "answer": "Le nombre de succès obtenus lors de n essais de Bernoulli indépendants de même probabilité p.",
+      "explanation": "",
+      "tags": [
+        "binomiale"
+      ]
+    },
+    {
+      "id": "p1-046",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment note-t-on une loi binomiale ?",
+      "answer": "X ~ Bin(n,p).",
+      "explanation": "",
+      "tags": [
+        "binomiale"
+      ]
+    },
+    {
+      "id": "p1-047",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule de la loi binomiale ?",
+      "answer": "P(X=k) = C(n,k) p^k (1−p)^(n−k), pour k=0,…,n.",
+      "explanation": "C(n,k) compte le nombre de façons de placer k succès parmi n essais.",
+      "tags": [
+        "binomiale"
+      ]
+    },
+    {
+      "id": "p1-048",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule du coefficient binomial C(n,k) ?",
+      "answer": "C(n,k) = n! / [k!(n−k)!].",
+      "explanation": "",
+      "tags": [
+        "binomiale"
+      ]
+    },
+    {
+      "id": "p1-049",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est l’espérance d’une loi binomiale ?",
       "answer": "E(X)=np.",
-      "explanation": "Sur n essais avec une probabilité de succès p à chaque essai, on s’attend en moyenne à obtenir environ np succès.",
-      "tags": ["binomiale", "esperance"]
+      "explanation": "",
+      "tags": [
+        "binomiale"
+      ]
     },
     {
-      "id": "prob-030",
+      "id": "p1-050",
       "subject": "Probabilités",
-      "chapter": "Loi binomiale",
-      "prompt": "Quelle est la variance d’une loi binomiale B(n,p) ?",
-      "answer": "V(X)=np(1−p).",
-      "explanation": "L’écart-type vaut donc √[np(1−p)].",
-      "tags": ["binomiale", "variance"]
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la variance d’une loi binomiale ?",
+      "answer": "Var(X)=np(1−p).",
+      "explanation": "",
+      "tags": [
+        "binomiale"
+      ]
+    },
+    {
+      "id": "p1-051",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que modélise une loi géométrique dans ce cours ?",
+      "answer": "Le rang du premier succès dans une suite d’essais de Bernoulli indépendants.",
+      "explanation": "Le premier succès peut apparaître au rang 1,2,3,…",
+      "tags": [
+        "geometrique"
+      ]
+    },
+    {
+      "id": "p1-052",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule d’une loi géométrique de paramètre p ?",
+      "answer": "P(X=k) = (1−p)^(k−1)p, pour k≥1.",
+      "explanation": "Il faut k−1 échecs puis un succès.",
+      "tags": [
+        "geometrique"
+      ]
+    },
+    {
+      "id": "p1-053",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est l’espérance d’une loi géométrique de paramètre p ?",
+      "answer": "E(X)=1/p.",
+      "explanation": "",
+      "tags": [
+        "geometrique"
+      ]
+    },
+    {
+      "id": "p1-054",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Que modélise souvent une loi de Poisson ?",
+      "answer": "Un nombre d’événements observés pendant une durée, sur une distance ou dans une zone donnée.",
+      "explanation": "",
+      "tags": [
+        "poisson"
+      ]
+    },
+    {
+      "id": "p1-055",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Comment note-t-on une loi de Poisson ?",
+      "answer": "X ~ P(λ).",
+      "explanation": "",
+      "tags": [
+        "poisson"
+      ]
+    },
+    {
+      "id": "p1-056",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la formule de la loi de Poisson ?",
+      "answer": "P(X=k) = e^(−λ) λ^k / k!, pour k=0,1,2,…",
+      "explanation": "",
+      "tags": [
+        "poisson"
+      ]
+    },
+    {
+      "id": "p1-057",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est l’espérance d’une loi de Poisson ?",
+      "answer": "E(X)=λ.",
+      "explanation": "",
+      "tags": [
+        "poisson"
+      ]
+    },
+    {
+      "id": "p1-058",
+      "subject": "Probabilités",
+      "chapter": "Proba 1 — Bases et lois discrètes",
+      "prompt": "Quelle est la variance d’une loi de Poisson ?",
+      "answer": "Var(X)=λ.",
+      "explanation": "Pour une Poisson, espérance et variance sont égales.",
+      "tags": [
+        "poisson"
+      ]
+    },
+    {
+      "id": "p2-001",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que mesure la variance Var(X) ?",
+      "answer": "La dispersion des valeurs de X autour de son espérance.",
+      "explanation": "Une variance faible signifie que les valeurs sont davantage regroupées autour de la moyenne.",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-002",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Quelle est la définition de la variance ?",
+      "answer": "Var(X) = E[(X−E(X))²].",
+      "explanation": "",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-003",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Quelle formule pratique permet de calculer la variance ?",
+      "answer": "Var(X) = E(X²) − [E(X)]².",
+      "explanation": "",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-004",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que vaut Var(aX+b) ?",
+      "answer": "Var(aX+b) = a² Var(X).",
+      "explanation": "Le terme b disparaît car une translation ne change pas la dispersion.",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-005",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Pourquoi le terme b disparaît-il dans Var(aX+b) ?",
+      "answer": "Parce qu’ajouter une constante déplace toutes les valeurs sans changer leur dispersion.",
+      "explanation": "",
+      "tags": [
+        "comprehension"
+      ]
+    },
+    {
+      "id": "p2-006",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Une variance peut-elle être négative ?",
+      "answer": "Non : Var(X) ≥ 0.",
+      "explanation": "Elle est l’espérance d’un carré.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p2-007",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "E(X²) est-il généralement égal à [E(X)]² ?",
+      "answer": "Non.",
+      "explanation": "La différence E(X²)−[E(X)]² est justement Var(X).",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p2-008",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Qu’est-ce que l’écart-type σ(X) ?",
+      "answer": "σ(X) = √Var(X).",
+      "explanation": "Il est exprimé dans la même unité que X.",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-009",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que mesure la covariance Cov(X,Y) ?",
+      "answer": "La manière dont X et Y varient ensemble.",
+      "explanation": "Une covariance positive indique une tendance à évoluer dans le même sens.",
+      "tags": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "p2-010",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Quelle est la définition de la covariance ?",
+      "answer": "Cov(X,Y)=E[(X−E(X))(Y−E(Y))].",
+      "explanation": "",
+      "tags": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "p2-011",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Quelle formule pratique donne la covariance ?",
+      "answer": "Cov(X,Y)=E(XY)−E(X)E(Y).",
+      "explanation": "",
+      "tags": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "p2-012",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Si X et Y sont indépendantes, que vaut Cov(X,Y) ?",
+      "answer": "Cov(X,Y)=0.",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p2-013",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Si Cov(X,Y)=0, X et Y sont-elles forcément indépendantes ?",
+      "answer": "Non.",
+      "explanation": "Une covariance nulle signifie seulement l’absence de dépendance linéaire mesurée par la covariance.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p2-014",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Si X et Y sont indépendantes, que vaut E(XY) ?",
+      "answer": "E(XY)=E(X)E(Y).",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p2-015",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que vaut Var(X+Y) en général ?",
+      "answer": "Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y).",
+      "explanation": "",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-016",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que vaut Var(X+Y) si X et Y sont indépendantes ?",
+      "answer": "Var(X+Y)=Var(X)+Var(Y).",
+      "explanation": "L’indépendance implique Cov(X,Y)=0.",
+      "tags": [
+        "variance"
+      ]
+    },
+    {
+      "id": "p2-017",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Qu’est-ce que le coefficient de corrélation ρ(X,Y) ?",
+      "answer": "Une mesure normalisée de la relation linéaire entre X et Y.",
+      "explanation": "Il permet de comparer l’intensité d’une relation linéaire indépendamment des unités.",
+      "tags": [
+        "correlation"
+      ]
+    },
+    {
+      "id": "p2-018",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Quelle est la formule du coefficient de corrélation ?",
+      "answer": "ρ(X,Y)=Cov(X,Y) / √[Var(X)Var(Y)].",
+      "explanation": "",
+      "tags": [
+        "correlation"
+      ]
+    },
+    {
+      "id": "p2-019",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Entre quelles valeurs est compris un coefficient de corrélation ?",
+      "answer": "−1 ≤ ρ ≤ 1.",
+      "explanation": "",
+      "tags": [
+        "correlation"
+      ]
+    },
+    {
+      "id": "p2-020",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que signifie ρ ≈ 1 ?",
+      "answer": "Une forte relation linéaire croissante.",
+      "explanation": "Quand X augmente, Y tend aussi à augmenter.",
+      "tags": [
+        "correlation"
+      ]
+    },
+    {
+      "id": "p2-021",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que signifie ρ ≈ −1 ?",
+      "answer": "Une forte relation linéaire décroissante.",
+      "explanation": "Quand X augmente, Y tend à diminuer.",
+      "tags": [
+        "correlation"
+      ]
+    },
+    {
+      "id": "p2-022",
+      "subject": "Probabilités",
+      "chapter": "Proba 2 — Variance, covariance et corrélation",
+      "prompt": "Que signifie ρ ≈ 0 ?",
+      "answer": "Il n’y a pas de relation linéaire forte.",
+      "explanation": "Une relation non linéaire peut malgré tout exister.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p3-001",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce qui distingue une variable aléatoire continue d’une variable discrète ?",
+      "answer": "Une variable continue peut prendre une infinité non dénombrable de valeurs, typiquement dans un intervalle.",
+      "explanation": "Une variable discrète prend des valeurs isolées.",
+      "tags": [
+        "continue"
+      ]
+    },
+    {
+      "id": "p3-002",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Pour une variable aléatoire continue, que vaut P(X=x) ?",
+      "answer": "P(X=x)=0.",
+      "explanation": "Les probabilités se calculent sur des intervalles, pas sur un point isolé.",
+      "tags": [
+        "continue"
+      ]
+    },
+    {
+      "id": "p3-003",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce que la fonction de répartition Fₓ(x) ?",
+      "answer": "Fₓ(x)=P(X≤x).",
+      "explanation": "Elle donne la probabilité cumulée jusqu’à x.",
+      "tags": [
+        "repartition"
+      ]
+    },
+    {
+      "id": "p3-004",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelles propriétés essentielles possède une fonction de répartition ?",
+      "answer": "Elle est croissante, comprise entre 0 et 1, tend vers 0 quand x→−∞ et vers 1 quand x→+∞.",
+      "explanation": "",
+      "tags": [
+        "repartition"
+      ]
+    },
+    {
+      "id": "p3-005",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce qu’une densité de probabilité pₓ(x) ?",
+      "answer": "Une fonction permettant de calculer les probabilités par intégration.",
+      "explanation": "Une probabilité correspond à une aire sous la densité.",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-006",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle condition de normalisation doit respecter une densité ?",
+      "answer": "∫ de −∞ à +∞ pₓ(x) dx = 1.",
+      "explanation": "L’aire totale sous la densité vaut 1.",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-007",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Une densité peut-elle être négative ?",
+      "answer": "Non : pₓ(x) ≥ 0.",
+      "explanation": "",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-008",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quel est le lien entre densité et fonction de répartition ?",
+      "answer": "Fₓ(x)=∫ de −∞ à x pₓ(t) dt.",
+      "explanation": "",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-009",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Si Fₓ est dérivable, comment retrouver la densité ?",
+      "answer": "pₓ(x)=Fₓ′(x).",
+      "explanation": "",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-010",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment calculer P(a≤X≤b) pour une variable continue ?",
+      "answer": "P(a≤X≤b)=∫ de a à b pₓ(x) dx.",
+      "explanation": "",
+      "tags": [
+        "densite"
+      ]
+    },
+    {
+      "id": "p3-011",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Une valeur de densité pₓ(x) est-elle une probabilité ?",
+      "answer": "Non.",
+      "explanation": "Une probabilité est une aire, donc une intégrale de la densité sur un intervalle.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "p3-012",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Que signifie X ~ U([a,b]) ?",
+      "answer": "X suit une loi uniforme sur l’intervalle [a,b].",
+      "explanation": "Toutes les zones de même longueur dans [a,b] ont la même probabilité.",
+      "tags": [
+        "uniforme"
+      ]
+    },
+    {
+      "id": "p3-013",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la densité d’une loi uniforme sur [a,b] ?",
+      "answer": "pₓ(x)=1/(b−a) pour a≤x≤b, et 0 sinon.",
+      "explanation": "",
+      "tags": [
+        "uniforme"
+      ]
+    },
+    {
+      "id": "p3-014",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est l’espérance d’une loi uniforme sur [a,b] ?",
+      "answer": "E(X)=(a+b)/2.",
+      "explanation": "C’est le milieu de l’intervalle.",
+      "tags": [
+        "uniforme"
+      ]
+    },
+    {
+      "id": "p3-015",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Que modélise souvent une loi exponentielle ?",
+      "answer": "Un temps d’attente avant l’arrivée d’un événement.",
+      "explanation": "",
+      "tags": [
+        "exponentielle"
+      ]
+    },
+    {
+      "id": "p3-016",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la densité d’une loi exponentielle de paramètre α ?",
+      "answer": "pₓ(x)=αe^(−αx) pour x≥0, et 0 sinon.",
+      "explanation": "α doit être strictement positif.",
+      "tags": [
+        "exponentielle"
+      ]
+    },
+    {
+      "id": "p3-017",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la fonction de répartition d’une exponentielle de paramètre α ?",
+      "answer": "Fₓ(x)=1−e^(−αx) pour x≥0.",
+      "explanation": "",
+      "tags": [
+        "exponentielle"
+      ]
+    },
+    {
+      "id": "p3-018",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Pour une exponentielle, que vaut P(X>x) ?",
+      "answer": "P(X>x)=e^(−αx), pour x≥0.",
+      "explanation": "C’est la probabilité de dépasser le temps x.",
+      "tags": [
+        "exponentielle"
+      ]
+    },
+    {
+      "id": "p3-019",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est l’espérance d’une exponentielle de paramètre α ?",
+      "answer": "E(X)=1/α.",
+      "explanation": "",
+      "tags": [
+        "exponentielle"
+      ]
+    },
+    {
+      "id": "p3-020",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce que la densité jointe pₓ,ᵧ(x,y) ?",
+      "answer": "La densité du couple de variables continues (X,Y).",
+      "explanation": "Elle décrit comment la probabilité est répartie dans le plan.",
+      "tags": [
+        "loi-jointe"
+      ]
+    },
+    {
+      "id": "p3-021",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment calculer la probabilité que (X,Y) appartienne à une région B ?",
+      "answer": "P((X,Y)∈B)=∬ sur B pₓ,ᵧ(x,y) dx dy.",
+      "explanation": "On intègre la densité jointe sur la région considérée.",
+      "tags": [
+        "loi-jointe"
+      ]
+    },
+    {
+      "id": "p3-022",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce qu’une densité marginale ?",
+      "answer": "La densité d’une seule variable obtenue à partir de la densité jointe.",
+      "explanation": "",
+      "tags": [
+        "marginale"
+      ]
+    },
+    {
+      "id": "p3-023",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment obtenir la densité marginale de X ?",
+      "answer": "pₓ(x)=∫ de −∞ à +∞ pₓ,ᵧ(x,y) dy.",
+      "explanation": "On intègre sur toutes les valeurs possibles de Y.",
+      "tags": [
+        "marginale"
+      ]
+    },
+    {
+      "id": "p3-024",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment obtenir la densité marginale de Y ?",
+      "answer": "pᵧ(y)=∫ de −∞ à +∞ pₓ,ᵧ(x,y) dx.",
+      "explanation": "On intègre sur toutes les valeurs possibles de X.",
+      "tags": [
+        "marginale"
+      ]
+    },
+    {
+      "id": "p3-025",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quand deux variables continues X et Y sont-elles indépendantes ?",
+      "answer": "Quand pₓ,ᵧ(x,y)=pₓ(x)pᵧ(y) pour tous x et y.",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p3-026",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment calculer E[f(X)] pour une variable continue ?",
+      "answer": "E[f(X)]=∫ de −∞ à +∞ f(x)pₓ(x) dx.",
+      "explanation": "C’est le théorème de transfert continu.",
+      "tags": [
+        "transfert"
+      ]
+    },
+    {
+      "id": "p3-027",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment calculer E(X) pour une variable continue ?",
+      "answer": "E(X)=∫ de −∞ à +∞ x pₓ(x) dx.",
+      "explanation": "",
+      "tags": [
+        "esperance"
+      ]
+    },
+    {
+      "id": "p3-028",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment calculer E[f(X,Y)] pour un couple continu ?",
+      "answer": "E[f(X,Y)]=∬ f(x,y)pₓ,ᵧ(x,y) dx dy.",
+      "explanation": "",
+      "tags": [
+        "transfert"
+      ]
+    },
+    {
+      "id": "p3-029",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Si X et Y sont indépendantes, que vaut E(XY) ?",
+      "answer": "E(XY)=E(X)E(Y).",
+      "explanation": "",
+      "tags": [
+        "independance"
+      ]
+    },
+    {
+      "id": "p3-030",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "À quoi sert l’inégalité de Tchebychev ?",
+      "answer": "À borner la probabilité qu’une variable s’éloigne beaucoup de son espérance.",
+      "explanation": "Elle ne nécessite pas de connaître précisément la loi de X.",
+      "tags": [
+        "tchebychev"
+      ]
+    },
+    {
+      "id": "p3-031",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est l’inégalité de Tchebychev ?",
+      "answer": "P(|X−E(X)|≥ε) ≤ Var(X)/ε², pour ε>0.",
+      "explanation": "",
+      "tags": [
+        "tchebychev"
+      ]
+    },
+    {
+      "id": "p3-032",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Faut-il connaître la loi exacte de X pour utiliser Tchebychev ?",
+      "answer": "Non.",
+      "explanation": "Il suffit notamment que l’espérance et la variance nécessaires existent.",
+      "tags": [
+        "tchebychev"
+      ]
     }
   ]
 }
