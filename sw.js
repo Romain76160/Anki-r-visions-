@@ -1,18 +1,18 @@
-const CACHE='mooc-revision-v9';
+const CACHE='mooc-revision-v10';
 const ASSETS=[
   './',
-  './index.html?v=9',
-  './styles.css?v=9',
-  './app-v2.js?v=9',
-  './app.js?v=9',
-  './manifest.webmanifest?v=9',
-  './starter_questions.json?v=9',
-  './python_types_extra.json?v=9',
-  './probabilities_extra.json?v=9',
-  './statistics_extra.json?v=9',
-  './linear_algebra_extra.json?v=9',
-  './databases_extra.json?v=9',
-  './linux_extra.json?v=9',
+  './index.html?v=10',
+  './styles.css?v=10',
+  './app-v2.js?v=10',
+  './app.js?v=10',
+  './manifest.webmanifest?v=10',
+  './starter_questions.json?v=10',
+  './python_types_extra.json?v=10',
+  './probabilities_extra.json?v=10',
+  './statistics_extra.json?v=10',
+  './linear_algebra_extra.json?v=10',
+  './databases_extra.json?v=10',
+  './linux_extra.json?v=10',
   './icon-192.png',
   './icon-512.png'
 ];
