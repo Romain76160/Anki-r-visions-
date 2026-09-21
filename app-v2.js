@@ -134,13 +134,13 @@ async function seed(){
   state.loading=true;state.error=null;render();
   try{
     const sources=[
-      './starter_questions.json?v=9',
-      './python_types_extra.json?v=9',
-      './probabilities_extra.json?v=9',
-      './statistics_extra.json?v=9',
-      './linear_algebra_extra.json?v=9',
-      './databases_extra.json?v=9',
-      './linux_extra.json?v=9'
+      './starter_questions.json?v=10',
+      './python_types_extra.json?v=10',
+      './probabilities_extra.json?v=10',
+      './statistics_extra.json?v=10',
+      './linear_algebra_extra.json?v=10',
+      './databases_extra.json?v=10',
+      './linux_extra.json?v=10'
     ];
     const packs=await Promise.all(sources.map(async src=>{
       const response=await fetch(src,{cache:'no-store'});
