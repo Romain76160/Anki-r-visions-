@@ -1,7 +1,7 @@
 {
   "packID": "probabilites",
-  "title": "Probabilités — 3 chapitres",
-  "version": 2,
+  "title": "Probabilités — 5 chapitres",
+  "version": 3,
   "questions": [
     {
       "id": "p1-001",
@@ -1233,6 +1233,457 @@
       "explanation": "Il suffit notamment que l’espérance et la variance nécessaires existent.",
       "tags": [
         "tchebychev"
+      ]
+    },
+    {
+      "id": "p3-033",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la variance d’une loi uniforme U([a,b]) ?",
+      "answer": "Var(X) = (b−a)² / 12.",
+      "explanation": "Le cours donne aussi E(X) = (a+b)/2.",
+      "tags": [
+        "uniforme",
+        "variance"
+      ]
+    },
+    {
+      "id": "p3-034",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Que signifie X ~ N(m,σ²) ?",
+      "answer": "X suit une loi gaussienne de moyenne m et de variance σ².",
+      "explanation": "La loi N(0,1) est la gaussienne centrée réduite.",
+      "tags": [
+        "gaussienne"
+      ]
+    },
+    {
+      "id": "p3-035",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la densité d’une loi gaussienne N(m,σ²) ?",
+      "answer": "p(x) = [1/√(2πσ²)] exp(−(x−m)²/(2σ²)).",
+      "explanation": "Son espérance vaut m et sa variance vaut σ².",
+      "tags": [
+        "gaussienne",
+        "densite",
+        "formule"
+      ]
+    },
+    {
+      "id": "p3-036",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce que la loi gaussienne centrée réduite ?",
+      "answer": "La loi N(0,1).",
+      "explanation": "Elle a pour moyenne 0 et variance 1.",
+      "tags": [
+        "gaussienne"
+      ]
+    },
+    {
+      "id": "p3-037",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle est la variance d’une loi exponentielle E(λ) ?",
+      "answer": "Var(X) = λ⁻² = 1/λ².",
+      "explanation": "Le cours donne E(X)=λ⁻¹.",
+      "tags": [
+        "exponentielle",
+        "variance"
+      ]
+    },
+    {
+      "id": "p3-038",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment est définie une loi du chi-deux χ²(k) ?",
+      "answer": "Comme la loi de X₁²+⋯+Xₖ², où X₁,…,Xₖ sont i.i.d. N(0,1).",
+      "explanation": "k est le nombre de degrés de liberté.",
+      "tags": [
+        "chi-deux"
+      ]
+    },
+    {
+      "id": "p3-039",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelles sont l’espérance et la variance d’une loi χ²(k) ?",
+      "answer": "E(X)=k et Var(X)=2k.",
+      "explanation": "",
+      "tags": [
+        "chi-deux",
+        "esperance",
+        "variance"
+      ]
+    },
+    {
+      "id": "p3-040",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Comment le cours définit-il une loi de Student T(k) ?",
+      "answer": "Comme la loi de Z/√(U/k), avec Z~N(0,1), U~χ²(k), et Z et U indépendantes.",
+      "explanation": "k est le nombre de degrés de liberté.",
+      "tags": [
+        "student"
+      ]
+    },
+    {
+      "id": "p3-041",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelles sont l’espérance et la variance d’une loi de Student T(k) ?",
+      "answer": "E(X)=0 si k>1 ; Var(X)=k/(k−2) si k>2.",
+      "explanation": "",
+      "tags": [
+        "student",
+        "esperance",
+        "variance"
+      ]
+    },
+    {
+      "id": "p3-042",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quelle inégalité de Cauchy-Schwarz est rappelée dans le cours ?",
+      "answer": "E(XY) ≤ √[E(X²)E(Y²)].",
+      "explanation": "Le cours l’utilise notamment pour borner la corrélation.",
+      "tags": [
+        "inegalite",
+        "cauchy-schwarz"
+      ]
+    },
+    {
+      "id": "p3-043",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Qu’est-ce que le quantile qα d’une variable X à densité ?",
+      "answer": "C’est le nombre qα tel que P(X≤qα)=α.",
+      "explanation": "Équivalent : Fₓ(qα)=α, donc qα=Fₓ⁻¹(α) lorsque l’inverse est bien défini.",
+      "tags": [
+        "quantile"
+      ]
+    },
+    {
+      "id": "p3-044",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quel quantile correspond à la médiane ?",
+      "answer": "Le quantile de niveau 0,5.",
+      "explanation": "P(X≤q₀,₅)=0,5.",
+      "tags": [
+        "quantile",
+        "mediane"
+      ]
+    },
+    {
+      "id": "p3-045",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quels niveaux correspondent aux premier et troisième quartiles ?",
+      "answer": "Premier quartile : 0,25. Troisième quartile : 0,75.",
+      "explanation": "",
+      "tags": [
+        "quantile",
+        "quartile"
+      ]
+    },
+    {
+      "id": "p3-046",
+      "subject": "Probabilités",
+      "chapter": "Proba 3 — Variables continues",
+      "prompt": "Quel niveau correspond au n-ième décile ?",
+      "answer": "Le n-ième décile est le quantile de niveau n/10.",
+      "explanation": "Exemples du cours : 1er décile = 0,1 ; 2e décile = 0,2.",
+      "tags": [
+        "quantile",
+        "decile"
+      ]
+    },
+    {
+      "id": "p4-001",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Comment définit-on l’espérance d’un vecteur aléatoire X=(X₁,…,X_d)ᵀ ?",
+      "answer": "E(X) = (E(X₁),…,E(X_d))ᵀ.",
+      "explanation": "On prend l’espérance composante par composante.",
+      "tags": [
+        "vecteur-aleatoire",
+        "esperance"
+      ]
+    },
+    {
+      "id": "p4-002",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Qu’est-ce que la matrice de covariance Cov(X) ?",
+      "answer": "La matrice d×d dont le coefficient (i,j) est Cov(Xᵢ,Xⱼ).",
+      "explanation": "Elle rassemble toutes les variances et covariances du vecteur.",
+      "tags": [
+        "matrice-covariance"
+      ]
+    },
+    {
+      "id": "p4-003",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Que trouve-t-on sur la diagonale de Cov(X) ?",
+      "answer": "Les variances Var(X₁),…,Var(X_d).",
+      "explanation": "Car Cov(Xᵢ,Xᵢ)=Var(Xᵢ).",
+      "tags": [
+        "matrice-covariance",
+        "variance"
+      ]
+    },
+    {
+      "id": "p4-004",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Pourquoi Cov(X) est-elle symétrique ?",
+      "answer": "Parce que Cov(Xᵢ,Xⱼ)=Cov(Xⱼ,Xᵢ).",
+      "explanation": "",
+      "tags": [
+        "matrice-covariance"
+      ]
+    },
+    {
+      "id": "p4-005",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Quelle propriété de positivité possède Cov(X) ?",
+      "answer": "Elle est semi-définie positive : pour tout x∈Rᵈ, xᵀCov(X)x ≥ 0.",
+      "explanation": "",
+      "tags": [
+        "matrice-covariance",
+        "semi-definie-positive"
+      ]
+    },
+    {
+      "id": "p4-006",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Quand un vecteur X est-il dit gaussien ?",
+      "answer": "Quand, pour tout x∈Rᵈ, le produit scalaire xᵀX est une variable gaussienne.",
+      "explanation": "Chaque composante Xᵢ est alors gaussienne.",
+      "tags": [
+        "vecteur-gaussien"
+      ]
+    },
+    {
+      "id": "p4-007",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Si X₁,…,X_d sont gaussiennes indépendantes, que peut-on dire du vecteur X ?",
+      "answer": "X est un vecteur gaussien et sa matrice de covariance est diagonale.",
+      "explanation": "",
+      "tags": [
+        "vecteur-gaussien",
+        "independance"
+      ]
+    },
+    {
+      "id": "p4-008",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Que devient AX+b si X est un vecteur gaussien ?",
+      "answer": "AX+b est encore un vecteur gaussien.",
+      "explanation": "A et b sont déterministes.",
+      "tags": [
+        "vecteur-gaussien",
+        "transformation-affine"
+      ]
+    },
+    {
+      "id": "p4-009",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Que permet une matrice de covariance diagonale pour un vecteur gaussien ?",
+      "answer": "Ses composantes sont indépendantes.",
+      "explanation": "Cette implication est spécifique au cadre gaussien.",
+      "tags": [
+        "vecteur-gaussien",
+        "independance"
+      ]
+    },
+    {
+      "id": "p4-010",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Pour un vecteur gaussien, que devient la relation entre décorrélation et indépendance ?",
+      "answer": "Décorrélation et indépendance coïncident.",
+      "explanation": "En général, Cov(X,Y)=0 n’implique pas l’indépendance ; dans le cas gaussien, oui.",
+      "tags": [
+        "vecteur-gaussien",
+        "decorrelation",
+        "independance",
+        "piege"
+      ]
+    },
+    {
+      "id": "p4-011",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Que signifie X ~ N(m,Σ) pour un vecteur aléatoire ?",
+      "answer": "X est un vecteur gaussien d’espérance m et de matrice de covariance Σ.",
+      "explanation": "",
+      "tags": [
+        "vecteur-gaussien",
+        "notation"
+      ]
+    },
+    {
+      "id": "p4-012",
+      "subject": "Probabilités",
+      "chapter": "Proba 4 — Matrice de covariance et vecteurs gaussiens",
+      "prompt": "Quelle est la densité d’un vecteur gaussien N(m,Σ) lorsque Σ est inversible ?",
+      "answer": "p(x)=1/√[(2π)^d detΣ] · exp(−½(x−m)ᵀΣ⁻¹(x−m)).",
+      "explanation": "",
+      "tags": [
+        "vecteur-gaussien",
+        "densite",
+        "formule"
+      ]
+    },
+    {
+      "id": "p5-001",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Qu’est-ce que la loi conditionnelle de Y sachant X=k dans le cas discret ?",
+      "answer": "La loi décrite par les probabilités P(Y=ℓ | X=k) pour toutes les valeurs ℓ.",
+      "explanation": "Elle est définie lorsque P(X=k)>0.",
+      "tags": [
+        "conditionnelle",
+        "loi-conditionnelle"
+      ]
+    },
+    {
+      "id": "p5-002",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Quelle est la formule de P(Y=ℓ | X=k) ?",
+      "answer": "P(Y=ℓ | X=k) = P(Y=ℓ, X=k) / P(X=k).",
+      "explanation": "Valable si P(X=k)>0.",
+      "tags": [
+        "conditionnelle",
+        "formule"
+      ]
+    },
+    {
+      "id": "p5-003",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Comment définit-on E(Y | X=k) dans le cas discret ?",
+      "answer": "E(Y | X=k) = Σℓ ℓ·P(Y=ℓ | X=k).",
+      "explanation": "C’est le barycentre de la loi conditionnelle de Y sachant X=k.",
+      "tags": [
+        "esperance-conditionnelle"
+      ]
+    },
+    {
+      "id": "p5-004",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Si X et Y sont indépendantes, que vaut E(Y | X=k) ?",
+      "answer": "E(Y | X=k) = E(Y).",
+      "explanation": "Connaître X n’apporte alors aucune information sur Y.",
+      "tags": [
+        "esperance-conditionnelle",
+        "independance"
+      ]
+    },
+    {
+      "id": "p5-005",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Si Y=h(X), que vaut E(Y | X=k) ?",
+      "answer": "E(h(X) | X=k) = h(k).",
+      "explanation": "Connaître X=k détermine entièrement Y.",
+      "tags": [
+        "esperance-conditionnelle"
+      ]
+    },
+    {
+      "id": "p5-006",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Quelle est la formule de l’espérance totale dans le cas discret ?",
+      "answer": "E(Y) = Σk E(Y | X=k)·P(X=k).",
+      "explanation": "L’espérance de l’espérance conditionnelle redonne l’espérance.",
+      "tags": [
+        "esperance-conditionnelle",
+        "esperance-totale"
+      ]
+    },
+    {
+      "id": "p5-007",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Quel est le théorème de transfert conditionnel discret pour g(X,Y) ?",
+      "answer": "E(g(X,Y)|X=k) = Σℓ g(k,ℓ)P(Y=ℓ|X=k).",
+      "explanation": "",
+      "tags": [
+        "esperance-conditionnelle",
+        "transfert"
+      ]
+    },
+    {
+      "id": "p5-008",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Comment définit-on la densité conditionnelle de Y sachant X=x ?",
+      "answer": "p_{Y|X=x}(y) = p_{X,Y}(x,y) / p_X(x).",
+      "explanation": "Elle s’obtient à partir de la densité jointe et de la densité marginale de X.",
+      "tags": [
+        "densite-conditionnelle"
+      ]
+    },
+    {
+      "id": "p5-009",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Comment calcule-t-on E(Y | X=x) avec une densité conditionnelle ?",
+      "answer": "E(Y | X=x) = ∫ y·p_{Y|X=x}(y) dy.",
+      "explanation": "C’est le barycentre de la densité conditionnelle.",
+      "tags": [
+        "esperance-conditionnelle",
+        "densite"
+      ]
+    },
+    {
+      "id": "p5-010",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Si X et Y sont indépendantes et à densité, que vaut p_{Y|X=x}(y) ?",
+      "answer": "p_{Y|X=x}(y) = p_Y(y).",
+      "explanation": "Donc E(Y|X=x)=E(Y).",
+      "tags": [
+        "densite-conditionnelle",
+        "independance"
+      ]
+    },
+    {
+      "id": "p5-011",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Quel est le théorème de transfert conditionnel continu pour g(X,Y) ?",
+      "answer": "E(g(X,Y)|X=x) = ∫ g(x,y)p_{Y|X=x}(y) dy.",
+      "explanation": "",
+      "tags": [
+        "esperance-conditionnelle",
+        "transfert"
+      ]
+    },
+    {
+      "id": "p5-012",
+      "subject": "Probabilités",
+      "chapter": "Proba 5 — Espérance conditionnelle",
+      "prompt": "Quelle est la formule de Bayes pour les densités conditionnelles ?",
+      "answer": "p_{Y|X=x}(y) = p_{X|Y=y}(x)p_Y(y) / p_X(x).",
+      "explanation": "",
+      "tags": [
+        "bayes",
+        "densite-conditionnelle"
       ]
     }
   ]
