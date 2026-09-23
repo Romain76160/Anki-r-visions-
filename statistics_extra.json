@@ -1,7 +1,7 @@
 {
   "packID": "statistiques-cours",
-  "title": "Statistiques — Estimation, TCL, IC et tests",
-  "version": 1,
+  "title": "Statistiques — 10 chapitres",
+  "version": 2,
   "questions": [
     {
       "id": "statc-001",
@@ -10,7 +10,9 @@
       "prompt": "Qu’est-ce qu’une population en statistique ?",
       "answer": "La population est l’ensemble complet des individus ou observations que l’on souhaite étudier.",
       "explanation": "Un échantillon est seulement une partie de cette population.",
-      "tags": ["population"]
+      "tags": [
+        "population"
+      ]
     },
     {
       "id": "statc-002",
@@ -19,7 +21,9 @@
       "prompt": "Qu’est-ce qu’un échantillon ?",
       "answer": "Un ensemble d’observations prélevées dans une population afin d’en tirer des informations sur cette population.",
       "explanation": "On utilise l’échantillon lorsque l’étude de toute la population est impossible ou trop coûteuse.",
-      "tags": ["echantillon"]
+      "tags": [
+        "echantillon"
+      ]
     },
     {
       "id": "statc-003",
@@ -28,7 +32,9 @@
       "prompt": "Que signifie que X₁,…,Xₙ sont i.i.d. ?",
       "answer": "Elles sont indépendantes et identiquement distribuées.",
       "explanation": "Indépendantes : une observation n’influence pas les autres. Identiquement distribuées : elles suivent toutes la même loi.",
-      "tags": ["iid"]
+      "tags": [
+        "iid"
+      ]
     },
     {
       "id": "statc-004",
@@ -37,7 +43,9 @@
       "prompt": "Qu’est-ce qu’un paramètre θ ?",
       "answer": "Une quantité inconnue caractérisant la loi de la population que l’on cherche à estimer.",
       "explanation": "Exemples : une moyenne μ, une proportion p ou une variance σ².",
-      "tags": ["parametre"]
+      "tags": [
+        "parametre"
+      ]
     },
     {
       "id": "statc-005",
@@ -46,7 +54,9 @@
       "prompt": "Qu’est-ce qu’un estimateur θ̂ ?",
       "answer": "Une fonction des observations utilisée pour estimer le paramètre inconnu θ.",
       "explanation": "Un estimateur est lui-même une variable aléatoire car il dépend de l’échantillon observé.",
-      "tags": ["estimateur"]
+      "tags": [
+        "estimateur"
+      ]
     },
     {
       "id": "statc-006",
@@ -55,7 +65,9 @@
       "prompt": "Qu’est-ce que la moyenne empirique X̄ₙ ?",
       "answer": "X̄ₙ = (1/n) Σᵢ Xᵢ.",
       "explanation": "C’est la moyenne calculée à partir des n observations de l’échantillon.",
-      "tags": ["moyenne-empirique"]
+      "tags": [
+        "moyenne-empirique"
+      ]
     },
     {
       "id": "statc-007",
@@ -64,7 +76,10 @@
       "prompt": "Pour des variables de Bernoulli, que représente la moyenne empirique X̄ₙ ?",
       "answer": "La proportion de succès observée dans l’échantillon.",
       "explanation": "Si Xᵢ vaut 1 pour un succès et 0 sinon, X̄ₙ = nombre de succès / n.",
-      "tags": ["bernoulli", "proportion"]
+      "tags": [
+        "bernoulli",
+        "proportion"
+      ]
     },
     {
       "id": "statc-008",
@@ -73,7 +88,9 @@
       "prompt": "Qu’est-ce que le biais d’un estimateur θ̂ ?",
       "answer": "Biais(θ̂) = E(θ̂) − θ.",
       "explanation": "Il mesure l’écart systématique entre la valeur moyenne de l’estimateur et le vrai paramètre.",
-      "tags": ["biais"]
+      "tags": [
+        "biais"
+      ]
     },
     {
       "id": "statc-009",
@@ -82,7 +99,9 @@
       "prompt": "Quand un estimateur est-il sans biais ?",
       "answer": "Quand E(θ̂) = θ.",
       "explanation": "Son biais est alors nul.",
-      "tags": ["biais"]
+      "tags": [
+        "biais"
+      ]
     },
     {
       "id": "statc-010",
@@ -91,7 +110,10 @@
       "prompt": "La moyenne empirique d’un échantillon de Bernoulli est-elle sans biais pour p ?",
       "answer": "Oui : E(X̄ₙ)=p.",
       "explanation": "Elle estime donc naturellement la proportion inconnue p.",
-      "tags": ["bernoulli", "biais"]
+      "tags": [
+        "bernoulli",
+        "biais"
+      ]
     },
     {
       "id": "statc-011",
@@ -100,7 +122,10 @@
       "prompt": "Si les Xᵢ sont i.i.d. de variance σ², que vaut Var(X̄ₙ) ?",
       "answer": "Var(X̄ₙ)=σ²/n.",
       "explanation": "La variance de la moyenne diminue quand la taille de l’échantillon augmente.",
-      "tags": ["variance", "moyenne-empirique"]
+      "tags": [
+        "variance",
+        "moyenne-empirique"
+      ]
     },
     {
       "id": "statc-012",
@@ -109,7 +134,10 @@
       "prompt": "Pour des Bernoulli de paramètre p, que vaut Var(X̄ₙ) ?",
       "answer": "Var(X̄ₙ)=p(1−p)/n.",
       "explanation": "Car la variance d’une Bernoulli vaut p(1−p).",
-      "tags": ["bernoulli", "variance"]
+      "tags": [
+        "bernoulli",
+        "variance"
+      ]
     },
     {
       "id": "statc-013",
@@ -118,7 +146,9 @@
       "prompt": "Que vaut l’écart-type de la moyenne empirique si Var(Xᵢ)=σ² ?",
       "answer": "σ/√n.",
       "explanation": "On l’appelle aussi erreur standard de la moyenne lorsque σ est l’écart-type de la population.",
-      "tags": ["erreur-standard"]
+      "tags": [
+        "erreur-standard"
+      ]
     },
     {
       "id": "statc-014",
@@ -127,7 +157,9 @@
       "prompt": "À quelle vitesse l’erreur standard de la moyenne diminue-t-elle avec n ?",
       "answer": "Comme 1/√n.",
       "explanation": "Pour diviser l’erreur standard par 2, il faut multiplier n par 4.",
-      "tags": ["erreur-standard"]
+      "tags": [
+        "erreur-standard"
+      ]
     },
     {
       "id": "statc-015",
@@ -136,7 +168,9 @@
       "prompt": "Qu’est-ce que l’erreur quadratique moyenne, ou EQM ?",
       "answer": "EQM(θ̂)=E[(θ̂−θ)²].",
       "explanation": "Elle mesure l’erreur quadratique moyenne commise par l’estimateur.",
-      "tags": ["eqm"]
+      "tags": [
+        "eqm"
+      ]
     },
     {
       "id": "statc-016",
@@ -145,7 +179,10 @@
       "prompt": "Quelle est la décomposition biais-variance de l’EQM ?",
       "answer": "EQM(θ̂)=Var(θ̂)+Biais(θ̂)².",
       "explanation": "La qualité d’un estimateur dépend donc à la fois de sa variance et de son biais.",
-      "tags": ["eqm", "biais-variance"]
+      "tags": [
+        "eqm",
+        "biais-variance"
+      ]
     },
     {
       "id": "statc-017",
@@ -154,7 +191,9 @@
       "prompt": "Que devient l’EQM d’un estimateur sans biais ?",
       "answer": "EQM(θ̂)=Var(θ̂).",
       "explanation": "Le terme de biais est alors nul.",
-      "tags": ["eqm"]
+      "tags": [
+        "eqm"
+      ]
     },
     {
       "id": "statc-018",
@@ -163,7 +202,9 @@
       "prompt": "Que dit intuitivement la loi des grands nombres ?",
       "answer": "Quand n devient grand, la moyenne empirique se rapproche de l’espérance théorique.",
       "explanation": "Les fluctuations aléatoires se compensent progressivement.",
-      "tags": ["lgn"]
+      "tags": [
+        "lgn"
+      ]
     },
     {
       "id": "statc-019",
@@ -172,7 +213,9 @@
       "prompt": "Quelle est l’écriture essentielle de la loi des grands nombres ?",
       "answer": "X̄ₙ → E(X) quand n→∞.",
       "explanation": "Dans le cas Bernoulli, la fréquence observée converge vers p.",
-      "tags": ["lgn"]
+      "tags": [
+        "lgn"
+      ]
     },
     {
       "id": "statc-020",
@@ -181,7 +224,10 @@
       "prompt": "Pour une Bernoulli de paramètre p, vers quoi converge X̄ₙ ?",
       "answer": "Vers p.",
       "explanation": "La fréquence observée se rapproche de la vraie proportion.",
-      "tags": ["lgn", "bernoulli"]
+      "tags": [
+        "lgn",
+        "bernoulli"
+      ]
     },
     {
       "id": "statc-021",
@@ -190,7 +236,9 @@
       "prompt": "Qu’est-ce que la loi normale centrée réduite ?",
       "answer": "La loi normale de moyenne 0 et de variance 1, notée N(0,1).",
       "explanation": "Elle sert de référence pour standardiser de nombreuses variables.",
-      "tags": ["normale"]
+      "tags": [
+        "normale"
+      ]
     },
     {
       "id": "statc-022",
@@ -199,7 +247,9 @@
       "prompt": "Que permet le théorème central limite, ou TCL ?",
       "answer": "D’approximer la distribution de la moyenne empirique par une loi normale lorsque n est suffisamment grand.",
       "explanation": "Il décrit les fluctuations de X̄ₙ autour de la vraie moyenne.",
-      "tags": ["tcl"]
+      "tags": [
+        "tcl"
+      ]
     },
     {
       "id": "statc-023",
@@ -208,7 +258,10 @@
       "prompt": "Si E(Xᵢ)=μ et Var(Xᵢ)=σ², quelle quantité converge vers N(0,1) par le TCL ?",
       "answer": "√n (X̄ₙ−μ) / σ.",
       "explanation": "C’est la moyenne empirique centrée puis standardisée.",
-      "tags": ["tcl", "formule"]
+      "tags": [
+        "tcl",
+        "formule"
+      ]
     },
     {
       "id": "statc-024",
@@ -217,7 +270,10 @@
       "prompt": "Quelle approximation le TCL donne-t-il pour X̄ₙ ?",
       "answer": "X̄ₙ ≈ N(μ, σ²/n).",
       "explanation": "Sa moyenne est μ et sa variance diminue comme 1/n.",
-      "tags": ["tcl", "normale"]
+      "tags": [
+        "tcl",
+        "normale"
+      ]
     },
     {
       "id": "statc-025",
@@ -226,7 +282,11 @@
       "prompt": "Quelle est la différence fondamentale entre la LGN et le TCL ?",
       "answer": "La LGN indique vers quelle valeur X̄ₙ converge ; le TCL décrit la forme de ses fluctuations autour de cette valeur.",
       "explanation": "LGN = convergence. TCL = distribution approximative des fluctuations.",
-      "tags": ["lgn", "tcl", "piege"]
+      "tags": [
+        "lgn",
+        "tcl",
+        "piege"
+      ]
     },
     {
       "id": "statc-026",
@@ -235,7 +295,10 @@
       "prompt": "Pour Xᵢ ~ Ber(p), quelle approximation donne le TCL pour X̄ₙ ?",
       "answer": "X̄ₙ ≈ N(p, p(1−p)/n).",
       "explanation": "C’est l’approximation normale de la proportion observée.",
-      "tags": ["tcl", "bernoulli"]
+      "tags": [
+        "tcl",
+        "bernoulli"
+      ]
     },
     {
       "id": "statc-027",
@@ -244,7 +307,10 @@
       "prompt": "Pour Z ~ N(0,1), que vaut approximativement P(−1,96 ≤ Z ≤ 1,96) ?",
       "answer": "Environ 0,95, soit 95 %.",
       "explanation": "C’est l’origine du coefficient 1,96 dans de nombreux intervalles de confiance à 95 %.",
-      "tags": ["normale", "1.96"]
+      "tags": [
+        "normale",
+        "1.96"
+      ]
     },
     {
       "id": "statc-028",
@@ -253,7 +319,9 @@
       "prompt": "Qu’est-ce qu’un intervalle de confiance ?",
       "answer": "Un intervalle construit à partir de l’échantillon pour encadrer un paramètre inconnu avec un niveau de confiance donné.",
       "explanation": "Il quantifie l’incertitude liée à l’échantillonnage.",
-      "tags": ["ic"]
+      "tags": [
+        "ic"
+      ]
     },
     {
       "id": "statc-029",
@@ -262,7 +330,10 @@
       "prompt": "Quelle est la forme asymptotique d’un IC à 95 % pour une proportion p ?",
       "answer": "X̄ₙ ± 1,96 √[X̄ₙ(1−X̄ₙ)/n].",
       "explanation": "On utilise X̄ₙ pour estimer p dans l’erreur standard.",
-      "tags": ["ic", "proportion"]
+      "tags": [
+        "ic",
+        "proportion"
+      ]
     },
     {
       "id": "statc-030",
@@ -271,7 +342,10 @@
       "prompt": "Pourquoi remplace-t-on p par X̄ₙ dans l’IC d’une proportion ?",
       "answer": "Parce que p est inconnu et que X̄ₙ est son estimateur naturel.",
       "explanation": "On remplace donc la quantité inconnue par son estimation issue des données.",
-      "tags": ["ic", "proportion"]
+      "tags": [
+        "ic",
+        "proportion"
+      ]
     },
     {
       "id": "statc-031",
@@ -280,7 +354,10 @@
       "prompt": "Que représente 1,96 dans un intervalle de confiance asymptotique à 95 % ?",
       "answer": "Le quantile de la loi normale centrée réduite qui laisse environ 95 % de probabilité entre −1,96 et 1,96.",
       "explanation": "",
-      "tags": ["ic", "normale"]
+      "tags": [
+        "ic",
+        "normale"
+      ]
     },
     {
       "id": "statc-032",
@@ -289,7 +366,10 @@
       "prompt": "Comment évolue généralement la largeur d’un intervalle de confiance quand n augmente ?",
       "answer": "Elle diminue approximativement comme 1/√n.",
       "explanation": "Un échantillon plus grand permet une estimation plus précise.",
-      "tags": ["ic", "precision"]
+      "tags": [
+        "ic",
+        "precision"
+      ]
     },
     {
       "id": "statc-033",
@@ -298,7 +378,10 @@
       "prompt": "Un intervalle obtenu avec Tchebychev est-il généralement plus large ou plus étroit qu’un IC basé sur le TCL ?",
       "answer": "Plus large.",
       "explanation": "Tchebychev fait moins d’hypothèses et fournit donc souvent une borne plus conservative.",
-      "tags": ["ic", "tchebychev"]
+      "tags": [
+        "ic",
+        "tchebychev"
+      ]
     },
     {
       "id": "statc-034",
@@ -307,7 +390,9 @@
       "prompt": "Que représente l’effectif d’une classe dans un histogramme ?",
       "answer": "Le nombre d’observations qui appartiennent à cette classe.",
       "explanation": "Divisé par n, il donne la fréquence observée de la classe.",
-      "tags": ["histogramme"]
+      "tags": [
+        "histogramme"
+      ]
     },
     {
       "id": "statc-035",
@@ -316,7 +401,10 @@
       "prompt": "Pour une classe de largeur h, comment estime-t-on une densité avec un histogramme ?",
       "answer": "densité ≈ effectif de la classe / (n h).",
       "explanation": "Ainsi, l’aire du rectangle correspond à la fréquence de la classe.",
-      "tags": ["histogramme", "densite"]
+      "tags": [
+        "histogramme",
+        "densite"
+      ]
     },
     {
       "id": "statc-036",
@@ -325,7 +413,9 @@
       "prompt": "Pourquoi divise-t-on par la largeur h dans un histogramme de densité ?",
       "answer": "Pour que l’aire de chaque rectangle, et non seulement sa hauteur, représente une probabilité ou une fréquence.",
       "explanation": "C’est indispensable lorsque les classes n’ont pas toutes la même largeur.",
-      "tags": ["histogramme"]
+      "tags": [
+        "histogramme"
+      ]
     },
     {
       "id": "statc-037",
@@ -334,7 +424,9 @@
       "prompt": "Quel est le principe général d’un test d’hypothèse ?",
       "answer": "Utiliser les données d’un échantillon pour décider si une hypothèse de référence est suffisamment incompatible avec les observations.",
       "explanation": "On quantifie si l’écart observé peut raisonnablement être attribué au hasard.",
-      "tags": ["test"]
+      "tags": [
+        "test"
+      ]
     },
     {
       "id": "statc-038",
@@ -343,7 +435,10 @@
       "prompt": "Qu’est-ce que l’hypothèse nulle H₀ ?",
       "answer": "L’hypothèse de référence que l’on cherche à confronter aux données.",
       "explanation": "Dans un A/B test, H₀ peut représenter l’absence de différence entre A et B.",
-      "tags": ["test", "h0"]
+      "tags": [
+        "test",
+        "h0"
+      ]
     },
     {
       "id": "statc-039",
@@ -352,7 +447,10 @@
       "prompt": "Qu’est-ce que l’hypothèse alternative H₁ ?",
       "answer": "L’hypothèse concurrente à H₀, correspondant à l’effet ou à la différence que l’on cherche à mettre en évidence.",
       "explanation": "",
-      "tags": ["test", "h1"]
+      "tags": [
+        "test",
+        "h1"
+      ]
     },
     {
       "id": "statc-040",
@@ -361,7 +459,9 @@
       "prompt": "Dans un A/B test comparant deux proportions, quelle statistique simple peut-on examiner ?",
       "answer": "La différence des proportions observées : X̄ − Ȳ.",
       "explanation": "Une différence observée ne suffit cependant pas à conclure qu’il existe un effet réel.",
-      "tags": ["ab-test"]
+      "tags": [
+        "ab-test"
+      ]
     },
     {
       "id": "statc-041",
@@ -370,7 +470,10 @@
       "prompt": "Pourquoi une différence observée entre deux groupes ne suffit-elle pas à conclure ?",
       "answer": "Parce qu’une différence peut apparaître uniquement à cause des fluctuations aléatoires de l’échantillonnage.",
       "explanation": "Un test statistique sert à évaluer si l’écart est suffisamment grand par rapport au hasard attendu.",
-      "tags": ["ab-test", "test"]
+      "tags": [
+        "ab-test",
+        "test"
+      ]
     },
     {
       "id": "statc-042",
@@ -379,7 +482,9 @@
       "prompt": "Qu’est-ce qu’une p-value ?",
       "answer": "Sous H₀, c’est la probabilité d’obtenir un résultat au moins aussi extrême que celui observé.",
       "explanation": "Ce n’est pas la probabilité que H₀ soit vraie.",
-      "tags": ["p-value"]
+      "tags": [
+        "p-value"
+      ]
     },
     {
       "id": "statc-043",
@@ -388,7 +493,10 @@
       "prompt": "Avec un seuil α=0,05, que fait-on généralement si p-value < 0,05 ?",
       "answer": "On rejette H₀ au seuil de 5 %.",
       "explanation": "Cela ne signifie pas qu’il y a 95 % de chances que H₁ soit vraie.",
-      "tags": ["p-value", "alpha"]
+      "tags": [
+        "p-value",
+        "alpha"
+      ]
     },
     {
       "id": "statc-044",
@@ -397,7 +505,9 @@
       "prompt": "Qu’est-ce qu’une erreur de type I ?",
       "answer": "Rejeter H₀ alors qu’elle est vraie : un faux positif.",
       "explanation": "Le risque associé est contrôlé par le seuil α.",
-      "tags": ["type-i"]
+      "tags": [
+        "type-i"
+      ]
     },
     {
       "id": "statc-045",
@@ -406,7 +516,9 @@
       "prompt": "Qu’est-ce qu’une erreur de type II ?",
       "answer": "Ne pas rejeter H₀ alors qu’elle est fausse : un faux négatif.",
       "explanation": "Sa probabilité est souvent notée β.",
-      "tags": ["type-ii"]
+      "tags": [
+        "type-ii"
+      ]
     },
     {
       "id": "statc-046",
@@ -415,7 +527,902 @@
       "prompt": "Pourquoi « ne pas rejeter H₀ » ne signifie-t-il pas « H₀ est vraie » ?",
       "answer": "Parce que les données peuvent simplement être insuffisantes pour détecter un effet réel.",
       "explanation": "L’absence de preuve contre H₀ n’est pas une preuve de H₀.",
-      "tags": ["test", "piege"]
+      "tags": [
+        "test",
+        "piege"
+      ]
+    },
+    {
+      "id": "statc-047",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Comment définit-on la moyenne empirique x̄ d’un N-échantillon x₁,…,x_N ?",
+      "answer": "x̄ = (1/N) Σᵢ xᵢ.",
+      "explanation": "ȳ se définit de la même façon pour les yᵢ.",
+      "tags": [
+        "moyenne-empirique",
+        "regression"
+      ]
+    },
+    {
+      "id": "statc-048",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle est la formule du coefficient de corrélation de Pearson rₓ,ᵧ ?",
+      "answer": "rₓ,ᵧ = Σᵢ(xᵢ−x̄)(yᵢ−ȳ) / [√Σᵢ(xᵢ−x̄)² · √Σᵢ(yᵢ−ȳ)²].",
+      "explanation": "Il mesure la dépendance affine dans un nuage de points.",
+      "tags": [
+        "pearson",
+        "correlation",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-049",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Entre quelles valeurs se trouve le coefficient de Pearson ?",
+      "answer": "−1 ≤ rₓ,ᵧ ≤ 1.",
+      "explanation": "",
+      "tags": [
+        "pearson",
+        "correlation"
+      ]
+    },
+    {
+      "id": "statc-050",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Que signifient les cas rₓ,ᵧ=1 et rₓ,ᵧ=−1 ?",
+      "answer": "Les points sont alignés sur une droite ; pente positive pour +1, pente négative pour −1.",
+      "explanation": "",
+      "tags": [
+        "pearson",
+        "correlation"
+      ]
+    },
+    {
+      "id": "statc-051",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Une corrélation permet-elle de conclure à une causalité ?",
+      "answer": "Non : corrélation n’implique pas causalité.",
+      "explanation": "Le cours présente l’A/B test comme méthode de référence lorsque sa mise en œuvre est possible.",
+      "tags": [
+        "correlation",
+        "causalite",
+        "piege"
+      ]
+    },
+    {
+      "id": "statc-052",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quel est le principe d’un A/B test dans le cours ?",
+      "answer": "Former aléatoirement deux groupes, appliquer deux traitements différents, puis comparer la réponse moyenne.",
+      "explanation": "La randomisation sert à isoler l’effet causal du traitement.",
+      "tags": [
+        "ab-test",
+        "causalite"
+      ]
+    },
+    {
+      "id": "statc-053",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "En régression, qu’appelle-t-on variable explicative et réponse ?",
+      "answer": "La variable explicative est l’entrée x (feature/input) ; la réponse est y (label/output).",
+      "explanation": "",
+      "tags": [
+        "regression",
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "statc-054",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle relation cherche-t-on en régression linéaire simple ?",
+      "answer": "y ≃ β₁x + β₀.",
+      "explanation": "β₁ est la pente et β₀ l’ordonnée à l’origine.",
+      "tags": [
+        "regression-lineaire"
+      ]
+    },
+    {
+      "id": "statc-055",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quel est le critère des moindres carrés en régression linéaire simple ?",
+      "answer": "J(β₀,β₁)=Σᵢ(yᵢ−β₁xᵢ−β₀)².",
+      "explanation": "Il additionne les erreurs quadratiques entre observations et prédictions.",
+      "tags": [
+        "moindres-carres",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-056",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle est la formule de la pente estimée β̂₁ en régression simple ?",
+      "answer": "β̂₁ = Σᵢ(yᵢ−ȳ)(xᵢ−x̄) / Σᵢ(xᵢ−x̄)².",
+      "explanation": "Elle est définie si les xᵢ ne sont pas tous égaux.",
+      "tags": [
+        "moindres-carres",
+        "regression-simple",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-057",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle est la formule de l’ordonnée à l’origine estimée β̂₀ ?",
+      "answer": "β̂₀ = ȳ − β̂₁x̄.",
+      "explanation": "",
+      "tags": [
+        "moindres-carres",
+        "regression-simple",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-058",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Qu’appelle-t-on le prédicteur en régression linéaire simple ?",
+      "answer": "ŷ(x)=β̂₁x+β̂₀.",
+      "explanation": "Il sert à prédire une réponse pour une nouvelle entrée x.",
+      "tags": [
+        "regression-simple",
+        "prediction"
+      ]
+    },
+    {
+      "id": "statc-059",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle relation cherche-t-on en régression linéaire multiple ?",
+      "answer": "y ≃ β₀ + β₁x₁ + ⋯ + β_d x_d.",
+      "explanation": "x=(x₁,…,x_d)ᵀ contient d variables explicatives.",
+      "tags": [
+        "regression-multiple"
+      ]
+    },
+    {
+      "id": "statc-060",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Avec d variables explicatives, combien de paramètres comporte le modèle linéaire multiple ?",
+      "answer": "d+1 paramètres.",
+      "explanation": "Il faut β₀ en plus des d coefficients β₁,…,β_d.",
+      "tags": [
+        "regression-multiple"
+      ]
+    },
+    {
+      "id": "statc-061",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "À quoi sert la matrice Φ dans la régression multiple ?",
+      "answer": "Elle rassemble les N observations : une colonne de 1 pour β₀ puis les d variables explicatives.",
+      "explanation": "Φ est de taille N×(d+1).",
+      "tags": [
+        "regression-multiple",
+        "matrice-design"
+      ]
+    },
+    {
+      "id": "statc-062",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Comment s’écrit le critère des moindres carrés en notation matricielle ?",
+      "answer": "J(β)=||y−Φβ||².",
+      "explanation": "",
+      "tags": [
+        "moindres-carres",
+        "regression-multiple",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-063",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle condition garantit l’unicité de l’estimateur des moindres carrés multiple ?",
+      "answer": "rang(Φ)=d+1.",
+      "explanation": "Les colonnes de Φ doivent être linéairement indépendantes.",
+      "tags": [
+        "moindres-carres",
+        "rang"
+      ]
+    },
+    {
+      "id": "statc-064",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quelle est la formule de l’estimateur des moindres carrés en régression multiple ?",
+      "answer": "β̂=(ΦᵀΦ)⁻¹Φᵀy.",
+      "explanation": "Valable sous l’hypothèse rang(Φ)=d+1.",
+      "tags": [
+        "moindres-carres",
+        "regression-multiple",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-065",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Comment s’écrit le prédicteur en régression multiple ?",
+      "answer": "ŷ(x)=β̂₀+β̂₁x₁+⋯+β̂_d x_d.",
+      "explanation": "",
+      "tags": [
+        "regression-multiple",
+        "prediction"
+      ]
+    },
+    {
+      "id": "statc-066",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Qu’est-ce qu’un résidu eᵢ ?",
+      "answer": "eᵢ = yᵢ − ŷᵢ.",
+      "explanation": "Un résidu de grande amplitude peut signaler une donnée aberrante ou un mauvais ajustement.",
+      "tags": [
+        "residu",
+        "regression"
+      ]
+    },
+    {
+      "id": "statc-067",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Comment le cours propose-t-il de vérifier visuellement si un modèle linéaire est adapté ?",
+      "answer": "Tracer les nuages de points et les résidus.",
+      "explanation": "Le cours mentionne aussi R² et la comparaison des erreurs de prédiction avec d’autres modèles.",
+      "tags": [
+        "regression",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "statc-068",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Comment repérer des données aberrantes avec une régression ?",
+      "answer": "Chercher des observations dont le résidu eᵢ=yᵢ−ŷᵢ est anormalement élevé.",
+      "explanation": "Un tracé des résidus aide à les détecter.",
+      "tags": [
+        "regression",
+        "outlier",
+        "residu"
+      ]
+    },
+    {
+      "id": "statc-069",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Pourquoi une seule valeur β̂_k ne suffit-elle pas pour juger l’influence d’une variable ?",
+      "answer": "Parce qu’il faut aussi connaître l’incertitude sur β̂_k, par exemple via un intervalle de confiance.",
+      "explanation": "Un coefficient petit ou grand peut être très incertain.",
+      "tags": [
+        "regression",
+        "intervalle-confiance"
+      ]
+    },
+    {
+      "id": "statc-070",
+      "subject": "Statistiques",
+      "chapter": "Stat 5 — Régression linéaire",
+      "prompt": "Quel est l’objectif de la sélection de modèle évoquée dans le cours ?",
+      "answer": "Conserver un plus petit nombre de variables explicatives réellement utiles.",
+      "explanation": "Le modèle devient plus simple et vise une meilleure généralisation.",
+      "tags": [
+        "regression",
+        "selection-modele"
+      ]
+    },
+    {
+      "id": "statc-071",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Qu’est-ce qu’un modèle paramétrique ?",
+      "answer": "Une famille de lois P={p_θ : θ∈D}, indexée par un paramètre θ.",
+      "explanation": "D est un sous-ensemble de Rᵈ.",
+      "tags": [
+        "modele-parametrique"
+      ]
+    },
+    {
+      "id": "statc-072",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quel est l’objectif du statisticien dans un modèle paramétrique ?",
+      "answer": "Déterminer la valeur de θ qui explique au mieux la réalisation observée Y(ω).",
+      "explanation": "La vraie loi est inconnue ; le modèle restreint la recherche à une famille de lois.",
+      "tags": [
+        "modele-parametrique",
+        "parametre"
+      ]
+    },
+    {
+      "id": "statc-073",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quelle différence le cours fait-il entre estimateur et estimée ?",
+      "answer": "L’estimateur Θ est la fonction des données ; l’estimée θ̂(ω)=Θ(Y(ω)) est la valeur obtenue sur l’échantillon observé.",
+      "explanation": "L’estimée est une variable aléatoire avant observation.",
+      "tags": [
+        "estimateur",
+        "estimee",
+        "piege"
+      ]
+    },
+    {
+      "id": "statc-074",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Que devient la loi jointe si Y₁,…,Y_N sont indépendantes ?",
+      "answer": "Elle se factorise en produit des lois marginales : p_θ(y₁,…,y_N)=∏ᵢ p_{i,θ}(yᵢ).",
+      "explanation": "Même principe dans le cas discret.",
+      "tags": [
+        "modele-parametrique",
+        "independance"
+      ]
+    },
+    {
+      "id": "statc-075",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quel modèle paramétrique utilise-t-on pour N réponses binaires i.i.d. ?",
+      "answer": "Des lois de Bernoulli de paramètre θ∈[0,1], avec p_θ(k)=θ^k(1−θ)^(1−k).",
+      "explanation": "k vaut 0 ou 1.",
+      "tags": [
+        "bernoulli",
+        "modele-parametrique"
+      ]
+    },
+    {
+      "id": "statc-076",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quel estimateur naturel de θ utilise le modèle de Bernoulli du cours ?",
+      "answer": "θ̂=(1/N)ΣᵢYᵢ.",
+      "explanation": "C’est la fréquence empirique des réponses égales à 1.",
+      "tags": [
+        "bernoulli",
+        "moyenne-empirique",
+        "estimateur"
+      ]
+    },
+    {
+      "id": "statc-077",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Comment le cours définit-il le biais b(θ) d’un estimateur θ̂ ?",
+      "answer": "b(θ)=E_θ(θ̂)−θ.",
+      "explanation": "Un estimateur est sans biais si b(θ)=0 pour tout θ.",
+      "tags": [
+        "biais",
+        "estimateur"
+      ]
+    },
+    {
+      "id": "statc-078",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quelle est la variance de la moyenne empirique dans le modèle de Bernoulli ?",
+      "answer": "Var_θ(θ̂)=θ(1−θ)/N.",
+      "explanation": "",
+      "tags": [
+        "bernoulli",
+        "variance",
+        "estimateur"
+      ]
+    },
+    {
+      "id": "statc-079",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quelle est l’EQM de θ̂ dans le modèle de Bernoulli du cours ?",
+      "answer": "EQM_θ = θ(1−θ)/N.",
+      "explanation": "Ici θ̂ est sans biais, donc l’EQM coïncide avec sa variance.",
+      "tags": [
+        "bernoulli",
+        "eqm"
+      ]
+    },
+    {
+      "id": "statc-080",
+      "subject": "Statistiques",
+      "chapter": "Stat 6 — Modèles paramétriques",
+      "prompt": "Quel IC à 95 % le cours obtient-il pour θ avec Bienaymé-Tchebychev ?",
+      "answer": "[θ̂−1/√(0,2N), θ̂+1/√(0,2N)].",
+      "explanation": "Le cours utilise θ(1−θ)≤1/4 pour obtenir une borne valable pour tout θ∈[0,1].",
+      "tags": [
+        "bernoulli",
+        "ic",
+        "tchebychev"
+      ]
+    },
+    {
+      "id": "statc-081",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quel est le modèle homoscédastique pour Yᵢ ?",
+      "answer": "Yᵢ=β₀+β₁xᵢ,₁+⋯+β_d xᵢ,d+εᵢ, avec εᵢ~N(0,σ²) indépendantes.",
+      "explanation": "",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "homoscedastique"
+      ]
+    },
+    {
+      "id": "statc-082",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Que signifie « homoscédastique » dans le modèle linéaire gaussien ?",
+      "answer": "Les perturbations εᵢ ont toutes la même variance σ².",
+      "explanation": "Un modèle hétéroscédastique autoriserait une variance dépendant de i.",
+      "tags": [
+        "homoscedastique",
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "statc-083",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Comment s’écrit le modèle homoscédastique sous forme vectorielle ?",
+      "answer": "Y = Φβ + ε.",
+      "explanation": "β=(β₀,…,β_d)ᵀ et ε=(ε₁,…,ε_N)ᵀ.",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "matrice"
+      ]
+    },
+    {
+      "id": "statc-084",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quelle est la loi de Y dans le modèle homoscédastique ?",
+      "answer": "Y ~ N(Φβ, σ²I_N).",
+      "explanation": "Son espérance est Φβ et sa matrice de covariance est σ²I_N.",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "gaussienne"
+      ]
+    },
+    {
+      "id": "statc-085",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quels sont les paramètres inconnus du modèle linéaire gaussien ?",
+      "answer": "β₀,…,β_d et σ², soit d+2 paramètres scalaires.",
+      "explanation": "",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "parametre"
+      ]
+    },
+    {
+      "id": "statc-086",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quel estimateur de β choisit le cours dans le modèle homoscédastique ?",
+      "answer": "β̂=(ΦᵀΦ)⁻¹ΦᵀY.",
+      "explanation": "C’est l’estimateur des moindres carrés.",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "moindres-carres"
+      ]
+    },
+    {
+      "id": "statc-087",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quelle loi du vecteur β̂ est donnée dans le polycopié ?",
+      "answer": "β̂ ~ N(β, (σ²/N)(ΦᵀΦ)⁻¹).",
+      "explanation": "Cette carte reprend la formule telle qu’elle apparaît dans le cours.",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "estimateur",
+        "gaussienne"
+      ]
+    },
+    {
+      "id": "statc-088",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "L’estimateur des moindres carrés β̂ est-il biaisé dans le modèle homoscédastique ?",
+      "answer": "Non : E_{β,σ²}[β̂]=β.",
+      "explanation": "",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "biais"
+      ]
+    },
+    {
+      "id": "statc-089",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Comment estime-t-on σ² à partir des résidus ?",
+      "answer": "σ̂² = ||Y−Φβ̂||² / (N−d−1).",
+      "explanation": "Le numérateur est la somme des carrés des résidus (SSR).",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "variance",
+        "residu"
+      ]
+    },
+    {
+      "id": "statc-090",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Pourquoi le dénominateur de σ̂² est-il N−d−1 ?",
+      "answer": "Le cours choisit N−d−1 pour que σ̂² soit un estimateur non biaisé de σ².",
+      "explanation": "",
+      "tags": [
+        "modele-lineaire-gaussien",
+        "variance",
+        "degres-liberte"
+      ]
+    },
+    {
+      "id": "statc-091",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quelle quantité suit une loi de Student dans le lemme de Cochran ?",
+      "answer": "√[N/(s_k σ̂²)]·(β̂_k−β_k) ~ T(N−d−1).",
+      "explanation": "s_k est le k-ième coefficient diagonal de (ΦᵀΦ)⁻¹.",
+      "tags": [
+        "student",
+        "modele-lineaire-gaussien",
+        "cochran"
+      ]
+    },
+    {
+      "id": "statc-092",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Quel IC de niveau 1−α le cours donne-t-il pour β_k ?",
+      "answer": "β̂_k ± q_α √(σ̂² s_k / N), où q_α est le quantile de niveau 1−α/2 de T(N−d−1).",
+      "explanation": "",
+      "tags": [
+        "ic",
+        "student",
+        "modele-lineaire-gaussien"
+      ]
+    },
+    {
+      "id": "statc-093",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Comment utiliser l’IC de β_k pour étudier l’utilité du k-ième régresseur ?",
+      "answer": "On regarde si l’intervalle de confiance contient 0.",
+      "explanation": "S’il contient 0, les données ne permettent pas de conclure que β_k est non nul au niveau de confiance choisi.",
+      "tags": [
+        "regression",
+        "ic",
+        "significativite"
+      ]
+    },
+    {
+      "id": "statc-094",
+      "subject": "Statistiques",
+      "chapter": "Stat 7 — Modèle linéaire gaussien",
+      "prompt": "Comment le cours définit-il la p-valeur pour tester β_k=0 dans le modèle linéaire gaussien ?",
+      "answer": "p_k = F̄(F_k), avec F_k = Nβ̂_k²/(s_kσ̂²) et F̄(x)=P(F>x), F~F(1,N−d−1).",
+      "explanation": "Elle mesure à quel point la statistique observée est extrême sous l’hypothèse β_k=0.",
+      "tags": [
+        "p-value",
+        "fisher",
+        "regression"
+      ]
+    },
+    {
+      "id": "statc-095",
+      "subject": "Statistiques",
+      "chapter": "Stat 8 — Maximum de vraisemblance",
+      "prompt": "Quelle est la définition de l’estimateur du maximum de vraisemblance ?",
+      "answer": "Θ̂_ML(y₁,…,y_N)=arg max_θ p_θ(y₁,…,y_N).",
+      "explanation": "On choisit le paramètre qui rend les observations disponibles les plus vraisemblables.",
+      "tags": [
+        "maximum-vraisemblance",
+        "ml"
+      ]
+    },
+    {
+      "id": "statc-096",
+      "subject": "Statistiques",
+      "chapter": "Stat 8 — Maximum de vraisemblance",
+      "prompt": "Quelle est l’intuition du maximum de vraisemblance ?",
+      "answer": "Choisir la valeur de θ pour laquelle les données observées sont les plus vraisemblables.",
+      "explanation": "",
+      "tags": [
+        "maximum-vraisemblance"
+      ]
+    },
+    {
+      "id": "statc-097",
+      "subject": "Statistiques",
+      "chapter": "Stat 8 — Maximum de vraisemblance",
+      "prompt": "Quelle est la vraisemblance de N observations Bernoulli i.i.d. y₁,…,y_N ?",
+      "answer": "p_θ(y)=∏ᵢ θ^{yᵢ}(1−θ)^{1−yᵢ}.",
+      "explanation": "Elle peut aussi s’écrire θ^{Σyᵢ}(1−θ)^{N−Σyᵢ}.",
+      "tags": [
+        "maximum-vraisemblance",
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "statc-098",
+      "subject": "Statistiques",
+      "chapter": "Stat 8 — Maximum de vraisemblance",
+      "prompt": "Quel est le maximum de vraisemblance de θ dans le modèle de Bernoulli ?",
+      "answer": "θ̂_ML = (1/N)Σᵢ yᵢ.",
+      "explanation": "On retrouve la moyenne empirique.",
+      "tags": [
+        "maximum-vraisemblance",
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "statc-099",
+      "subject": "Statistiques",
+      "chapter": "Stat 8 — Maximum de vraisemblance",
+      "prompt": "Dans le modèle linéaire gaussien, quel lien existe entre maximum de vraisemblance et moindres carrés ?",
+      "answer": "L’estimateur des moindres carrés est aussi l’estimateur du maximum de vraisemblance de β.",
+      "explanation": "",
+      "tags": [
+        "maximum-vraisemblance",
+        "moindres-carres"
+      ]
+    },
+    {
+      "id": "statc-100",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quel type de réponse modélise la régression logistique du cours ?",
+      "answer": "Une réponse binaire Yᵢ∈{0,1} associée à un vecteur explicatif xᵢ.",
+      "explanation": "",
+      "tags": [
+        "regression-logistique"
+      ]
+    },
+    {
+      "id": "statc-101",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quelle première hypothèse fait le modèle de régression logistique sur Y₁,…,Y_N ?",
+      "answer": "Les observations Y₁,…,Y_N sont indépendantes.",
+      "explanation": "",
+      "tags": [
+        "regression-logistique",
+        "independance"
+      ]
+    },
+    {
+      "id": "statc-102",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quelle est la fonction sigmoïde φ(t) ?",
+      "answer": "φ(t)=1/(1+e^(−t)).",
+      "explanation": "Elle transforme un score réel en un nombre entre 0 et 1.",
+      "tags": [
+        "regression-logistique",
+        "sigmoide",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-103",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quelle probabilité modélise la régression logistique ?",
+      "answer": "P_θ(Yᵢ=1)=φ(θ₀+θ₁xᵢ,₁+⋯+θ_d xᵢ,d).",
+      "explanation": "La probabilité est la sigmoïde d’un score affine.",
+      "tags": [
+        "regression-logistique",
+        "probabilite"
+      ]
+    },
+    {
+      "id": "statc-104",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Pourquoi introduit-on le vecteur x̃ᵢ ?",
+      "answer": "Pour écrire le score affine sous forme de produit scalaire : θᵀx̃ᵢ.",
+      "explanation": "x̃ᵢ est xᵢ augmenté d’une première composante égale à 1.",
+      "tags": [
+        "regression-logistique",
+        "notation"
+      ]
+    },
+    {
+      "id": "statc-105",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quelle est la loi marginale de Yᵢ dans la régression logistique ?",
+      "answer": "p_{i,θ}(k)=φ(θᵀx̃ᵢ)^k [1−φ(θᵀx̃ᵢ)]^(1−k), pour k∈{0,1}.",
+      "explanation": "C’est une loi de Bernoulli dont le paramètre dépend de xᵢ.",
+      "tags": [
+        "regression-logistique",
+        "bernoulli"
+      ]
+    },
+    {
+      "id": "statc-106",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Comment s’écrit la vraisemblance jointe du modèle logistique ?",
+      "answer": "p_θ(k₁,…,k_N)=∏ᵢ φ(θᵀx̃ᵢ)^{kᵢ}[1−φ(θᵀx̃ᵢ)]^{1−kᵢ}.",
+      "explanation": "Le produit vient de l’indépendance des observations.",
+      "tags": [
+        "regression-logistique",
+        "vraisemblance"
+      ]
+    },
+    {
+      "id": "statc-107",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quelle log-vraisemblance maximise-t-on en régression logistique ?",
+      "answer": "Σᵢ [kᵢ ln φ(θᵀx̃ᵢ) + (1−kᵢ) ln(1−φ(θᵀx̃ᵢ))].",
+      "explanation": "Le logarithme transforme le produit de vraisemblances en somme.",
+      "tags": [
+        "regression-logistique",
+        "log-vraisemblance"
+      ]
+    },
+    {
+      "id": "statc-108",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Existe-t-il une formule explicite de θ̂_ML en régression logistique ?",
+      "answer": "Non, pas dans le cours : on utilise une optimisation numérique itérative.",
+      "explanation": "Exemples cités : gradient ou Newton-Raphson.",
+      "tags": [
+        "regression-logistique",
+        "optimisation"
+      ]
+    },
+    {
+      "id": "statc-109",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Qu’est-ce que la décision douce en régression logistique ?",
+      "answer": "ĥ(x)=φ(θ̂_MLᵀx̃), une valeur entre 0 et 1 interprétée comme probabilité estimée.",
+      "explanation": "Elle est plus informative qu’une décision directement égale à 0 ou 1.",
+      "tags": [
+        "regression-logistique",
+        "prediction"
+      ]
+    },
+    {
+      "id": "statc-110",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Comment construit-on une décision dure à partir de ĥ(x) ?",
+      "answer": "Prédire 1 si ĥ(x)>τ, sinon 0.",
+      "explanation": "τ est le seuil de décision.",
+      "tags": [
+        "regression-logistique",
+        "prediction",
+        "seuil"
+      ]
+    },
+    {
+      "id": "statc-111",
+      "subject": "Statistiques",
+      "chapter": "Stat 9 — Régression logistique",
+      "prompt": "Quel seuil de probabilité est utilisé par défaut dans le cours ?",
+      "answer": "τ=0,5.",
+      "explanation": "Le cours précise que le choix du seuil dépend en réalité de l’application.",
+      "tags": [
+        "regression-logistique",
+        "seuil"
+      ]
+    },
+    {
+      "id": "statc-112",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Qu’est-ce qu’un minimiseur x de f ?",
+      "answer": "Un point x tel que f(y)≥f(x) pour tout y.",
+      "explanation": "arg min f désigne l’ensemble des minimiseurs.",
+      "tags": [
+        "convexite",
+        "minimiseur"
+      ]
+    },
+    {
+      "id": "statc-113",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Qu’est-ce que le gradient ∇f(x) ?",
+      "answer": "Le vecteur des dérivées partielles de f en x.",
+      "explanation": "En dimension 1, il se réduit à f′(x).",
+      "tags": [
+        "gradient",
+        "convexite"
+      ]
+    },
+    {
+      "id": "statc-114",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Qu’est-ce que la matrice hessienne de f ?",
+      "answer": "La matrice des dérivées partielles secondes : le coefficient (i,j) est ∂²f/(∂xᵢ∂xⱼ).",
+      "explanation": "En dimension 1, le Hessien est f″(x).",
+      "tags": [
+        "hessienne",
+        "convexite"
+      ]
+    },
+    {
+      "id": "statc-115",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Qu’est-ce qu’un point critique de f ?",
+      "answer": "Un point x tel que ∇f(x)=0.",
+      "explanation": "Tout minimiseur est un point critique, mais la réciproque n’est pas vraie en général.",
+      "tags": [
+        "gradient",
+        "point-critique"
+      ]
+    },
+    {
+      "id": "statc-116",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Quelle est la définition d’une fonction convexe ?",
+      "answer": "f(tx+(1−t)y) ≤ t f(x)+(1−t)f(y) pour tout t∈[0,1] et tous x,y.",
+      "explanation": "",
+      "tags": [
+        "convexite",
+        "definition"
+      ]
+    },
+    {
+      "id": "statc-117",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Pour une fonction convexe, quel lien existe entre minimiseur et gradient nul ?",
+      "answer": "x∈arg min f ⇔ ∇f(x)=0.",
+      "explanation": "C’est le théorème A.1 du cours.",
+      "tags": [
+        "convexite",
+        "gradient",
+        "minimiseur"
+      ]
+    },
+    {
+      "id": "statc-118",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Quel critère de convexité utilise-t-on en dimension 1 ?",
+      "answer": "f est convexe ⇔ f″(x)≥0 pour tout x.",
+      "explanation": "Équivalent à dire que f′ est croissante.",
+      "tags": [
+        "convexite",
+        "derivee-seconde"
+      ]
+    },
+    {
+      "id": "statc-119",
+      "subject": "Statistiques",
+      "chapter": "Stat 10 — Analyse convexe",
+      "prompt": "Quel critère de convexité utilise-t-on dans Rᵈ avec la Hessienne ?",
+      "answer": "f est convexe ⇔ Hess(f) est semi-définie positive.",
+      "explanation": "C’est le théorème A.2 du cours.",
+      "tags": [
+        "convexite",
+        "hessienne",
+        "semi-definie-positive"
+      ]
     }
   ]
 }
