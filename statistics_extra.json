@@ -1,7 +1,7 @@
 {
   "packID": "statistiques-cours",
   "title": "Statistiques — 10 chapitres",
-  "version": 2,
+  "version": 3,
   "questions": [
     {
       "id": "statc-001",
@@ -324,42 +324,6 @@
       ]
     },
     {
-      "id": "statc-029",
-      "subject": "Statistiques",
-      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
-      "prompt": "Quelle est la forme asymptotique d’un IC à 95 % pour une proportion p ?",
-      "answer": "X̄ₙ ± 1,96 √[X̄ₙ(1−X̄ₙ)/n].",
-      "explanation": "On utilise X̄ₙ pour estimer p dans l’erreur standard.",
-      "tags": [
-        "ic",
-        "proportion"
-      ]
-    },
-    {
-      "id": "statc-030",
-      "subject": "Statistiques",
-      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
-      "prompt": "Pourquoi remplace-t-on p par X̄ₙ dans l’IC d’une proportion ?",
-      "answer": "Parce que p est inconnu et que X̄ₙ est son estimateur naturel.",
-      "explanation": "On remplace donc la quantité inconnue par son estimation issue des données.",
-      "tags": [
-        "ic",
-        "proportion"
-      ]
-    },
-    {
-      "id": "statc-031",
-      "subject": "Statistiques",
-      "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
-      "prompt": "Que représente 1,96 dans un intervalle de confiance asymptotique à 95 % ?",
-      "answer": "Le quantile de la loi normale centrée réduite qui laisse environ 95 % de probabilité entre −1,96 et 1,96.",
-      "explanation": "",
-      "tags": [
-        "ic",
-        "normale"
-      ]
-    },
-    {
       "id": "statc-032",
       "subject": "Statistiques",
       "chapter": "Stat 3 — Intervalles de confiance et histogrammes",
@@ -453,17 +417,6 @@
       ]
     },
     {
-      "id": "statc-040",
-      "subject": "Statistiques",
-      "chapter": "Stat 4 — Tests et A/B tests",
-      "prompt": "Dans un A/B test comparant deux proportions, quelle statistique simple peut-on examiner ?",
-      "answer": "La différence des proportions observées : X̄ − Ȳ.",
-      "explanation": "Une différence observée ne suffit cependant pas à conclure qu’il existe un effet réel.",
-      "tags": [
-        "ab-test"
-      ]
-    },
-    {
       "id": "statc-041",
       "subject": "Statistiques",
       "chapter": "Stat 4 — Tests et A/B tests",
@@ -530,18 +483,6 @@
       "tags": [
         "test",
         "piege"
-      ]
-    },
-    {
-      "id": "statc-047",
-      "subject": "Statistiques",
-      "chapter": "Stat 5 — Régression linéaire",
-      "prompt": "Comment définit-on la moyenne empirique x̄ d’un N-échantillon x₁,…,x_N ?",
-      "answer": "x̄ = (1/N) Σᵢ xᵢ.",
-      "explanation": "ȳ se définit de la même façon pour les yᵢ.",
-      "tags": [
-        "moyenne-empirique",
-        "regression"
       ]
     },
     {
@@ -894,31 +835,6 @@
       "tags": [
         "bernoulli",
         "moyenne-empirique",
-        "estimateur"
-      ]
-    },
-    {
-      "id": "statc-077",
-      "subject": "Statistiques",
-      "chapter": "Stat 6 — Modèles paramétriques",
-      "prompt": "Comment le cours définit-il le biais b(θ) d’un estimateur θ̂ ?",
-      "answer": "b(θ)=E_θ(θ̂)−θ.",
-      "explanation": "Un estimateur est sans biais si b(θ)=0 pour tout θ.",
-      "tags": [
-        "biais",
-        "estimateur"
-      ]
-    },
-    {
-      "id": "statc-078",
-      "subject": "Statistiques",
-      "chapter": "Stat 6 — Modèles paramétriques",
-      "prompt": "Quelle est la variance de la moyenne empirique dans le modèle de Bernoulli ?",
-      "answer": "Var_θ(θ̂)=θ(1−θ)/N.",
-      "explanation": "",
-      "tags": [
-        "bernoulli",
-        "variance",
         "estimateur"
       ]
     },
