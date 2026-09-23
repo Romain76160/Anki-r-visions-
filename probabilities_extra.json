@@ -1,7 +1,7 @@
 {
   "packID": "probabilites",
   "title": "Probabilités — 5 chapitres",
-  "version": 3,
+  "version": 4,
   "questions": [
     {
       "id": "p1-001",
@@ -166,17 +166,6 @@
       "explanation": "On peut aussi écrire P(A ∩ B) = P(B|A) × P(A).",
       "tags": [
         "formule"
-      ]
-    },
-    {
-      "id": "p1-016",
-      "subject": "Probabilités",
-      "chapter": "Proba 1 — Bases et lois discrètes",
-      "prompt": "Dans P(A|B), quel événement est supposé déjà réalisé ?",
-      "answer": "B.",
-      "explanation": "On lit « probabilité de A sachant B ».",
-      "tags": [
-        "conditionnelle"
       ]
     },
     {
@@ -1189,17 +1178,6 @@
       "explanation": "",
       "tags": [
         "transfert"
-      ]
-    },
-    {
-      "id": "p3-029",
-      "subject": "Probabilités",
-      "chapter": "Proba 3 — Variables continues",
-      "prompt": "Si X et Y sont indépendantes, que vaut E(XY) ?",
-      "answer": "E(XY)=E(X)E(Y).",
-      "explanation": "",
-      "tags": [
-        "independance"
       ]
     },
     {
