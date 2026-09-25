@@ -1,0 +1,630 @@
+{
+  "packID": "hadoop-tp-1",
+  "title": "Hadoop — HDFS, YARN, MapReduce et ZooKeeper",
+  "version": 1,
+  "questions": [
+    {
+      "id": "hadoop-base-001",
+      "subject": "Hadoop",
+      "chapter": "Installation et environnement",
+      "prompt": "Que fait hadoop version ?",
+      "answer": "Elle affiche la version de Hadoop installée.",
+      "explanation": "Utile pour vérifier l’installation et choisir le bon JAR d’exemples.",
+      "tags": [
+        "hadoop",
+        "version"
+      ]
+    },
+    {
+      "id": "hadoop-base-002",
+      "subject": "Hadoop",
+      "chapter": "Installation et environnement",
+      "prompt": "À quoi servent HADOOP_HOME et PATH ?",
+      "answer": "HADOOP_HOME pointe vers Hadoop ; PATH permet d’appeler ses commandes sans écrire leur chemin complet.",
+      "explanation": "Après modification de ~/.bashrc, utiliser source ~/.bashrc.",
+      "tags": [
+        "hadoop",
+        "environment"
+      ]
+    },
+    {
+      "id": "hadoop-base-003",
+      "subject": "Hadoop",
+      "chapter": "Installation et environnement",
+      "prompt": "À quoi sert PDSH_RCMD_TYPE=ssh avec Hadoop ?",
+      "answer": "À indiquer à pdsh d’utiliser SSH pour lancer des commandes sur les autres nœuds.",
+      "explanation": "Les scripts Hadoop s’appuient sur SSH dans un cluster distribué.",
+      "tags": [
+        "hadoop",
+        "pdsh",
+        "ssh"
+      ]
+    },
+    {
+      "id": "hadoop-base-004",
+      "subject": "Hadoop",
+      "chapter": "Installation et environnement",
+      "prompt": "Que montre jps sur un nœud Hadoop ?",
+      "answer": "Les processus Java actifs, notamment NameNode, DataNode, ResourceManager et NodeManager.",
+      "explanation": "Très pratique pour vérifier quels démons tournent.",
+      "tags": [
+        "hadoop",
+        "jps",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-base-005",
+      "subject": "Hadoop",
+      "chapter": "Installation et environnement",
+      "prompt": "Pourquoi Hadoop doit-il pouvoir se connecter en SSH aux workers ?",
+      "answer": "Les scripts de démarrage utilisent SSH pour lancer ou arrêter les démons à distance.",
+      "explanation": "Une authentification par clé évite les mots de passe interactifs.",
+      "tags": [
+        "hadoop",
+        "ssh",
+        "workers"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-001",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs namenode -format ?",
+      "answer": "Elle initialise les métadonnées du NameNode pour un nouveau système HDFS.",
+      "explanation": "À ne pas relancer sur un cluster contenant des données à conserver.",
+      "tags": [
+        "hdfs",
+        "namenode",
+        "format"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-002",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait start-dfs.sh ?",
+      "answer": "Elle démarre les démons HDFS configurés, notamment le NameNode et les DataNodes.",
+      "explanation": "Le script contacte les workers définis dans le cluster.",
+      "tags": [
+        "hdfs",
+        "start"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-003",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait stop-dfs.sh ?",
+      "answer": "Elle arrête les démons HDFS du cluster.",
+      "explanation": "C’est le pendant de start-dfs.sh.",
+      "tags": [
+        "hdfs",
+        "stop"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-004",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs --daemon start datanode ?",
+      "answer": "Elle démarre uniquement le démon DataNode sur la machine courante.",
+      "explanation": "Utile pour agir sur un nœud précis.",
+      "tags": [
+        "hdfs",
+        "datanode",
+        "daemon"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-005",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs --daemon stop datanode ?",
+      "answer": "Elle arrête uniquement le DataNode de la machine courante.",
+      "explanation": "Pratique lors d’un dépannage ciblé.",
+      "tags": [
+        "hdfs",
+        "datanode",
+        "daemon"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-006",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -mkdir -p /user/ubuntu/input ?",
+      "answer": "Elle crée le dossier HDFS demandé et ses parents manquants.",
+      "explanation": "Le chemin est dans HDFS, pas dans le système de fichiers local.",
+      "tags": [
+        "hdfs",
+        "mkdir"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-007",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -ls /user/ubuntu ?",
+      "answer": "Elle liste le contenu du chemin HDFS indiqué.",
+      "explanation": "Cette commande ne liste pas le disque local.",
+      "tags": [
+        "hdfs",
+        "ls"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-008",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -ls -h /chemin ?",
+      "answer": "Elle liste le contenu HDFS en affichant les tailles dans un format lisible.",
+      "explanation": "-h signifie human-readable.",
+      "tags": [
+        "hdfs",
+        "ls"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-009",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -put fichier.txt /input ?",
+      "answer": "Elle copie un fichier local vers HDFS.",
+      "explanation": "La source est locale ; la destination est un chemin HDFS.",
+      "tags": [
+        "hdfs",
+        "put"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-010",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -get /output/resultat.txt . ?",
+      "answer": "Elle copie un fichier depuis HDFS vers le système de fichiers local.",
+      "explanation": "C’est l’opération inverse de -put.",
+      "tags": [
+        "hdfs",
+        "get"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-011",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -cat /output/part-r-00000 ?",
+      "answer": "Elle affiche dans le terminal le contenu d’un fichier stocké dans HDFS.",
+      "explanation": "Souvent utilisé pour lire le résultat d’un job MapReduce.",
+      "tags": [
+        "hdfs",
+        "cat"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-012",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -du -h /user/ubuntu ?",
+      "answer": "Elle affiche l’espace occupé par les fichiers et dossiers HDFS du chemin.",
+      "explanation": "-h rend les tailles plus lisibles.",
+      "tags": [
+        "hdfs",
+        "du"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-013",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait hdfs dfs -rm /chemin/fichier ?",
+      "answer": "Elle supprime le fichier HDFS indiqué.",
+      "explanation": "Pour un dossier, il faut généralement utiliser -rm -r.",
+      "tags": [
+        "hdfs",
+        "rm"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-014",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "À quoi sert hdfs dfsadmin -report ?",
+      "answer": "À afficher l’état global HDFS et les DataNodes connus avec leurs capacités.",
+      "explanation": "Utile pour vérifier qu’un DataNode est bien enregistré.",
+      "tags": [
+        "hdfs",
+        "dfsadmin",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-015",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Pourquoi hdfs dfs -put peut-il répondre File exists ?",
+      "answer": "Parce qu’un fichier portant déjà ce nom existe dans le chemin HDFS cible.",
+      "explanation": "Il faut choisir un autre nom ou supprimer/remplacer l’élément existant.",
+      "tags": [
+        "hdfs",
+        "put",
+        "error"
+      ]
+    },
+    {
+      "id": "hadoop-hdfs-016",
+      "subject": "Hadoop",
+      "chapter": "HDFS — commandes",
+      "prompt": "Que fait cat fichier | ssh machine 'hdfs dfs -put - /dest' ?",
+      "answer": "Elle envoie le contenu par SSH et l’écrit directement dans HDFS sur la machine distante.",
+      "explanation": "Le tiret - représente l’entrée standard pour hdfs dfs -put.",
+      "tags": [
+        "hdfs",
+        "ssh",
+        "pipe"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-001",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "Que fait start-yarn.sh ?",
+      "answer": "Elle démarre les services YARN configurés, notamment ResourceManager et NodeManagers.",
+      "explanation": "YARN gère les ressources et l’exécution des calculs.",
+      "tags": [
+        "yarn",
+        "start"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-002",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "Que fait stop-yarn.sh ?",
+      "answer": "Elle arrête les services YARN du cluster.",
+      "explanation": "C’est le pendant de start-yarn.sh.",
+      "tags": [
+        "yarn",
+        "stop"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-003",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "Que fait yarn --daemon start nodemanager ?",
+      "answer": "Elle démarre le NodeManager sur la machine courante.",
+      "explanation": "Le NodeManager exécute des conteneurs YARN sur ce nœud.",
+      "tags": [
+        "yarn",
+        "nodemanager",
+        "daemon"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-004",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "Que fait yarn --daemon stop nodemanager ?",
+      "answer": "Elle arrête le NodeManager de la machine courante.",
+      "explanation": "Utile pour redémarrer un worker YARN précis.",
+      "tags": [
+        "yarn",
+        "nodemanager",
+        "daemon"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-005",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "À quoi sert yarn node -list ?",
+      "answer": "À afficher les NodeManagers enregistrés auprès du ResourceManager.",
+      "explanation": "On vérifie ainsi quels workers YARN sont actifs.",
+      "tags": [
+        "yarn",
+        "nodes",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-yarn-006",
+      "subject": "Hadoop",
+      "chapter": "YARN — commandes",
+      "prompt": "À quoi sert yarn application -status <application_id> ?",
+      "answer": "À afficher l’état et les informations d’une application YARN.",
+      "explanation": "Utile pour suivre un job MapReduce soumis au cluster.",
+      "tags": [
+        "yarn",
+        "application",
+        "status"
+      ]
+    },
+    {
+      "id": "hadoop-mr-001",
+      "subject": "Hadoop",
+      "chapter": "MapReduce",
+      "prompt": "Que fait ls share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar ?",
+      "answer": "Elle recherche le JAR d’exemples MapReduce correspondant à l’installation Hadoop.",
+      "explanation": "Le numéro de version du JAR doit correspondre à celui installé.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "jar"
+      ]
+    },
+    {
+      "id": "hadoop-mr-002",
+      "subject": "Hadoop",
+      "chapter": "MapReduce",
+      "prompt": "Que fait hadoop jar ... wordcount /input /output ?",
+      "answer": "Elle lance l’exemple MapReduce WordCount en lisant /input et en écrivant dans /output.",
+      "explanation": "Le calcul est exécuté via Hadoop, généralement avec YARN en mode distribué.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "wordcount"
+      ]
+    },
+    {
+      "id": "hadoop-mr-003",
+      "subject": "Hadoop",
+      "chapter": "MapReduce",
+      "prompt": "Que fait hadoop jar ... grep /input /output motif ?",
+      "answer": "Elle lance l’exemple MapReduce grep sur les données HDFS d’entrée.",
+      "explanation": "Le programme cherche le motif et écrit les résultats dans le dossier de sortie.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "grep"
+      ]
+    },
+    {
+      "id": "hadoop-mr-004",
+      "subject": "Hadoop",
+      "chapter": "MapReduce",
+      "prompt": "À quoi sert bin/mapred job -list-attempt-ids job_... MAP failed ?",
+      "answer": "À lister les tentatives MAP ayant échoué pour un job MapReduce.",
+      "explanation": "Cela aide à localiser un échec sur un nœud précis.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-mr-005",
+      "subject": "Hadoop",
+      "chapter": "MapReduce",
+      "prompt": "À quoi sert bin/mapred job -logs job_... attempt_... ?",
+      "answer": "À afficher les logs d’une tentative de tâche MapReduce.",
+      "explanation": "On peut les filtrer avec grep pour chercher le nœud ou l’erreur.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "logs"
+      ]
+    },
+    {
+      "id": "hadoop-conf-001",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert core-site.xml ?",
+      "answer": "Il contient les paramètres communs Hadoop, notamment fs.defaultFS qui indique l’adresse HDFS du NameNode.",
+      "explanation": "Exemple : hdfs://nom-du-master:9000 selon la configuration.",
+      "tags": [
+        "hadoop",
+        "config",
+        "core-site"
+      ]
+    },
+    {
+      "id": "hadoop-conf-002",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert hdfs-site.xml ?",
+      "answer": "Il configure HDFS : réplication et emplacements locaux du NameNode et des DataNodes.",
+      "explanation": "Paramètres vus : dfs.replication, dfs.namenode.name.dir, dfs.datanode.data.dir.",
+      "tags": [
+        "hdfs",
+        "config",
+        "hdfs-site"
+      ]
+    },
+    {
+      "id": "hadoop-conf-003",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert yarn-site.xml ?",
+      "answer": "Il configure YARN, notamment le ResourceManager, les NodeManagers et le service mapreduce_shuffle.",
+      "explanation": "Ce fichier contrôle l’exécution distribuée des ressources.",
+      "tags": [
+        "yarn",
+        "config",
+        "yarn-site"
+      ]
+    },
+    {
+      "id": "hadoop-conf-004",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert mapred-site.xml ?",
+      "answer": "Il configure MapReduce ; mapreduce.framework.name=yarn demande l’exécution via YARN.",
+      "explanation": "Sans ce réglage, MapReduce peut ne pas utiliser le cluster YARN attendu.",
+      "tags": [
+        "mapreduce",
+        "config",
+        "mapred-site"
+      ]
+    },
+    {
+      "id": "hadoop-conf-005",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert le fichier workers ?",
+      "answer": "Il liste les machines sur lesquelles les scripts Hadoop doivent lancer les démons workers.",
+      "explanation": "Les noms doivent être résolus et accessibles en SSH.",
+      "tags": [
+        "hadoop",
+        "workers",
+        "config"
+      ]
+    },
+    {
+      "id": "hadoop-conf-006",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "Pourquoi copier mapred-site.xml.template vers mapred-site.xml ?",
+      "answer": "Pour créer le vrai fichier de configuration MapReduce à partir du modèle fourni.",
+      "explanation": "On peut ensuite l’éditer, par exemple avec nano.",
+      "tags": [
+        "hadoop",
+        "mapreduce",
+        "config",
+        "cp"
+      ]
+    },
+    {
+      "id": "hadoop-conf-007",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "Que fait grep -A2 \"dfs.datanode.data.dir\" etc/hadoop/hdfs-site.xml ?",
+      "answer": "Elle affiche la ligne trouvée et les deux lignes suivantes autour du paramètre DataNode.",
+      "explanation": "-A2 signifie after 2 lines.",
+      "tags": [
+        "hadoop",
+        "grep",
+        "hdfs-site"
+      ]
+    },
+    {
+      "id": "hadoop-conf-008",
+      "subject": "Hadoop",
+      "chapter": "Configuration",
+      "prompt": "Que fait grep -A2 \"yarn.nodemanager.local-dirs\" etc/hadoop/yarn-site.xml ?",
+      "answer": "Elle affiche le paramètre des répertoires locaux YARN et les deux lignes suivantes.",
+      "explanation": "Utile lors d’un problème d’espace disque sur un NodeManager.",
+      "tags": [
+        "hadoop",
+        "grep",
+        "yarn-site",
+        "disk"
+      ]
+    },
+    {
+      "id": "hadoop-trouble-001",
+      "subject": "Hadoop",
+      "chapter": "Dépannage",
+      "prompt": "Que signifie java.io.IOException: Disk quota exceeded pendant un job ?",
+      "answer": "Le processus a dépassé le quota disque autorisé sur le système de fichiers local.",
+      "explanation": "Ce n’est pas forcément HDFS qui est plein : vérifier le nœud qui exécute la tâche.",
+      "tags": [
+        "hadoop",
+        "error",
+        "quota"
+      ]
+    },
+    {
+      "id": "hadoop-trouble-002",
+      "subject": "Hadoop",
+      "chapter": "Dépannage",
+      "prompt": "Comment vérifier rapidement si un DataNode est reconnu ?",
+      "answer": "Utiliser jps sur le nœud puis hdfs dfsadmin -report depuis le cluster.",
+      "explanation": "jps vérifie le processus local ; le rapport vérifie l’enregistrement dans HDFS.",
+      "tags": [
+        "hadoop",
+        "hdfs",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-trouble-003",
+      "subject": "Hadoop",
+      "chapter": "Dépannage",
+      "prompt": "Comment vérifier rapidement si un NodeManager est reconnu ?",
+      "answer": "Utiliser jps sur le nœud puis yarn node -list.",
+      "explanation": "Les deux vérifications distinguent processus local et enregistrement YARN.",
+      "tags": [
+        "hadoop",
+        "yarn",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "hadoop-trouble-004",
+      "subject": "Hadoop",
+      "chapter": "Dépannage",
+      "prompt": "Pourquoi rm -rf d’un dossier de données DataNode est-il risqué ?",
+      "answer": "Il supprime les blocs HDFS stockés localement sur ce DataNode.",
+      "explanation": "À réserver à une réinitialisation volontaire pendant un TP, pas à un cluster contenant des données utiles.",
+      "tags": [
+        "hadoop",
+        "hdfs",
+        "rm",
+        "warning"
+      ]
+    },
+    {
+      "id": "hadoop-zk-001",
+      "subject": "Hadoop",
+      "chapter": "ZooKeeper",
+      "prompt": "À quoi sert le fichier zoo.cfg ?",
+      "answer": "À configurer ZooKeeper : dataDir, ports et liste des serveurs du quorum.",
+      "explanation": "Nous avons utilisé des entrées server.1, server.2 et server.3.",
+      "tags": [
+        "zookeeper",
+        "config"
+      ]
+    },
+    {
+      "id": "hadoop-zk-002",
+      "subject": "Hadoop",
+      "chapter": "ZooKeeper",
+      "prompt": "À quoi sert le fichier myid de ZooKeeper ?",
+      "answer": "Il contient l’identifiant numérique du serveur, correspondant à son entrée server.X dans zoo.cfg.",
+      "explanation": "Chaque nœud du quorum doit avoir son propre identifiant.",
+      "tags": [
+        "zookeeper",
+        "myid"
+      ]
+    },
+    {
+      "id": "hadoop-zk-003",
+      "subject": "Hadoop",
+      "chapter": "ZooKeeper",
+      "prompt": "Que fait zkServer.sh start ?",
+      "answer": "Elle démarre le serveur ZooKeeper sur la machine courante.",
+      "explanation": "Elle doit être lancée sur chaque nœud prévu dans le quorum.",
+      "tags": [
+        "zookeeper",
+        "start"
+      ]
+    },
+    {
+      "id": "hadoop-zk-004",
+      "subject": "Hadoop",
+      "chapter": "ZooKeeper",
+      "prompt": "Que fait zkServer.sh status ?",
+      "answer": "Elle affiche l’état du serveur ZooKeeper et son rôle, par exemple leader ou follower.",
+      "explanation": "Dans un quorum, un serveur est leader et les autres suivent.",
+      "tags": [
+        "zookeeper",
+        "status",
+        "leader"
+      ]
+    },
+    {
+      "id": "hadoop-zk-005",
+      "subject": "Hadoop",
+      "chapter": "ZooKeeper",
+      "prompt": "À quoi servent les ports 2888 et 3888 dans un quorum ZooKeeper ?",
+      "answer": "2888 sert aux communications entre serveurs ; 3888 sert notamment à l’élection du leader.",
+      "explanation": "Ils apparaissent dans les lignes server.X de zoo.cfg.",
+      "tags": [
+        "zookeeper",
+        "ports",
+        "quorum"
+      ]
+    }
+  ]
+}
