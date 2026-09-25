@@ -36,7 +36,7 @@ function reviewCalc(old,g,t=now()){
 }
 function formatInterval(ms){if(ms<3600000)return`${Math.max(1,Math.round(ms/MIN))} min`;if(ms<DAY)return`${Math.max(1,Math.round(ms/3600000))} h`;const d=ms/DAY;if(d<30)return`${Math.max(1,Math.round(d))} j`;if(d<365)return`${Math.max(1,Math.round(d/30))} mois`;return`${Math.max(1,Math.round(d/365))} an${d>=730?'s':''}`;}
 const COURSE_ALIASES={'Bases relationnelles':'Bases de données'};
-const COURSE_ORDER=['Statistiques','Bases de données','Algèbre linéaire','Probabilités','Python','Linux'];
+const COURSE_ORDER=['Statistiques','Bases de données','Algèbre linéaire','Probabilités','Python','Hadoop','Linux'];
 function courseName(card){return COURSE_ALIASES[card.subject]||card.subject||'Autre';}
 function cardsForCourse(course){return state.cards.filter(c=>courseName(c)===course);}
 function courseNames(){
@@ -134,13 +134,14 @@ async function seed(){
   state.loading=true;state.error=null;render();
   try{
     const sources=[
-      './starter_questions.json?v=10',
-      './python_types_extra.json?v=10',
-      './probabilities_extra.json?v=10',
-      './statistics_extra.json?v=10',
-      './linear_algebra_extra.json?v=10',
-      './databases_extra.json?v=10',
-      './linux_extra.json?v=10'
+      './starter_questions.json?v=11',
+      './python_types_extra.json?v=11',
+      './probabilities_extra.json?v=11',
+      './statistics_extra.json?v=11',
+      './linear_algebra_extra.json?v=11',
+      './databases_extra.json?v=11',
+      './linux_extra.json?v=11',
+      './hadoop_extra.json?v=11'
     ];
     const packs=await Promise.all(sources.map(async src=>{
       const response=await fetch(src,{cache:'no-store'});
