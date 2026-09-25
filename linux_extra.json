@@ -1,7 +1,7 @@
 {
   "packID": "linux-basics-1",
-  "title": "Linux - Commandes essentielles",
-  "version": 1,
+  "title": "Linux — Commandes essentielles, SSH et outils du TP",
+  "version": 2,
   "questions": [
     {
       "id": "linux-nav-001",
@@ -664,6 +664,477 @@
         "linux",
         "apt",
         "packages"
+      ]
+    },
+    {
+      "id": "linux-file-011",
+      "subject": "Linux",
+      "chapter": "Fichiers et dossiers",
+      "prompt": "Que fait mkdir -p ~/.ssh ?",
+      "answer": "Elle crée le dossier ~/.ssh et ses parents si nécessaire, sans erreur s’il existe déjà.",
+      "explanation": "-p signifie parents.",
+      "tags": [
+        "linux",
+        "mkdir",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-perm-001",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "Que fait chmod 700 ~/.ssh ?",
+      "answer": "Il donne tous les droits au propriétaire du dossier ~/.ssh et aucun droit aux autres.",
+      "explanation": "Pour SSH, le dossier des clés doit être privé.",
+      "tags": [
+        "linux",
+        "chmod",
+        "permissions",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-perm-002",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "Que fait chmod 600 ~/.ssh/authorized_keys ?",
+      "answer": "Il autorise uniquement le propriétaire à lire et modifier authorized_keys.",
+      "explanation": "SSH peut refuser des permissions trop ouvertes.",
+      "tags": [
+        "linux",
+        "chmod",
+        "permissions",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-perm-003",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "Que signifie 700 avec chmod ?",
+      "answer": "Propriétaire : lecture, écriture, exécution ; groupe et autres : aucun droit.",
+      "explanation": "7 = 4+2+1.",
+      "tags": [
+        "linux",
+        "chmod",
+        "permissions"
+      ]
+    },
+    {
+      "id": "linux-perm-004",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "Que signifie 600 avec chmod ?",
+      "answer": "Propriétaire : lecture et écriture ; groupe et autres : aucun droit.",
+      "explanation": "6 = 4+2.",
+      "tags": [
+        "linux",
+        "chmod",
+        "permissions"
+      ]
+    },
+    {
+      "id": "linux-perm-005",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "À quoi sert ls -ld ~/.ssh ?",
+      "answer": "À afficher les droits et informations du dossier ~/.ssh lui-même.",
+      "explanation": "-d évite d’afficher son contenu.",
+      "tags": [
+        "linux",
+        "ls",
+        "permissions",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-perm-006",
+      "subject": "Linux",
+      "chapter": "Permissions",
+      "prompt": "À quoi sert ls -l ~/.ssh/authorized_keys ?",
+      "answer": "À vérifier notamment les permissions et le propriétaire du fichier authorized_keys.",
+      "explanation": "Utile pour diagnostiquer Permission denied (publickey).",
+      "tags": [
+        "linux",
+        "ls",
+        "permissions",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-ssh-001",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que fait ssh utilisateur@machine ?",
+      "answer": "Elle ouvre une session distante sécurisée sur la machine avec le compte indiqué.",
+      "explanation": "SSH utilise généralement le port 22.",
+      "tags": [
+        "linux",
+        "ssh",
+        "network"
+      ]
+    },
+    {
+      "id": "linux-ssh-002",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que fait ssh -i ~/.ssh/id_ed25519 utilisateur@IP ?",
+      "answer": "Elle se connecte en SSH en imposant la clé privée id_ed25519.",
+      "explanation": "-i permet de choisir le fichier d’identité.",
+      "tags": [
+        "linux",
+        "ssh",
+        "key"
+      ]
+    },
+    {
+      "id": "linux-ssh-003",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que crée ssh-keygen -t ed25519 -N \"\" -f ~/.ssh/id_ed25519 ?",
+      "answer": "Une paire de clés SSH Ed25519 sans phrase secrète : une privée et une publique.",
+      "explanation": "La clé privée reste sur la machine cliente.",
+      "tags": [
+        "linux",
+        "ssh",
+        "ssh-keygen",
+        "key"
+      ]
+    },
+    {
+      "id": "linux-ssh-004",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Quelle clé SSH peut être copiée sur un serveur ?",
+      "answer": "La clé publique, par exemple ~/.ssh/id_ed25519.pub.",
+      "explanation": "La clé privée ne doit jamais être copiée ni partagée.",
+      "tags": [
+        "linux",
+        "ssh",
+        "key",
+        "security"
+      ]
+    },
+    {
+      "id": "linux-ssh-005",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "À quoi sert cat ~/.ssh/id_ed25519.pub ?",
+      "answer": "À afficher la clé publique SSH afin de pouvoir la copier ou la vérifier.",
+      "explanation": "Le suffixe .pub indique la clé publique.",
+      "tags": [
+        "linux",
+        "ssh",
+        "cat",
+        "key"
+      ]
+    },
+    {
+      "id": "linux-ssh-006",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "À quoi sert ~/.ssh/authorized_keys sur le serveur ?",
+      "answer": "Il contient les clés publiques autorisées à se connecter au compte par SSH.",
+      "explanation": "Le nom correct contient un underscore : authorized_keys.",
+      "tags": [
+        "linux",
+        "ssh",
+        "authorized_keys"
+      ]
+    },
+    {
+      "id": "linux-ssh-007",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que fait cat ma_cle.pub >> ~/.ssh/authorized_keys ?",
+      "answer": "Elle ajoute la clé publique à la fin du fichier authorized_keys.",
+      "explanation": ">> ajoute sans écraser les clés déjà présentes.",
+      "tags": [
+        "linux",
+        "ssh",
+        "authorized_keys",
+        "redirection"
+      ]
+    },
+    {
+      "id": "linux-ssh-008",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que fait ssh-copy-id -i ~/.ssh/id_ed25519.pub utilisateur@machine ?",
+      "answer": "Elle installe la clé publique dans authorized_keys du compte distant.",
+      "explanation": "Elle simplifie la configuration d’une connexion SSH par clé.",
+      "tags": [
+        "linux",
+        "ssh",
+        "ssh-copy-id"
+      ]
+    },
+    {
+      "id": "linux-ssh-009",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Pourquoi tester ssh localhost ?",
+      "answer": "Pour vérifier localement que le serveur SSH et l’authentification fonctionnent.",
+      "explanation": "Utile lors de la préparation d’un cluster Hadoop.",
+      "tags": [
+        "linux",
+        "ssh",
+        "localhost"
+      ]
+    },
+    {
+      "id": "linux-ssh-010",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que signifie Permission denied (publickey) en SSH ?",
+      "answer": "Le serveur est joignable, mais aucune clé proposée n’est acceptée pour ce compte.",
+      "explanation": "Vérifier utilisateur, clé, authorized_keys et permissions.",
+      "tags": [
+        "linux",
+        "ssh",
+        "error",
+        "publickey"
+      ]
+    },
+    {
+      "id": "linux-ssh-011",
+      "subject": "Linux",
+      "chapter": "SSH et clés",
+      "prompt": "Que signifie Connection refused sur le port SSH ?",
+      "answer": "La machine répond, mais aucun service n’accepte la connexion sur ce port.",
+      "explanation": "Vérifier sshd, le port 22 et le pare-feu.",
+      "tags": [
+        "linux",
+        "ssh",
+        "error",
+        "network"
+      ]
+    },
+    {
+      "id": "linux-net-007",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait hostname ?",
+      "answer": "Elle affiche le nom de la machine.",
+      "explanation": "Pratique pour identifier un nœud du cluster.",
+      "tags": [
+        "linux",
+        "hostname",
+        "network"
+      ]
+    },
+    {
+      "id": "linux-net-008",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait hostname -I ?",
+      "answer": "Elle affiche les adresses IP associées à la machine.",
+      "explanation": "Utile pour retrouver rapidement l’IP d’une VM.",
+      "tags": [
+        "linux",
+        "hostname",
+        "ip"
+      ]
+    },
+    {
+      "id": "linux-net-009",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "À quoi sert getent hosts tp-hadoop-31 ?",
+      "answer": "À demander au système comment le nom tp-hadoop-31 est résolu en adresse IP.",
+      "explanation": "Il utilise les mécanismes de résolution configurés sur la machine.",
+      "tags": [
+        "linux",
+        "getent",
+        "dns",
+        "network"
+      ]
+    },
+    {
+      "id": "linux-net-010",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que vérifie nc -vz machine 22 ?",
+      "answer": "Si une connexion TCP peut être établie vers le port 22 de la machine.",
+      "explanation": "Très utile pour distinguer un problème réseau d’un problème d’authentification SSH.",
+      "tags": [
+        "linux",
+        "nc",
+        "network",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-net-011",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait ss -lntp | grep :22 ?",
+      "answer": "Elle cherche un processus TCP en écoute sur le port 22.",
+      "explanation": "Permet de vérifier si le serveur SSH écoute.",
+      "tags": [
+        "linux",
+        "ss",
+        "grep",
+        "ssh"
+      ]
+    },
+    {
+      "id": "linux-net-012",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait systemctl status ssh ?",
+      "answer": "Elle affiche l’état du service SSH.",
+      "explanation": "On vérifie notamment s’il est actif ou en erreur.",
+      "tags": [
+        "linux",
+        "systemctl",
+        "ssh",
+        "service"
+      ]
+    },
+    {
+      "id": "linux-net-013",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait sudo systemctl start ssh ?",
+      "answer": "Elle démarre immédiatement le service SSH.",
+      "explanation": "Le service doit être installé au préalable.",
+      "tags": [
+        "linux",
+        "systemctl",
+        "ssh",
+        "service"
+      ]
+    },
+    {
+      "id": "linux-net-014",
+      "subject": "Linux",
+      "chapter": "Réseau et services",
+      "prompt": "Que fait sudo systemctl enable --now ssh ?",
+      "answer": "Elle démarre SSH maintenant et configure son démarrage automatique au boot.",
+      "explanation": "--now applique aussi l’action immédiatement.",
+      "tags": [
+        "linux",
+        "systemctl",
+        "ssh",
+        "service"
+      ]
+    },
+    {
+      "id": "linux-env-001",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "Que fait source ~/.bashrc ?",
+      "answer": "Elle recharge le fichier ~/.bashrc dans le shell courant.",
+      "explanation": "Utile après avoir modifié PATH, JAVA_HOME ou HADOOP_HOME.",
+      "tags": [
+        "linux",
+        "bashrc",
+        "environment"
+      ]
+    },
+    {
+      "id": "linux-env-002",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "À quoi sert echo $JAVA_HOME ?",
+      "answer": "À afficher la valeur actuelle de la variable d’environnement JAVA_HOME.",
+      "explanation": "Même principe pour HADOOP_HOME ou PATH.",
+      "tags": [
+        "linux",
+        "environment",
+        "java"
+      ]
+    },
+    {
+      "id": "linux-env-003",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "Que fait java -version ?",
+      "answer": "Elle affiche la version de Java utilisée par le système.",
+      "explanation": "Hadoop dépend d’une JVM compatible.",
+      "tags": [
+        "linux",
+        "java",
+        "version"
+      ]
+    },
+    {
+      "id": "linux-env-004",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "À quoi sert readlink -f $(which java) ?",
+      "answer": "À retrouver le chemin réel de l’exécutable Java suivi par les liens symboliques.",
+      "explanation": "Cela aide à déterminer JAVA_HOME.",
+      "tags": [
+        "linux",
+        "java",
+        "readlink"
+      ]
+    },
+    {
+      "id": "linux-env-005",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "À quoi sert wget URL ?",
+      "answer": "À télécharger un fichier depuis une URL vers la machine.",
+      "explanation": "Nous l’avons utilisé lors de l’installation d’outils du TP.",
+      "tags": [
+        "linux",
+        "wget",
+        "download"
+      ]
+    },
+    {
+      "id": "linux-env-006",
+      "subject": "Linux",
+      "chapter": "Environnement et outils",
+      "prompt": "À quoi sert rsync ?",
+      "answer": "À copier et synchroniser efficacement des fichiers ou dossiers, localement ou à distance.",
+      "explanation": "Il ne retransfère que les différences lorsque c’est possible.",
+      "tags": [
+        "linux",
+        "rsync",
+        "files"
+      ]
+    },
+    {
+      "id": "linux-disk-001",
+      "subject": "Linux",
+      "chapter": "Disque et quotas",
+      "prompt": "Que fait df -h ?",
+      "answer": "Elle affiche l’espace utilisé et disponible sur les systèmes de fichiers dans un format lisible.",
+      "explanation": "Utile pour diagnostiquer un disque plein.",
+      "tags": [
+        "linux",
+        "disk",
+        "df"
+      ]
+    },
+    {
+      "id": "linux-disk-002",
+      "subject": "Linux",
+      "chapter": "Disque et quotas",
+      "prompt": "Que fait du -sh /tmp/* ?",
+      "answer": "Elle affiche la taille totale de chaque élément directement sous /tmp.",
+      "explanation": "Permet de repérer ce qui consomme de l’espace.",
+      "tags": [
+        "linux",
+        "disk",
+        "du"
+      ]
+    },
+    {
+      "id": "linux-disk-003",
+      "subject": "Linux",
+      "chapter": "Disque et quotas",
+      "prompt": "Que fait quota -s ?",
+      "answer": "Elle affiche le quota disque de l’utilisateur et son utilisation dans un format lisible.",
+      "explanation": "Utile après une erreur Disk quota exceeded.",
+      "tags": [
+        "linux",
+        "disk",
+        "quota"
       ]
     }
   ]
