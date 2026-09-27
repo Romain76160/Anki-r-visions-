@@ -2,7 +2,7 @@ const STORAGE_KEY='moocRevisionPWA.v2';
 const DAY=86400000, MIN=60000;
 const W=[0.212,1.2931,2.3065,8.2956,6.4133,0.8334,3.0194,0.001,1.8722,0.1666,0.796,1.4835,0.0614,0.2629,1.6483,0.6014,1.8729,0.5425,0.0912,0.0658,0.1542];
 
-let state={cards:[],packs:{},progress:{},settings:{retention:.90},tab:'home',selectedCourse:null,selectedSheet:'BGD701',sessionCourse:null,session:[],index:0,revealed:false,loading:true,error:null};
+let state={cards:[],packs:{},progress:{},settings:{retention:.90},tab:'home',selectedCourse:null,selectedSheet:'BGD701 — Éval intermédiaire',sessionCourse:null,session:[],index:0,revealed:false,loading:true,error:null};
 const app=document.getElementById('app');
 const packInput=document.getElementById('packInput');
 const backupInput=document.getElementById('backupInput');
@@ -108,6 +108,150 @@ function coursePage(){
 }
 
 const REVISION_SHEETS={
+'BGD701 — Éval intermédiaire':{
+subtitle:'Préparation ciblée — séances 1 à 3',
+sections:[
+{title:'0. Ce que tu dois savoir faire le jour de l’évaluation',bullets:[
+'L’objectif n’est pas seulement de connaître des définitions : tu dois pouvoir <b>lire, expliquer, corriger et adapter du code réseau Python</b>.',
+'Tu dois savoir reconstruire de mémoire l’architecture d’un client/serveur TCP, expliquer pourquoi un serveur bloque, le rendre multiclient, puis construire un protocole qui transporte des messages complets.',
+'Priorité absolue : <b>sockets TCP → recv/sendall → threads → Lock → framing → JSON + longueur préfixée</b>.',
+'Si tu maîtrises les sections 1 à 10 ci-dessous et les exercices finaux sans regarder la correction, tu es prêt pour l’évaluation intermédiaire.'
+]},
+{title:'1. Le modèle client / serveur TCP',bullets:[
+'Un serveur attend des connexions sur une adresse et un port. Un client connaît cette adresse et initie la connexion.',
+'<code>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</code> crée un socket IPv4 utilisant TCP.',
+'<code>AF_INET</code> = IPv4. <code>SOCK_STREAM</code> = flux TCP.',
+'Le serveur possède un <b>socket d’écoute</b>. Après <code>accept()</code>, il obtient un <b>nouveau socket connecté</b> réservé aux échanges avec ce client.',
+'Point d’examen classique : le socket retourné par <code>accept()</code> n’est pas le même que le socket d’écoute.'
+]},
+{title:'2. Ordre exact des appels côté serveur et côté client',bullets:[
+'<div class="flow"><b>Serveur</b> : socket → bind → listen → accept → recv/sendall → close</div>',
+'<div class="flow"><b>Client</b> : socket → connect → sendall/recv → close</div>',
+'<code>bind((HOST, PORT))</code> associe le serveur à une adresse locale.',
+'<code>listen()</code> place le socket en mode écoute.',
+'<code>accept()</code> est bloquant : il attend l’arrivée d’un client.',
+'<code>connect((HOST, PORT))</code> déclenche l’établissement de la connexion côté client.'
+]},
+{title:'3. Code minimal à savoir reconstruire — serveur',bullets:[
+'<pre class="code-block">import socket\n\nHOST = "0.0.0.0"\nPORT = 5000\n\nwith socket.socket(socket.AF_INET, socket.SOCK_STREAM) as serveur:\n    serveur.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\n    serveur.bind((HOST, PORT))\n    serveur.listen()\n\n    connexion, adresse = serveur.accept()\n    with connexion:\n        data = connexion.recv(1024)\n        connexion.sendall(data)</pre>',
+'<code>SO_REUSEADDR</code> permet de réutiliser plus facilement l’adresse après un redémarrage du serveur.',
+'<code>with</code> garantit la fermeture du socket à la sortie du bloc.'
+]},
+{title:'4. Code minimal à savoir reconstruire — client',bullets:[
+'<pre class="code-block">import socket\n\nHOST = "127.0.0.1"\nPORT = 5000\n\nwith socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:\n    client.connect((HOST, PORT))\n    client.sendall("bonjour".encode("utf-8"))\n    reponse = client.recv(1024)\n    print(reponse.decode("utf-8"))</pre>',
+'Les sockets envoient des <b>bytes</b>, pas directement des chaînes.',
+'<code>encode("utf-8")</code> : str → bytes. <code>decode("utf-8")</code> : bytes → str.'
+]},
+{title:'5. Les IP que tu dois distinguer',bullets:[
+'<code>127.0.0.1</code> : boucle locale. Seule la machine elle-même peut joindre ce service.',
+'<code>0.0.0.0</code> dans <code>bind()</code> : écouter sur toutes les interfaces IPv4 de la machine.',
+'Pour qu’un autre PC rejoigne le serveur, il doit utiliser une vraie adresse IP de la machine serveur, pas <code>0.0.0.0</code>.',
+'Un port identifie l’application sur la machine. L’adresse complète d’un service est donc essentiellement <code>(IP, port)</code>.'
+]},
+{title:'6. Pourquoi recv(1024) est le piège central du cours',bullets:[
+'<code>recv(1024)</code> signifie : « donne-moi <b>jusqu’à</b> 1024 octets disponibles ». Cela ne signifie jamais « lis un message ». ',
+'TCP est un <b>flux</b>. Les frontières créées par plusieurs appels à <code>sendall()</code> ne sont pas conservées.',
+'Exemple : le client fait trois <code>sendall()</code>. Le serveur peut recevoir 1 bloc, 2 blocs ou 3 blocs selon le réseau et les buffers.',
+'Inversement, un message de 100 000 octets ne rentre pas dans un seul <code>recv(1024)</code> : il arrive en plusieurs morceaux.',
+'Conclusion à savoir formuler : <b>TCP garantit l’ordre des octets, pas la notion de message applicatif.</b>'
+]},
+{title:'7. recevoir_exactement() — fonction essentielle',bullets:[
+'<pre class="code-block">def recevoir_exactement(sock, n):\n    morceaux = b""\n    while len(morceaux) &lt; n:\n        morceau = sock.recv(n - len(morceaux))\n        if not morceau:\n            raise ConnectionError("Connexion fermée")\n        morceaux += morceau\n    return morceaux</pre>',
+'Pourquoi la boucle ? Parce qu’un seul <code>recv(n)</code> peut renvoyer moins de n octets.',
+'Pourquoi tester <code>if not morceau</code> ? Un <code>recv()</code> qui renvoie <code>b""</code> indique que l’autre côté a fermé proprement la connexion.',
+'Pourquoi demander <code>n-len(morceaux)</code> ? Pour ne demander que les octets encore manquants.'
+]},
+{title:'8. Serveur séquentiel vs serveur multiclient',bullets:[
+'Serveur séquentiel : <code>accept()</code> puis traitement complet du client. Tant que ce traitement n’est pas fini, le serveur ne revient pas accepter le client suivant.',
+'Pour servir plusieurs clients simultanément, on peut créer <b>un thread par connexion</b>.',
+'<pre class="code-block">from threading import Thread\n\nwhile True:\n    connexion, adresse = serveur.accept()\n    Thread(\n        target=gerer_client,\n        args=(connexion, adresse),\n        daemon=True\n    ).start()</pre>',
+'Le thread reçoit le socket connecté du client ; le thread principal revient immédiatement vers <code>accept()</code>.'
+]},
+{title:'9. start(), run(), join() et ThreadPoolExecutor',bullets:[
+'<code>thread.start()</code> crée réellement une exécution concurrente puis appelle <code>run()</code> dans le nouveau thread.',
+'Appeler <code>thread.run()</code> soi-même exécute simplement la fonction dans le thread courant : ce n’est pas du parallélisme.',
+'<code>thread.join()</code> bloque le thread appelant jusqu’à la fin du thread ciblé.',
+'<code>ThreadPoolExecutor</code> est pratique quand on veut lancer plusieurs tâches avec un nombre maximal de threads au lieu de créer les threads manuellement.'
+]},
+{title:'10. Données partagées, race condition et Lock',bullets:[
+'Si plusieurs threads lisent et modifient une même donnée, leurs opérations peuvent s’entrelacer.',
+'Exemple conceptuel : deux threads lisent <code>compteur=10</code>, calculent tous les deux 11, puis écrivent 11. On a perdu une incrémentation.',
+'C’est une <b>race condition</b> : le résultat dépend de l’ordre d’exécution.',
+'<pre class="code-block">from threading import Lock\n\nverrou = Lock()\n\nwith verrou:\n    compteur += 1</pre>',
+'Le Lock doit protéger uniquement la partie réellement critique. Si on verrouille trop longtemps, on annule le bénéfice de la concurrence.'
+]},
+{title:'11. Le framing : transformer un flux TCP en messages',bullets:[
+'Puisque TCP ne fournit pas de messages, ton protocole doit indiquer <b>où commence et où finit chaque message</b>.',
+'Méthode A — délimiteur : terminer chaque message par <code>\\n</code>. Il faut gérer le cas où ce caractère peut apparaître dans les données.',
+'Méthode B — longueur préfixée : envoyer la taille avant les données. C’est la méthode la plus robuste pour le cours.',
+'<div class="flow">4 octets de longueur → exactement N octets de contenu</div>',
+'Le récepteur sait donc toujours combien d’octets il doit accumuler avant de considérer le message comme complet.'
+]},
+{title:'12. struct.pack("!I", n) expliqué',bullets:[
+'<code>struct.pack()</code> transforme des valeurs Python en représentation binaire.',
+'<code>!</code> = ordre réseau (big-endian).',
+'<code>I</code> = entier non signé sur 4 octets.',
+'<code>struct.pack("!I", 100)</code> produit donc exactement 4 octets contenant la valeur 100.',
+'Côté réception : <code>taille = struct.unpack("!I", entete)[0]</code>.'
+]},
+{title:'13. Protocole JSON complet à connaître',bullets:[
+'<pre class="code-block">import json\nimport struct\n\nTAILLE_ENTETE = 4\n\ndef envoyer_message(sock, objet):\n    contenu = json.dumps(objet).encode("utf-8")\n    entete = struct.pack("!I", len(contenu))\n    sock.sendall(entete + contenu)\n\ndef recevoir_message(sock):\n    entete = recevoir_exactement(sock, TAILLE_ENTETE)\n    taille = struct.unpack("!I", entete)[0]\n    contenu = recevoir_exactement(sock, taille)\n    return json.loads(contenu.decode("utf-8"))</pre>',
+'Chaîne mentale : <b>objet Python → JSON texte → bytes → longueur → envoi</b>.',
+'Réception : <b>4 octets → taille → N octets → decode → JSON → objet Python</b>.',
+'Le protocole est indépendant de la fragmentation TCP parce que <code>recevoir_exactement()</code> reconstruit l’en-tête et le contenu.'
+]},
+{title:'14. Délimiteur \\n : quand et pourquoi ?',bullets:[
+'Un délimiteur est pratique pour un protocole texte simple : chaque message se termine par <code>\\n</code>.',
+'Il faut conserver un buffer et chercher le délimiteur car un <code>recv()</code> peut contenir une moitié de ligne ou plusieurs lignes.',
+'Le caractère <code>\\n</code> représente un saut de ligne. Ce n’est pas « quelque chose de spécial à TCP » : c’est juste un octet choisi par ton protocole comme séparateur.',
+'Longueur préfixée est généralement plus simple lorsque le contenu peut contenir n’importe quel caractère.'
+]},
+{title:'15. Gestion des erreurs que tu dois comprendre',bullets:[
+'<code>ConnectionRefusedError</code> : rien n’accepte la connexion à cette IP/port ou connexion rejetée.',
+'<code>ConnectionError</code> pendant une lecture exacte : connexion fermée avant la fin attendue.',
+'<code>socket.timeout</code> : aucune opération terminée dans le délai configuré.',
+'JSON invalide : <code>json.JSONDecodeError</code>.',
+'Un bon serveur doit fermer le socket du client même lorsqu’une exception survient.'
+]},
+{title:'16. Les erreurs classiques qui coûtent des points',bullets:[
+'Confondre le socket d’écoute avec le socket retourné par <code>accept()</code>.',
+'Faire <code>recv(1024)</code> et supposer que le message est forcément complet.',
+'Envoyer une <code>str</code> directement au lieu de bytes.',
+'Utiliser <code>send()</code> sans gérer un éventuel envoi partiel.',
+'Appeler <code>Thread.run()</code> au lieu de <code>Thread.start()</code>.',
+'Modifier une donnée partagée sans Lock.',
+'Lire la longueur avec un seul <code>recv(4)</code> au lieu de garantir exactement 4 octets.',
+'Oublier qu’un client peut fermer la connexion et que <code>recv()</code> renvoie alors <code>b""</code>.'
+]},
+{title:'17. Exercice type 1 — Echo TCP',bullets:[
+'<b>Énoncé :</b> écrire un serveur qui reçoit un texte et le renvoie au client.',
+'<b>Ce que tu dois savoir faire :</b> créer socket, bind, listen, accept, recv, sendall, fermeture propre.',
+'<b>Extension :</b> le client envoie plusieurs messages. Là, tu dois immédiatement te demander : « comment sont délimités les messages ? »'
+]},
+{title:'18. Exercice type 2 — Serveur multiclient',bullets:[
+'<b>Énoncé :</b> adapter le serveur Echo pour accepter plusieurs clients en même temps.',
+'<b>Solution attendue :</b> boucle <code>accept()</code> dans le thread principal ; un Thread lance <code>gerer_client()</code> pour chaque connexion.',
+'<b>Extension :</b> compter le nombre total de messages reçus. Le compteur partagé doit être protégé par un Lock.'
+]},
+{title:'19. Exercice type 3 — Gros message fragmenté',bullets:[
+'<b>Énoncé :</b> envoyer un objet JSON d’environ 100 kB.',
+'Erreur volontaire : le serveur fait uniquement <code>recv(1024)</code> puis tente <code>json.loads()</code>.',
+'Diagnostic : le JSON est incomplet car TCP n’a livré qu’une partie du flux.',
+'Correction : préfixer la taille et utiliser <code>recevoir_exactement()</code>.'
+]},
+{title:'20. Checklist finale avant l’évaluation',bullets:[
+'Je peux écrire de mémoire les 6 appels principaux : <code>socket, bind, listen, accept, connect, sendall/recv</code>.',
+'Je peux expliquer la différence entre <code>0.0.0.0</code> et <code>127.0.0.1</code>.',
+'Je peux expliquer en une phrase pourquoi <code>recv(1024)</code> n’est pas un message.',
+'Je peux écrire <code>recevoir_exactement()</code> sans aide.',
+'Je peux expliquer et coder <code>struct.pack("!I", taille)</code>.',
+'Je peux transformer un objet Python en message JSON longueur préfixée puis refaire l’opération inverse.',
+'Je peux transformer un serveur séquentiel en serveur multithread.',
+'Je sais reconnaître une race condition et placer un Lock.',
+'Je sais diagnostiquer une connexion fermée, un timeout et un JSON incomplet.',
+'Je peux adapter ces briques à un nouvel énoncé au lieu de réciter un code par cœur.'
+]}
+]},
 'BGD701':{subtitle:'Big Data, sockets, systèmes distribués et MapReduce',sections:[
 {title:'1. Architecture distribuée',bullets:[
 '<b>Scale up</b> : augmenter CPU/RAM d’une machine. Simple mais limité et coûteux.',
@@ -501,7 +645,7 @@ const REVISION_SHEETS={
 };
 
 function revisionSheets(){
-  const names=COURSE_ORDER.filter(function(name){return REVISION_SHEETS[name];});
+  const names=['BGD701 — Éval intermédiaire'].concat(COURSE_ORDER.filter(function(name){return REVISION_SHEETS[name];}));
   const selected=REVISION_SHEETS[state.selectedSheet]?state.selectedSheet:names[0];
   const sheet=REVISION_SHEETS[selected];
   const selectors=names.map(function(name){
