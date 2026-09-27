@@ -36,7 +36,7 @@ function reviewCalc(old,g,t=now()){
 }
 function formatInterval(ms){if(ms<3600000)return`${Math.max(1,Math.round(ms/MIN))} min`;if(ms<DAY)return`${Math.max(1,Math.round(ms/3600000))} h`;const d=ms/DAY;if(d<30)return`${Math.max(1,Math.round(d))} j`;if(d<365)return`${Math.max(1,Math.round(d/30))} mois`;return`${Math.max(1,Math.round(d/365))} an${d>=730?'s':''}`;}
 const COURSE_ALIASES={'Bases relationnelles':'Bases de données'};
-const COURSE_ORDER=['Statistiques','Bases de données','Algèbre linéaire','Probabilités','Python','Hadoop','Linux'];
+const COURSE_ORDER=['BGD701','Statistiques','Bases de données','Algèbre linéaire','Probabilités','Python','Hadoop','Linux'];
 function courseName(card){return COURSE_ALIASES[card.subject]||card.subject||'Autre';}
 function cardsForCourse(course){return state.cards.filter(c=>courseName(c)===course);}
 function courseNames(){
@@ -86,7 +86,7 @@ function mergePack(pack,notify=true){if(!pack||!Array.isArray(pack.questions))th
 function toast(msg){const el=document.createElement('div');el.className='toast';el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),1800);}
 function renderTop(title,sub=''){return`<div class="topbar"><div><div class="brand">${esc(title)}</div>${sub?`<div class="muted">${esc(sub)}</div>`:''}</div></div>`;}
 function navButton(tab,label){const active=state.tab===tab||(tab==='library'&&state.tab==='course');return`<button data-tab="${tab}" class="${active?'active':''}">${label}</button>`;}
-function nav(){return`<div class="nav"><div class="nav-inner">${navButton('home','Révision')}${navButton('library','Bibliothèque')}${navButton('stats','Stats')}${navButton('settings','Réglages')}</div></div>`;}
+function nav(){return`<div class="nav"><div class="nav-inner">${navButton('home','Révision')}${navButton('library','Bibliothèque')}${navButton('sheets','Fiches')}${navButton('stats','Stats')}${navButton('settings','Réglages')}</div></div>`;}
 function installPanel(){return`<div class="section-title">Installation sur iPhone</div><div class="panel"><b>Ajouter l’app à l’écran d’accueil</b><div class="install-steps"><div class="install-step">Ouvre cette page dans Safari.</div><div class="install-step">Appuie sur Partager.</div><div class="install-step">Choisis « Sur l’écran d’accueil ».</div><div class="install-step">Appuie sur « Ajouter ».</div></div></div>`;}
 function isIOS(){return/iphone|ipad|ipod/i.test(navigator.userAgent);}
 function isStandalone(){return window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;}
@@ -106,9 +106,41 @@ function coursePage(){
   const c=counts(course),chapters=chapterSummary(course);
   return`${renderTop(course,`${c.total} cartes`)}<button class="back-link" id="backLibrary">← Tous les cours</button><div class="panel hero course-hero"><h1>${c.due?`${c.due} carte${c.due>1?'s':''} à revoir`:'Cours à jour'}</h1><p>Révise uniquement les cartes de ce cours. Les intervalles FSRS restent propres à chaque carte.</p><div class="stats"><div class="stat"><b>${c.due}</b><span>À revoir</span></div><div class="stat"><b>${c.newc}</b><span>Nouvelles</span></div><div class="stat"><b>${c.learned}</b><span>Apprises</span></div></div><div style="height:16px"></div><button class="full" id="startCourseStudy" ${c.due?'':'disabled'}>${c.due?'Réviser ce cours':'Rien à réviser'}</button></div><div class="section-title">Chapitres</div><div class="list chapter-list">${chapters.map(ch=>`<div class="list-item chapter-item"><b>${esc(ch.name)}</b><span>${ch.count} carte${ch.count>1?'s':''}</span></div>`).join('')}</div>`;
 }
+function revisionSheets(){
+  return `${renderTop('Fiches de révision','Synthèses essentielles')}
+  <div class="panel sheet-intro"><b>BGD701 — Big Data</b><p class="muted">La fiche ci-dessous rassemble ce qu’il faut savoir expliquer ou recoder sans le cours.</p></div>
+  <div class="sheet-grid">
+    <section class="panel revision-sheet"><h2>1. Sockets TCP</h2>
+      <ul><li>TCP transporte un <b>flux d’octets fiable et ordonné</b>, pas des messages.</li><li>Serveur : <code>socket → bind → listen → accept</code>.</li><li>Client : <code>socket → connect</code>.</li><li><code>sendall()</code> envoie tout ; <code>recv(n)</code> peut renvoyer moins de n octets.</li><li>Les chaînes doivent être encodées en bytes avant envoi.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>2. Framing / protocole</h2>
+      <ul><li>Un message peut être fragmenté ou fusionné avec le suivant dans TCP.</li><li>Framing possible : <b>délimiteur</b> ou <b>longueur préfixée</b>.</li><li>Format conseillé : <code>[4 octets longueur][JSON UTF-8]</code>.</li><li><code>struct.pack("!I", n)</code> encode une longueur 32 bits en ordre réseau.</li><li><code>recevoir_exactement()</code> boucle jusqu’à recevoir tous les octets demandés.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>3. Threads</h2>
+      <ul><li>Un thread par client évite qu’un client bloque tous les autres.</li><li><code>start()</code> lance un thread ; <code>join()</code> attend sa fin.</li><li>Un <code>Lock</code> protège une section critique ou une donnée partagée.</li><li>Une race condition dépend de l’ordre imprévisible des accès concurrents.</li><li><code>ThreadPoolExecutor</code> permet de paralléliser un ensemble de tâches avec un nombre limité de threads.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>4. Systèmes distribués</h2>
+      <ul><li><b>Réplication</b> : plusieurs copies d’une même donnée.</li><li><b>Partitionnement</b> : données différentes réparties entre machines.</li><li>Mesurer les latences avec p50 / p95 / p99, pas seulement la moyenne.</li><li>Un timeout ne permet pas de distinguer sûrement panne et lenteur.</li><li>CAP : lors d’une partition réseau, arbitrage entre <b>cohérence</b> et <b>disponibilité</b>.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>5. MapReduce</h2>
+      <div class="flow">Map → Shuffle → Reduce</div>
+      <ul><li><b>Map</b> produit des paires clé-valeur.</li><li><b>Shuffle</b> regroupe les valeurs de même clé et les envoie au bon reducer.</li><li><b>Reduce</b> agrège chaque groupe.</li><li>Partition classique : <code>hash(clé) % R</code>, avec un hash déterministe.</li><li>Avec M maps et R reducers : jusqu’à <b>M × R</b> partitions intermédiaires.</li><li>Le combiner pré-agrège localement pour réduire le trafic du shuffle.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>6. Maître, workers et robustesse</h2>
+      <ul><li>Le <b>maître orchestre</b> : attribution, suivi, relance.</li><li>Les <b>workers calculent</b> les tâches map/reduce.</li><li>Écrire dans <code>.tmp</code> puis faire <code>os.replace()</code> évite de publier un résultat incomplet.</li><li>Une tâche échouée peut être relancée sur un autre worker.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>7. Loi d’Amdahl</h2>
+      <div class="formula">S(p) = 1 / (f + (1-f)/p)</div>
+      <ul><li><code>f</code> = fraction séquentielle.</li><li><code>p</code> = nombre de ressources parallèles.</li><li>Quand p → ∞ : <b>Smax = 1/f</b>.</li><li>Conclusion : réduire la partie séquentielle peut être plus utile qu’ajouter encore des machines.</li></ul>
+    </section>
+    <section class="panel revision-sheet"><h2>À savoir refaire sans aide</h2>
+      <ol><li>Client et serveur TCP simples.</li><li>Serveur multithread.</li><li><code>recevoir_exactement()</code>.</li><li>Protocole JSON longueur préfixée.</li><li>Expliquer Map → Shuffle → Reduce.</li><li>Expliquer réplication, partitionnement et CAP.</li><li>Appliquer la loi d’Amdahl.</li></ol>
+    </section>
+  </div>`;
+}
 function statsPage(){const c=counts(),reviews=Object.values(state.progress).reduce((a,p)=>a+(p.reviewCount||0),0),lapses=Object.values(state.progress).reduce((a,p)=>a+(p.lapseCount||0),0);return`${renderTop('Statistiques')}<div class="stats"><div class="stat"><b>${reviews}</b><span>Réponses</span></div><div class="stat"><b>${lapses}</b><span>Oublis</span></div><div class="stat"><b>${c.learned}/${c.total}</b><span>Étudiées</span></div></div>`;}
 function settings(){return`${renderTop('Réglages')}<div class="panel"><div class="row spread"><b>Rétention cible</b><b>${Math.round(state.settings.retention*100)}%</b></div><input id="retention" type="range" min="80" max="97" step="1" value="${Math.round(state.settings.retention*100)}"><p class="muted">90 % par défaut. Une valeur plus élevée implique davantage de révisions.</p></div><div class="panel"><button class="full secondary" id="exportBackup">Exporter une sauvegarde</button><div style="height:10px"></div><button class="full secondary" id="importBackup">Restaurer une sauvegarde</button><div style="height:10px"></div><button class="full ghost" id="resetProgress">Réinitialiser la progression</button></div>${installPanel()}`;}
-function render(){let body=state.tab==='study'?study():state.tab==='course'?coursePage():state.tab==='library'?library():state.tab==='stats'?statsPage():state.tab==='settings'?settings():home();app.innerHTML=`<div class="shell">${body}</div>${state.tab==='study'?'':nav()}`;bind();}
+function render(){let body=state.tab==='study'?study():state.tab==='course'?coursePage():state.tab==='library'?library():state.tab==='sheets'?revisionSheets():state.tab==='stats'?statsPage():state.tab==='settings'?settings():home();app.innerHTML=`<div class="shell">${body}</div>${state.tab==='study'?'':nav()}`;bind();}
 function startStudy(course=null){state.session=dueCards(course);state.sessionCourse=course;state.index=0;state.revealed=false;state.tab='study';render();}
 function grade(g){const c=state.session[state.index];if(!c)return;state.progress[c.id]=reviewCalc(progressFor(c.id),g).progress;save();state.index++;state.revealed=false;if(state.index>=state.session.length){state.tab=state.sessionCourse?'course':'home';state.session=[];state.sessionCourse=null;toast('Session terminée');}render();}
 function downloadJSON(obj,name){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
@@ -141,7 +173,8 @@ async function seed(){
       './linear_algebra_extra.json?v=11',
       './databases_extra.json?v=11',
       './linux_extra.json?v=11',
-      './hadoop_extra.json?v=11'
+      './hadoop_extra.json?v=11',
+      './bgd701_extra.json?v=12'
     ];
     const packs=await Promise.all(sources.map(async src=>{
       const response=await fetch(src,{cache:'no-store'});
