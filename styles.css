@@ -27,3 +27,8 @@
 .sheet-intro h1{font-size:25px;line-height:1.15;margin:12px 0 8px}
 .revision-sheet li .flow,.revision-sheet li .formula{margin:8px 0}
 @media(max-width:520px){.sheet-course-grid{grid-template-columns:1fr}}
+
+.code-block{overflow:auto;white-space:pre;padding:14px;margin:10px 0;border-radius:14px;background:#090e1b;border:1px solid var(--border);font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#eef2ff}
+.revision-sheet ul{padding-left:20px}
+.revision-sheet li{margin-bottom:8px}
+.revision-sheet li:last-child{margin-bottom:0}
