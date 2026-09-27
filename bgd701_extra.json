@@ -1,0 +1,523 @@
+{
+  "packID": "bgd701-big-data-1",
+  "title": "BGD701 — Big Data, systèmes distribués et MapReduce",
+  "version": 1,
+  "questions": [
+    {
+      "id": "bgd701-arch-001",
+      "subject": "BGD701",
+      "chapter": "Architecture distribuée",
+      "prompt": "Scale up et scale out : quelle différence ?",
+      "answer": "Scale up = machine plus puissante ; scale out = plusieurs machines qui se partagent le travail.",
+      "explanation": "Le Big Data privilégie souvent le scale out pour augmenter capacité et parallélisme.",
+      "tags": [
+        "bgd701",
+        "architecture"
+      ]
+    },
+    {
+      "id": "bgd701-arch-002",
+      "subject": "BGD701",
+      "chapter": "Architecture distribuée",
+      "prompt": "Pourquoi distribuer un calcul sur plusieurs machines ?",
+      "answer": "Pour traiter plus de données, paralléliser le travail et améliorer la tolérance aux pannes.",
+      "explanation": "Le gain dépend toutefois des coûts réseau et de la partie séquentielle.",
+      "tags": [
+        "bgd701",
+        "distribution"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-001",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "Que garantit TCP ?",
+      "answer": "La livraison fiable et ordonnée d’un flux d’octets, avec contrôle de flux.",
+      "explanation": "TCP ne conserve pas les frontières entre les messages applicatifs.",
+      "tags": [
+        "tcp",
+        "socket"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-002",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "Quelle différence entre 127.0.0.1 et 0.0.0.0 ?",
+      "answer": "127.0.0.1 écoute seulement en local ; 0.0.0.0 écoute sur toutes les interfaces réseau.",
+      "explanation": "0.0.0.0 permet à d’autres machines d’atteindre le serveur si le réseau et le pare-feu l’autorisent.",
+      "tags": [
+        "tcp",
+        "ip"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-003",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "À quoi sert bind() côté serveur ?",
+      "answer": "À associer le socket à une adresse IP et un port locaux.",
+      "explanation": "Le serveur doit savoir sur quelle adresse il accepte des connexions.",
+      "tags": [
+        "socket",
+        "bind"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-004",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "À quoi sert listen() ?",
+      "answer": "À placer le socket serveur en attente de connexions entrantes.",
+      "explanation": "listen() prépare la file d’attente des connexions.",
+      "tags": [
+        "socket",
+        "listen"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-005",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "Que renvoie accept() ?",
+      "answer": "Un nouveau socket connecté au client, ainsi que l’adresse du client.",
+      "explanation": "Le socket d’écoute reste disponible pour accepter d’autres connexions.",
+      "tags": [
+        "socket",
+        "accept"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-006",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "À quoi sert connect() côté client ?",
+      "answer": "À établir une connexion TCP vers l’adresse IP et le port du serveur.",
+      "explanation": "Une fois connecté, client et serveur peuvent échanger des octets.",
+      "tags": [
+        "socket",
+        "connect"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-007",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "Pourquoi préférer sendall() à send() ?",
+      "answer": "sendall() poursuit l’envoi jusqu’à ce que tous les octets soient transmis.",
+      "explanation": "send() peut n’envoyer qu’une partie des données.",
+      "tags": [
+        "tcp",
+        "sendall"
+      ]
+    },
+    {
+      "id": "bgd701-tcp-008",
+      "subject": "BGD701",
+      "chapter": "Sockets TCP",
+      "prompt": "Pourquoi faut-il encode() avant d’envoyer une chaîne ?",
+      "answer": "Parce qu’un socket échange des octets, pas directement des chaînes Python.",
+      "explanation": "On utilise souvent UTF-8 : texte.encode('utf-8') puis bytes.decode('utf-8').",
+      "tags": [
+        "tcp",
+        "bytes"
+      ]
+    },
+    {
+      "id": "bgd701-proto-001",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Pourquoi recv(1024) ne correspond-il pas forcément à un message ?",
+      "answer": "Parce que TCP fournit un flux d’octets sans frontières de messages.",
+      "explanation": "Un message peut être fragmenté, ou plusieurs messages peuvent être regroupés dans un seul recv().",
+      "tags": [
+        "tcp",
+        "framing"
+      ]
+    },
+    {
+      "id": "bgd701-proto-002",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Qu’est-ce que le framing ?",
+      "answer": "Une méthode pour délimiter les messages dans un flux TCP.",
+      "explanation": "Deux méthodes classiques : délimiteur ou longueur préfixée.",
+      "tags": [
+        "protocol",
+        "framing"
+      ]
+    },
+    {
+      "id": "bgd701-proto-003",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Quelles sont deux stratégies classiques de framing ?",
+      "answer": "Un délimiteur, par exemple \\n, ou une longueur placée avant le contenu.",
+      "explanation": "La longueur préfixée est robuste pour des messages arbitraires.",
+      "tags": [
+        "protocol",
+        "framing"
+      ]
+    },
+    {
+      "id": "bgd701-proto-004",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Que signifie struct.pack('!I', n) ?",
+      "answer": "Encoder n comme entier non signé 32 bits en ordre réseau sur 4 octets.",
+      "explanation": "! impose le byte order réseau ; I représente un entier non signé de 4 octets.",
+      "tags": [
+        "python",
+        "struct"
+      ]
+    },
+    {
+      "id": "bgd701-proto-005",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Pourquoi écrire recevoir_exactement(sock, n) ?",
+      "answer": "Pour boucler sur recv() jusqu’à avoir reçu exactement n octets.",
+      "explanation": "Un seul recv(n) peut renvoyer moins de n octets.",
+      "tags": [
+        "tcp",
+        "recv"
+      ]
+    },
+    {
+      "id": "bgd701-proto-006",
+      "subject": "BGD701",
+      "chapter": "Protocoles et framing",
+      "prompt": "Schéma d’un message JSON avec longueur préfixée ?",
+      "answer": "[longueur sur 4 octets][JSON encodé en UTF-8].",
+      "explanation": "Le récepteur lit d’abord 4 octets, puis exactement la taille annoncée.",
+      "tags": [
+        "json",
+        "protocol"
+      ]
+    },
+    {
+      "id": "bgd701-thread-001",
+      "subject": "BGD701",
+      "chapter": "Threads et concurrence",
+      "prompt": "Pourquoi utiliser un thread par client ?",
+      "answer": "Pour traiter plusieurs connexions en parallèle sans bloquer tous les autres clients.",
+      "explanation": "Un serveur purement séquentiel attendrait la fin d’un client avant le suivant.",
+      "tags": [
+        "thread",
+        "server"
+      ]
+    },
+    {
+      "id": "bgd701-thread-002",
+      "subject": "BGD701",
+      "chapter": "Threads et concurrence",
+      "prompt": "Quelle différence entre start() et join() sur un Thread ?",
+      "answer": "start() lance le thread ; join() attend qu’il se termine.",
+      "explanation": "Appeler run() directement n’exécute pas le travail dans un nouveau thread.",
+      "tags": [
+        "thread",
+        "python"
+      ]
+    },
+    {
+      "id": "bgd701-thread-003",
+      "subject": "BGD701",
+      "chapter": "Threads et concurrence",
+      "prompt": "Quand utiliser threading.Lock ?",
+      "answer": "Quand plusieurs threads accèdent à une ressource partagée qui doit être modifiée de façon cohérente.",
+      "explanation": "Le Lock protège une section critique contre les accès concurrents.",
+      "tags": [
+        "thread",
+        "lock"
+      ]
+    },
+    {
+      "id": "bgd701-thread-004",
+      "subject": "BGD701",
+      "chapter": "Threads et concurrence",
+      "prompt": "Qu’est-ce qu’une race condition ?",
+      "answer": "Un résultat dépendant de l’ordre imprévisible d’exécution de plusieurs threads.",
+      "explanation": "Elle apparaît typiquement lors d’accès concurrents non protégés à un état partagé.",
+      "tags": [
+        "thread",
+        "concurrency"
+      ]
+    },
+    {
+      "id": "bgd701-thread-005",
+      "subject": "BGD701",
+      "chapter": "Threads et concurrence",
+      "prompt": "À quoi sert ThreadPoolExecutor ?",
+      "answer": "À exécuter plusieurs tâches dans un pool limité de threads réutilisables.",
+      "explanation": "Pratique pour contacter plusieurs machines sans créer manuellement chaque thread.",
+      "tags": [
+        "thread",
+        "executor"
+      ]
+    },
+    {
+      "id": "bgd701-dist-001",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Réplication et partitionnement : différence ?",
+      "answer": "Réplication = mêmes données sur plusieurs machines ; partitionnement = données différentes réparties entre machines.",
+      "explanation": "La réplication aide la disponibilité ; le partitionnement aide à répartir volume et charge.",
+      "tags": [
+        "distributed",
+        "replication"
+      ]
+    },
+    {
+      "id": "bgd701-dist-002",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Quel problème peut créer la réplication ?",
+      "answer": "Les copies peuvent être temporairement incohérentes à cause du retard de réplication.",
+      "explanation": "Il faut choisir une stratégie de cohérence adaptée au système.",
+      "tags": [
+        "distributed",
+        "consistency"
+      ]
+    },
+    {
+      "id": "bgd701-dist-003",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Deux méthodes courantes de partitionnement ?",
+      "answer": "Par plage de valeurs ou par hachage.",
+      "explanation": "Le hachage répartit souvent mieux la charge ; les plages facilitent certaines requêtes ordonnées.",
+      "tags": [
+        "distributed",
+        "partition"
+      ]
+    },
+    {
+      "id": "bgd701-dist-004",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Pourquoi regarder p50, p95 et p99 plutôt que seulement la moyenne ?",
+      "answer": "Parce que les percentiles montrent les latences typiques et les cas lents de fin de distribution.",
+      "explanation": "Une moyenne peut masquer quelques requêtes très lentes.",
+      "tags": [
+        "distributed",
+        "latency"
+      ]
+    },
+    {
+      "id": "bgd701-dist-005",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Pourquoi un timeout ne prouve-t-il pas qu’une machine est morte ?",
+      "answer": "Parce qu’elle peut simplement être très lente ou momentanément inaccessible.",
+      "explanation": "Dans un système distribué, panne et lenteur peuvent être indiscernables depuis un seul observateur.",
+      "tags": [
+        "distributed",
+        "timeout"
+      ]
+    },
+    {
+      "id": "bgd701-dist-006",
+      "subject": "BGD701",
+      "chapter": "Systèmes distribués",
+      "prompt": "Que dit le théorème CAP lors d’une partition réseau ?",
+      "answer": "Il faut arbitrer entre cohérence et disponibilité.",
+      "explanation": "CAP n’est pas juste 'choisir deux lettres sur trois' : le compromis apparaît en présence d’une partition.",
+      "tags": [
+        "cap",
+        "distributed"
+      ]
+    },
+    {
+      "id": "bgd701-mr-001",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quelles sont les trois grandes phases de MapReduce ?",
+      "answer": "Map, shuffle, reduce.",
+      "explanation": "Map produit des paires clé-valeur ; shuffle regroupe par clé ; reduce agrège chaque groupe.",
+      "tags": [
+        "mapreduce"
+      ]
+    },
+    {
+      "id": "bgd701-mr-002",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quel est le rôle de map ?",
+      "answer": "Transformer chaque donnée d’entrée en zéro, une ou plusieurs paires clé-valeur.",
+      "explanation": "Le map est appliqué indépendamment sur les partitions d’entrée.",
+      "tags": [
+        "mapreduce",
+        "map"
+      ]
+    },
+    {
+      "id": "bgd701-mr-003",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quel est le rôle du shuffle ?",
+      "answer": "Acheminer et regrouper toutes les valeurs ayant la même clé vers le même reducer.",
+      "explanation": "Le shuffle implique souvent disque, tri et réseau.",
+      "tags": [
+        "mapreduce",
+        "shuffle"
+      ]
+    },
+    {
+      "id": "bgd701-mr-004",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quel est le rôle de reduce ?",
+      "answer": "Agréger les valeurs associées à une même clé pour produire le résultat final.",
+      "explanation": "Chaque clé est traitée par un reducer déterminé.",
+      "tags": [
+        "mapreduce",
+        "reduce"
+      ]
+    },
+    {
+      "id": "bgd701-mr-005",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Comment choisir le reducer d’une clé ?",
+      "answer": "Souvent avec hash(clé) modulo R, où R est le nombre de reducers.",
+      "explanation": "Le hash doit être déterministe entre les machines.",
+      "tags": [
+        "mapreduce",
+        "hash"
+      ]
+    },
+    {
+      "id": "bgd701-mr-006",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Pourquoi éviter hash() de Python pour répartir les clés entre machines ?",
+      "answer": "Parce que sa valeur peut changer entre exécutions et processus.",
+      "explanation": "On préfère un hash déterministe fourni par hashlib.",
+      "tags": [
+        "mapreduce",
+        "python",
+        "hash"
+      ]
+    },
+    {
+      "id": "bgd701-mr-007",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Avec M maps et R reducers, combien de partitions intermédiaires au maximum ?",
+      "answer": "M × R.",
+      "explanation": "Chaque mapper peut produire une partition destinée à chacun des R reducers.",
+      "tags": [
+        "mapreduce",
+        "shuffle"
+      ]
+    },
+    {
+      "id": "bgd701-mr-008",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Pourquoi le shuffle peut-il coûter cher ?",
+      "answer": "Parce qu’il combine écritures disque, lectures, tri et transferts réseau.",
+      "explanation": "Réduire les données avant le shuffle améliore souvent les performances.",
+      "tags": [
+        "mapreduce",
+        "performance"
+      ]
+    },
+    {
+      "id": "bgd701-mr-009",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "À quoi sert un combiner ?",
+      "answer": "À pré-agréger localement les sorties d’un mapper avant le shuffle.",
+      "explanation": "Il réduit le volume de données envoyé sur le réseau.",
+      "tags": [
+        "mapreduce",
+        "combiner"
+      ]
+    },
+    {
+      "id": "bgd701-mr-010",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Pourquoi 'moyenne des moyennes' peut-elle être fausse ?",
+      "answer": "Parce que des groupes de tailles différentes ne doivent pas être pondérés de la même façon.",
+      "explanation": "Transporter plutôt (somme, effectif), additionner, puis diviser à la fin.",
+      "tags": [
+        "mapreduce",
+        "combiner"
+      ]
+    },
+    {
+      "id": "bgd701-mr-011",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quel est le rôle du maître dans un MapReduce distribué ?",
+      "answer": "Distribuer les tâches, suivre leur état et relancer celles qui échouent.",
+      "explanation": "Le maître orchestre ; les workers réalisent les calculs.",
+      "tags": [
+        "mapreduce",
+        "master"
+      ]
+    },
+    {
+      "id": "bgd701-mr-012",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Quel est le rôle d’un worker ?",
+      "answer": "Exécuter les tâches map ou reduce qui lui sont attribuées.",
+      "explanation": "Le worker lit ses entrées, calcule puis écrit ses sorties intermédiaires ou finales.",
+      "tags": [
+        "mapreduce",
+        "worker"
+      ]
+    },
+    {
+      "id": "bgd701-mr-013",
+      "subject": "BGD701",
+      "chapter": "MapReduce",
+      "prompt": "Pourquoi écrire d’abord dans un fichier .tmp puis faire os.replace() ?",
+      "answer": "Pour rendre la publication du résultat atomique et éviter un fichier partiellement écrit.",
+      "explanation": "Le renommage atomique distingue clairement résultat complet et écriture en cours.",
+      "tags": [
+        "mapreduce",
+        "atomic"
+      ]
+    },
+    {
+      "id": "bgd701-amdahl-001",
+      "subject": "BGD701",
+      "chapter": "Performance — loi d’Amdahl",
+      "prompt": "Formule de la loi d’Amdahl ?",
+      "answer": "S(p) = 1 / (f + (1-f)/p).",
+      "explanation": "f est la fraction séquentielle et p le nombre de processeurs ou workers.",
+      "tags": [
+        "amdahl",
+        "performance"
+      ]
+    },
+    {
+      "id": "bgd701-amdahl-002",
+      "subject": "BGD701",
+      "chapter": "Performance — loi d’Amdahl",
+      "prompt": "Quelle accélération maximale prédit Amdahl quand p tend vers l’infini ?",
+      "answer": "Smax = 1 / f.",
+      "explanation": "La partie séquentielle impose donc une limite même avec énormément de ressources.",
+      "tags": [
+        "amdahl",
+        "performance"
+      ]
+    },
+    {
+      "id": "bgd701-amdahl-003",
+      "subject": "BGD701",
+      "chapter": "Performance — loi d’Amdahl",
+      "prompt": "Pourquoi ajouter des machines finit-il par peu aider ?",
+      "answer": "Parce que la partie séquentielle et les surcoûts de distribution deviennent dominants.",
+      "explanation": "Réduire la fraction séquentielle peut être plus efficace que continuer à ajouter des workers.",
+      "tags": [
+        "amdahl",
+        "scaling"
+      ]
+    }
+  ]
+}
