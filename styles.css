@@ -18,3 +18,12 @@
 .revision-sheet code{background:rgba(255,255,255,.06);padding:2px 5px;border-radius:7px;color:#d8d5ff}
 .flow,.formula{padding:12px 14px;margin:0 0 12px;border-radius:14px;background:rgba(108,99,255,.12);border:1px solid rgba(108,99,255,.22);font-weight:800;text-align:center}
 @media(max-width:520px){.nav button{font-size:10px;padding:10px 3px}}
+
+.sheet-course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.sheet-course{background:linear-gradient(180deg,var(--panel),#10172a);border:1px solid var(--border);text-align:left;display:flex;flex-direction:column;gap:5px}
+.sheet-course b{font-size:15px}
+.sheet-course small{font-size:11px;color:var(--muted)}
+.sheet-course.active{outline:2px solid var(--accent);background:rgba(108,99,255,.14)}
+.sheet-intro h1{font-size:25px;line-height:1.15;margin:12px 0 8px}
+.revision-sheet li .flow,.revision-sheet li .formula{margin:8px 0}
+@media(max-width:520px){.sheet-course-grid{grid-template-columns:1fr}}
