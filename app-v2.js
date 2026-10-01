@@ -365,37 +365,56 @@ sections:[
 'Type I : rejeter H0 vraie. Type II : ne pas rejeter H0 fausse. Puissance = probabilité de détecter un effet réel.',
 'Un A/B test exige randomisation, métrique, taille et durée correctement définies.'
 ]},
-{title:'5. Régression linéaire',bullets:[
+{title:'5. Comparaison de deux proportions — dérivation du test A/B',bullets:[
+'On considère deux groupes indépendants : par exemple un groupe <b>A avec publicité</b> et un groupe <b>B sans publicité</b>. Pour chaque client, l’adhésion vaut 1 et la non-adhésion 0.',
+'<code>X_i ~ Bernoulli(p_a)</code> et <code>Y_i ~ Bernoulli(p_b)</code>. Pour une Bernoulli : <code>E[X]=p</code> et <code>Var(X)=p(1-p)</code>.',
+'Les proportions observées sont les moyennes empiriques : <code>p̂_a = (1/n_a) Σ X_i</code> et <code>p̂_b = (1/n_b) Σ Y_i</code>.',
+'<b>Attention :</b> c’est le <b>théorème central limite</b>, et non la loi des grands nombres, qui permet d’obtenir une approximation normale des estimateurs.',
+'<div class="formula">p̂_a ≈ N(p_a, p_a(1-p_a)/n_a)</div>',
+'<div class="formula">p̂_b ≈ N(p_b, p_b(1-p_b)/n_b)</div>',
+'Pourquoi la variance est divisée par n ? Parce que <code>Var((1/n)ΣX_i) = (1/n²)ΣVar(X_i) = p(1-p)/n</code> lorsque les observations sont indépendantes.',
+'Comme les deux groupes sont indépendants, les variances s’additionnent dans la différence : <code>Var(p̂_a-p̂_b) = Var(p̂_a)+Var(p̂_b)</code>.',
+'<div class="formula">Var(p̂_a-p̂_b) = p_a(1-p_a)/n_a + p_b(1-p_b)/n_b</div>',
+'L’hypothèse nulle teste l’absence d’effet de la publicité : <code>H0 : p_a = p_b</code>. On note alors leur valeur commune <code>p</code>.',
+'Sous H0, l’espérance de la différence vaut 0 et sa variance devient :',
+'<div class="formula">p(1-p) × (1/n_a + 1/n_b)</div>',
+'Pour obtenir une loi normale centrée réduite, on divise la différence par son <b>écart-type</b>, donc par la racine carrée de cette variance.',
+'<div class="formula">Z = (p̂_a-p̂_b) / √[p(1-p)(1/n_a+1/n_b)] ≈ N(0,1)</div>',
+'En pratique, <code>p</code> est inconnu sous H0 : on l’estime avec la proportion regroupée <code>p̂ = (succès A + succès B)/(n_a+n_b)</code>.',
+'On remplace alors p par p̂ dans l’erreur standard pour calculer Z, puis la p-value avec la loi normale centrée réduite.',
+'<b>Chaîne mentale à retenir :</b> Bernoulli → proportions empiriques → TCL → différence → variance → H0 → standardisation → N(0,1) → p-value.'
+]},
+{title:'6. Régression linéaire',bullets:[
 'Modèle simple : <code>Y = β0 + β1X + ε</code>.',
 '<code>β1</code> = variation moyenne de Y pour +1 unité de X.',
 'Moindres carrés : minimiser la somme des carrés des résidus <code>yi-ŷi</code>.',
 '<code>R²</code> mesure la part de variance expliquée mais ne prouve aucune causalité.',
 'Tester <code>H0:β1=0</code> permet de savoir si la pente est statistiquement différente de zéro.'
 ]},
-{title:'6. Régression multiple et validation',bullets:[
+{title:'7. Régression multiple et validation',bullets:[
 '<code>Y = β0 + β1X1 + ... + βpXp + ε</code>.',
 'Chaque coefficient s’interprète toutes choses égales par ailleurs.',
 'La multicolinéarité rend les coefficients instables et augmente leurs erreurs standards.',
 'Un seul train/test split donne une mesure variable ; la cross-validation est plus robuste.',
 'Erreur train faible mais test élevée = signe possible de surapprentissage.'
 ]},
-{title:'7. Modèle linéaire gaussien',bullets:[
+{title:'8. Modèle linéaire gaussien',bullets:[
 'Hypothèses classiques : linéarité, erreurs centrées, indépendance, variance constante et normalité pour certaines inférences.',
 'Hétéroscédasticité = variance des résidus qui dépend de X.',
 'Les graphiques de résidus servent à repérer non-linéarité, variance non constante et points atypiques.'
 ]},
-{title:'8. Maximum de vraisemblance',bullets:[
+{title:'9. Maximum de vraisemblance',bullets:[
 'La vraisemblance mesure à quel point un paramètre rend les données observées plausibles.',
 'On maximise souvent la log-vraisemblance, plus simple numériquement.',
 'L’estimateur dépend du modèle probabiliste choisi.'
 ]},
-{title:'9. Régression logistique',bullets:[
+{title:'10. Régression logistique',bullets:[
 'Pour une cible binaire : <code>P(Y=1|X)=σ(β0+βᵀX)</code>.',
 '<code>σ(z)=1/(1+e^-z)</code> transforme un score réel en probabilité.',
 'Les coefficients agissent sur le log-odds.',
 'Accuracy seule peut tromper si les classes sont déséquilibrées.'
 ]},
-{title:'10. Analyse convexe',bullets:[
+{title:'11. Analyse convexe',bullets:[
 'Dans un problème convexe, tout minimum local est aussi global.',
 'Le gradient indique la direction de plus forte augmentation.',
 'La descente de gradient avance dans la direction opposée pour minimiser une fonction.'
