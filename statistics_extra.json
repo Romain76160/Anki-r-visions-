@@ -1,7 +1,7 @@
 {
   "packID": "statistiques-cours",
   "title": "Statistiques — 10 chapitres",
-  "version": 3,
+  "version": 4,
   "questions": [
     {
       "id": "statc-001",
@@ -1338,6 +1338,284 @@
         "convexite",
         "hessienne",
         "semi-definie-positive"
+      ]
+    },
+    {
+      "id": "statc-120",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "À quoi sert principalement un test de Student ?",
+      "answer": "À comparer une moyenne à une référence, ou les moyennes de deux groupes.",
+      "explanation": "Student est adapté à une variable quantitative lorsque l’on teste une différence de moyenne.",
+      "tags": [
+        "student",
+        "moyenne",
+        "test"
+      ]
+    },
+    {
+      "id": "statc-121",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelles sont H₀ et H₁ pour comparer deux moyennes avec Student ?",
+      "answer": "H₀ : μA = μB ; H₁ : μA ≠ μB pour un test bilatéral.",
+      "explanation": "En unilatéral, H₁ devient μA > μB ou μA < μB selon la question.",
+      "tags": [
+        "student",
+        "H0",
+        "H1"
+      ]
+    },
+    {
+      "id": "statc-122",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle est la statistique de Student à un échantillon ?",
+      "answer": "t = (x̄ − μ₀) / (s/√n).",
+      "explanation": "x̄ est la moyenne observée, μ₀ la valeur testée, s l’écart-type et n la taille de l’échantillon.",
+      "tags": [
+        "student",
+        "formule",
+        "un-echantillon"
+      ]
+    },
+    {
+      "id": "statc-123",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quels sont les degrés de liberté d’un Student à un échantillon ?",
+      "answer": "df = n − 1.",
+      "explanation": "Ils déterminent la loi de Student utilisée pour calculer la p-value ou les quantiles.",
+      "tags": [
+        "student",
+        "degres-liberte"
+      ]
+    },
+    {
+      "id": "statc-124",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quand utilise-t-on le test de Welch ?",
+      "answer": "Pour comparer deux moyennes indépendantes sans supposer des variances égales.",
+      "explanation": "En pratique, Welch est souvent préféré au Student classique à variances supposées égales.",
+      "tags": [
+        "student",
+        "welch",
+        "variances"
+      ]
+    },
+    {
+      "id": "statc-125",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle est la statistique de Welch pour deux groupes indépendants ?",
+      "answer": "t = (x̄A−x̄B) / √(sA²/nA + sB²/nB).",
+      "explanation": "Le numérateur mesure la différence observée ; le dénominateur est son erreur standard.",
+      "tags": [
+        "student",
+        "welch",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-126",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quand utilise-t-on un test de Student apparié ?",
+      "answer": "Quand les deux mesures portent sur les mêmes individus, par exemple avant/après.",
+      "explanation": "On teste alors si la moyenne des différences individuelles est nulle.",
+      "tags": [
+        "student",
+        "apparie"
+      ]
+    },
+    {
+      "id": "statc-127",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle est H₀ dans un test de Student apparié ?",
+      "answer": "H₀ : μd = 0, où d est la différence entre les deux mesures.",
+      "explanation": "Le test apparié revient à faire un Student à un échantillon sur les différences.",
+      "tags": [
+        "student",
+        "apparie",
+        "H0"
+      ]
+    },
+    {
+      "id": "statc-128",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle différence entre test bilatéral et unilatéral ?",
+      "answer": "Bilatéral : différence dans les deux sens ; unilatéral : direction fixée à l’avance.",
+      "explanation": "Ex. bilatéral μA≠μB ; unilatéral μA>μB.",
+      "tags": [
+        "test",
+        "bilateral",
+        "unilateral"
+      ]
+    },
+    {
+      "id": "statc-129",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelles conditions principales pour utiliser un test de Student ?",
+      "answer": "Variable quantitative, observations indépendantes et normalité approximative si petit échantillon.",
+      "explanation": "Pour deux groupes indépendants, Welch évite de supposer l’égalité des variances.",
+      "tags": [
+        "student",
+        "conditions"
+      ]
+    },
+    {
+      "id": "statc-130",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "À quoi sert le test du χ² d’indépendance ?",
+      "answer": "À tester l’association entre deux variables qualitatives.",
+      "explanation": "Les données sont résumées dans un tableau de contingence d’effectifs.",
+      "tags": [
+        "chi2",
+        "independance",
+        "qualitatif"
+      ]
+    },
+    {
+      "id": "statc-131",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelles sont H₀ et H₁ du χ² d’indépendance ?",
+      "answer": "H₀ : variables indépendantes ; H₁ : variables associées.",
+      "explanation": "Une petite p-value fournit des preuves contre l’indépendance.",
+      "tags": [
+        "chi2",
+        "H0",
+        "H1"
+      ]
+    },
+    {
+      "id": "statc-132",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Comment calculer un effectif attendu Eᵢⱼ dans un test du χ² ?",
+      "answer": "Eᵢⱼ = (total ligne i × total colonne j) / total général.",
+      "explanation": "C’est l’effectif attendu dans la case si les deux variables étaient indépendantes.",
+      "tags": [
+        "chi2",
+        "effectif-attendu",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-133",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle est la statistique du test du χ² ?",
+      "answer": "χ² = Σ (Oᵢⱼ − Eᵢⱼ)² / Eᵢⱼ.",
+      "explanation": "O désigne les effectifs observés et E les effectifs attendus sous H₀.",
+      "tags": [
+        "chi2",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-134",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quels sont les degrés de liberté d’un χ² d’indépendance ?",
+      "answer": "df = (r − 1)(c − 1).",
+      "explanation": "r est le nombre de lignes et c le nombre de colonnes du tableau de contingence.",
+      "tags": [
+        "chi2",
+        "degres-liberte"
+      ]
+    },
+    {
+      "id": "statc-135",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Comment interpréter un grand χ² ?",
+      "answer": "Les effectifs observés sont loin des attendus, donc H₀ d’indépendance est moins plausible.",
+      "explanation": "La décision formelle repose ensuite sur la p-value.",
+      "tags": [
+        "chi2",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "statc-136",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle condition pratique vérifier pour l’approximation du χ² ?",
+      "answer": "Les effectifs attendus doivent être suffisamment grands, typiquement autour de 5 ou plus.",
+      "explanation": "Des effectifs attendus trop faibles rendent l’approximation par la loi du χ² moins fiable.",
+      "tags": [
+        "chi2",
+        "conditions"
+      ]
+    },
+    {
+      "id": "statc-137",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Quelle est la formule du V de Cramér ?",
+      "answer": "V = √[χ² / (n × min(r−1,c−1))].",
+      "explanation": "V mesure la force de l’association après un test du χ².",
+      "tags": [
+        "chi2",
+        "cramer",
+        "formule"
+      ]
+    },
+    {
+      "id": "statc-138",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Comment interpréter approximativement le V de Cramér ?",
+      "answer": "Proche de 0 : faible ; ≈0,3 : moyenne ; ≈0,5 ou plus : forte.",
+      "explanation": "Ces seuils sont indicatifs et dépendent du contexte.",
+      "tags": [
+        "cramer",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "statc-139",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Student ou χ² : comment choisir rapidement ?",
+      "answer": "Comparer des moyennes → Student ; association entre catégories/effectifs → χ².",
+      "explanation": "Le type de variable et la question de recherche déterminent le test.",
+      "tags": [
+        "student",
+        "chi2",
+        "choix-test"
+      ]
+    },
+    {
+      "id": "statc-140",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Que conclure si p-value < α ?",
+      "answer": "On rejette H₀ au seuil α.",
+      "explanation": "Avec α=0,05, une p-value < 0,05 indique un résultat statistiquement significatif.",
+      "tags": [
+        "p-value",
+        "decision",
+        "test"
+      ]
+    },
+    {
+      "id": "statc-141",
+      "subject": "Statistiques",
+      "chapter": "Stat 4 — Tests et A/B tests",
+      "prompt": "Que conclure si p-value ≥ α ?",
+      "answer": "On ne rejette pas H₀ ; cela ne prouve pas que H₀ est vraie.",
+      "explanation": "Le test indique seulement que les données ne fournissent pas assez de preuves contre H₀.",
+      "tags": [
+        "p-value",
+        "decision",
+        "test"
       ]
     }
   ]
