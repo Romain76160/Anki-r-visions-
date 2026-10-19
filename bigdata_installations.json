@@ -1,0 +1,449 @@
+{
+  "packID": "bigdata-installations-2026",
+  "title": "Installer Hadoop, ZooKeeper et Spark — commandes expliquées",
+  "version": 1,
+  "questions": [
+    {
+      "id": "bigdata-install-001",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Préparer Java et SSH",
+      "prompt": "Pourquoi installer Java et configurer SSH ?",
+      "answer": "sudo apt update && sudo apt install -y openjdk-17-jdk openssh-server rsync",
+      "explanation": "Pourquoi : Hadoop s'exécute dans la JVM ; SSH sert à démarrer les démons sur les workers.\nVérification : java -version && ssh -V",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-002",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Installer Hadoop 3.5.0",
+      "prompt": "Comment récupérer et extraire Hadoop ?",
+      "answer": "wget https://downloads.apache.org/hadoop/common/hadoop-3.5.0/hadoop-3.5.0.tar.gz && tar -xzf hadoop-3.5.0.tar.gz",
+      "explanation": "Pourquoi : Télécharger l'archive officielle, puis l'extraire dans le dossier personnel.\nVérification : ~/hadoop-3.5.0/bin/hadoop version",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-003",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Variables",
+      "prompt": "Comment activer les commandes Hadoop ?",
+      "answer": "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; export HADOOP_HOME=$HOME/hadoop-3.5.0; export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH",
+      "explanation": "Pourquoi : Définir HADOOP_HOME, JAVA_HOME et ajouter les binaires au PATH.\nVérification : hadoop version",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-004",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / SSH",
+      "prompt": "Comment créer une clé SSH pour le master ?",
+      "answer": "ssh-keygen -t ed25519; ssh-copy-id ubuntu@tp-hadoop-30; ssh-copy-id ubuntu@tp-hadoop-29",
+      "explanation": "Pourquoi : Générer une clé et copier la clé publique vers chaque worker.\nVérification : ssh ubuntu@tp-hadoop-30 hostname",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-005",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Configuration",
+      "prompt": "À quoi sert core-site.xml ?",
+      "answer": "hdfs getconf -confKey fs.defaultFS",
+      "explanation": "Pourquoi : Définir l'adresse du système de fichiers par défaut (NameNode).\nVérification : Doit indiquer hdfs://tp-hadoop-31:9000",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-006",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Configuration",
+      "prompt": "À quoi sert hdfs-site.xml ?",
+      "answer": "hdfs getconf -confKey dfs.namenode.name.dir",
+      "explanation": "Pourquoi : Configurer notamment les emplacements des métadonnées et blocs HDFS ainsi que la réplication.\nVérification : Vérifier le chemin local du NameNode",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-007",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Configuration",
+      "prompt": "À quoi sert yarn-site.xml ?",
+      "answer": "yarn node -list",
+      "explanation": "Pourquoi : Configurer le ResourceManager et les services YARN.\nVérification : Liste des NodeManagers une fois YARN démarré",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-008",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Configuration",
+      "prompt": "Pourquoi créer le fichier workers ?",
+      "answer": "printf 'tp-hadoop-30\\ntp-hadoop-29\\n' > \"$HADOOP_HOME/etc/hadoop/workers\"",
+      "explanation": "Pourquoi : Énumérer les hôtes sur lesquels les scripts Hadoop lanceront les démons workers.\nVérification : cat \"$HADOOP_HOME/etc/hadoop/workers\"",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-009",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / HDFS",
+      "prompt": "Quelle commande initialise un NameNode neuf ?",
+      "answer": "hdfs namenode -format",
+      "explanation": "Pourquoi : Formater seulement à la première installation ; sur un cluster existant, risque de perdre les métadonnées.\nVérification : NE PAS relancer sur HDFS en service",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-010",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Démarrage",
+      "prompt": "Comment démarrer HDFS et YARN ?",
+      "answer": "start-dfs.sh && start-yarn.sh",
+      "explanation": "Pourquoi : Démarrer d'abord HDFS, puis le gestionnaire de ressources.\nVérification : jps; hdfs dfsadmin -report; yarn node -list",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-011",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / HDFS",
+      "prompt": "Comment charger un fichier local dans HDFS ?",
+      "answer": "hdfs dfs -mkdir -p /user/ubuntu; hdfs dfs -put fichier.txt /user/ubuntu/",
+      "explanation": "Pourquoi : Créer un répertoire HDFS puis copier le fichier.\nVérification : hdfs dfs -ls /user/ubuntu",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-012",
+      "subject": "Hadoop",
+      "chapter": "Installation — Hadoop / Diagnostic",
+      "prompt": "Que faire si le NameNode refuse la connexion ?",
+      "answer": "jps; hdfs getconf -confKey fs.defaultFS; ls \"$HADOOP_HOME/logs\"",
+      "explanation": "Pourquoi : Vérifier le processus, fs.defaultFS et les logs avant toute tentative de formatage.\nVérification : Contrôler que NameNode tourne et écoute au bon port",
+      "tags": [
+        "installation",
+        "hadoop",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-013",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Prérequis",
+      "prompt": "Quelle dépendance ZooKeeper utilise-t-il ?",
+      "answer": "sudo apt update && sudo apt install -y openjdk-17-jdk",
+      "explanation": "Pourquoi : Une JVM : installer Java avant le serveur ZooKeeper.\nVérification : java -version",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-014",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Installation",
+      "prompt": "Comment télécharger et extraire ZooKeeper ?",
+      "answer": "wget https://archive.apache.org/dist/zookeeper/zookeeper-3.8.7/apache-zookeeper-3.8.7-bin.tar.gz; tar -xzf apache-zookeeper-3.8.7-bin.tar.gz",
+      "explanation": "Pourquoi : Télécharger la distribution binaire Apache, puis extraire l'archive.\nVérification : ls apache-zookeeper-3.8.7-bin/bin",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-015",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Configuration",
+      "prompt": "Quel est le rôle de zoo.cfg ?",
+      "answer": "cp conf/zoo_sample.cfg conf/zoo.cfg; mkdir -p \"$HOME/zookeeper-data\"",
+      "explanation": "Pourquoi : Définir dataDir, clientPort et les durées tickTime, initLimit et syncLimit.\nVérification : grep -E '^(dataDir|clientPort|tickTime)' conf/zoo.cfg",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-016",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Données",
+      "prompt": "Pourquoi configurer dataDir ?",
+      "answer": "sed -i \"s|^dataDir=.*|dataDir=$HOME/zookeeper-data|\" conf/zoo.cfg",
+      "explanation": "Pourquoi : Indiquer où ZooKeeper conserve ses snapshots et journaux de données.\nVérification : grep '^dataDir=' conf/zoo.cfg",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-017",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Démarrage",
+      "prompt": "Comment démarrer ZooKeeper en mode autonome ?",
+      "answer": "bin/zkServer.sh start",
+      "explanation": "Pourquoi : Le script lance le serveur en arrière-plan.\nVérification : bin/zkServer.sh status",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-018",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Client",
+      "prompt": "Comment ouvrir le client ZooKeeper ?",
+      "answer": "bin/zkCli.sh -server 127.0.0.1:2181",
+      "explanation": "Pourquoi : Se connecter au port client local (2181 par défaut).\nVérification : ls /",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-019",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Znodes",
+      "prompt": "Comment créer et lire un znode ?",
+      "answer": "create /demo \"bonjour\"; get /demo",
+      "explanation": "Pourquoi : Un znode contient des données associées à un chemin.\nVérification : Dans zkCli.sh, chaque instruction se tape séparément",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-020",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Znodes",
+      "prompt": "Comment modifier puis supprimer un znode ?",
+      "answer": "set /demo \"salut\"; delete /demo",
+      "explanation": "Pourquoi : Mettre à jour la valeur, puis supprimer le znode.\nVérification : Dans zkCli.sh, une commande par ligne",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-021",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Cluster",
+      "prompt": "À quoi servent myid et server.N ?",
+      "answer": "echo 1 > \"$HOME/zookeeper-data/myid\"",
+      "explanation": "Pourquoi : Chaque serveur reçoit un identifiant et la même liste des membres de l'ensemble.\nVérification : Avec quorum, configurer server.1, server.2, server.3 dans zoo.cfg",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-022",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Quorum",
+      "prompt": "Pourquoi choisir trois serveurs ZooKeeper ?",
+      "answer": "bin/zkServer.sh status",
+      "explanation": "Pourquoi : Un ensemble de 3 tolère 1 panne grâce à un quorum majoritaire de 2.\nVérification : L'état d'un serveur peut indiquer leader ou follower",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-023",
+      "subject": "Hadoop",
+      "chapter": "Installation — ZooKeeper / Arrêt",
+      "prompt": "Comment arrêter proprement ZooKeeper ?",
+      "answer": "bin/zkServer.sh stop",
+      "explanation": "Pourquoi : Utiliser le script dédié pour arrêter le serveur.\nVérification : bin/zkServer.sh status",
+      "tags": [
+        "installation",
+        "zookeeper",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-024",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Prérequis",
+      "prompt": "Que faut-il préparer avant Spark ?",
+      "answer": "sudo apt update && sudo apt install -y openjdk-17-jdk python3",
+      "explanation": "Pourquoi : Installer Java ; Python est nécessaire pour PySpark ; Hadoop/YARN seulement pour une exécution YARN.\nVérification : java -version; python3 --version",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-025",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Installation",
+      "prompt": "Comment installer Spark précompilé ?",
+      "answer": "wget https://archive.apache.org/dist/spark/spark-4.0.1/spark-4.0.1-bin-hadoop3.tgz; tar -xzf spark-4.0.1-bin-hadoop3.tgz",
+      "explanation": "Pourquoi : Télécharger la distribution binaire Apache compatible Hadoop.\nVérification : ls spark-4.0.1-bin-hadoop3/bin",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-026",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Variables",
+      "prompt": "À quoi servent SPARK_HOME et PATH ?",
+      "answer": "export SPARK_HOME=$HOME/spark-4.0.1-bin-hadoop3; export PATH=$SPARK_HOME/bin:$PATH",
+      "explanation": "Pourquoi : SPARK_HOME pointe sur l'installation ; PATH rend spark-submit accessible.\nVérification : spark-submit --version",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-027",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Local",
+      "prompt": "Comment lancer PySpark localement ?",
+      "answer": "pyspark --master local[*]",
+      "explanation": "Pourquoi : Démarrer un shell Python avec Spark sur la machine locale.\nVérification : Dans le shell : spark.range(10).count()",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-028",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Architecture",
+      "prompt": "Quel est le rôle du driver ?",
+      "answer": "spark-submit --master local[*] app.py",
+      "explanation": "Pourquoi : Construire le plan de calcul et coordonner les executors.\nVérification : Le programme pilote l'exécution",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-029",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Soumission",
+      "prompt": "Comment lancer un programme Spark Python local ?",
+      "answer": "spark-submit --master local[*] app.py",
+      "explanation": "Pourquoi : spark-submit soumet le script à Spark.\nVérification : Contrôler le code retour et les logs",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-030",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / YARN",
+      "prompt": "Comment utiliser Spark sur YARN ?",
+      "answer": "export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop; spark-submit --master yarn --deploy-mode client app.py",
+      "explanation": "Pourquoi : Transmettre la configuration Hadoop et choisir le gestionnaire YARN.\nVérification : yarn application -list",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-031",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / YARN",
+      "prompt": "Comment soumettre SparkPi sur YARN ?",
+      "answer": "spark-submit --class org.apache.spark.examples.SparkPi --master yarn --deploy-mode cluster \"$SPARK_HOME/examples/jars/spark-examples_2.13-4.0.1.jar\" 10",
+      "explanation": "Pourquoi : Exemple du cours : soumettre un JAR Spark avec la classe SparkPi.\nVérification : Contrôler l'application via yarn application -list",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-032",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / RDD",
+      "prompt": "Qu'est-ce qui déclenche une exécution Spark ?",
+      "answer": "spark.range(10).count()",
+      "explanation": "Pourquoi : Les transformations sont paresseuses ; une action déclenche le calcul.\nVérification : count est une action",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-033",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Diagnostic",
+      "prompt": "Que vérifier si une soumission YARN échoue ?",
+      "answer": "yarn node -list; yarn application -list; echo \"$HADOOP_CONF_DIR\"",
+      "explanation": "Pourquoi : Vérifier YARN, la configuration Hadoop et les logs de l'application.\nVérification : Puis yarn logs -applicationId <ID>",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    },
+    {
+      "id": "bigdata-install-034",
+      "subject": "Hadoop",
+      "chapter": "Installation — Spark / Interface",
+      "prompt": "Où consulter l'interface web d'un job Spark local ?",
+      "answer": "http://localhost:4040",
+      "explanation": "Pourquoi : UI du driver souvent disponible sur le port 4040 pendant le job.\nVérification : Le port peut changer s'il est occupé",
+      "tags": [
+        "installation",
+        "spark",
+        "commandes"
+      ]
+    }
+  ]
+}
