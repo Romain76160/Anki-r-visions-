@@ -1,0 +1,475 @@
+{
+  "packID": "infra-ansible-devstack-docker-2026",
+  "title": "Ansible, DevStack, Docker — installer et comprendre",
+  "version": 1,
+  "questions": [
+    {
+      "id": "infra-install-2026-001",
+      "subject": "Ansible",
+      "chapter": "Installation",
+      "prompt": "Comment installer Ansible avec pipx ?",
+      "answer": "sudo apt update && sudo apt install -y pipx; pipx ensurepath; pipx install --include-deps ansible",
+      "explanation": "Explication : pipx isole Ansible du Python système.\nVérification : ansible --version",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-002",
+      "subject": "Ansible",
+      "chapter": "Installation",
+      "prompt": "Comment installer le paquet Ubuntu Ansible ?",
+      "answer": "sudo apt update && sudo apt install -y ansible",
+      "explanation": "Explication : Alternative simple, parfois moins récente que pipx ou le PPA.\nVérification : ansible --version",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-003",
+      "subject": "Ansible",
+      "chapter": "Inventaire",
+      "prompt": "Quel est le rôle d'inventory.ini ?",
+      "answer": "printf '[masters]\\ntp-hadoop-31 ansible_connection=local\\n[workers]\\ntp-hadoop-30\\ntp-hadoop-29\\n[all:vars]\\nansible_user=ubuntu\\n' > inventory.ini",
+      "explanation": "Explication : Définit les hôtes, groupes et variables de connexion.\nVérification : cat inventory.ini",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-004",
+      "subject": "Ansible",
+      "chapter": "SSH",
+      "prompt": "Comment distribuer sa clé publique SSH ?",
+      "answer": "ssh-keygen -t ed25519; ssh-copy-id ubuntu@tp-hadoop-30; ssh-copy-id ubuntu@tp-hadoop-29",
+      "explanation": "Explication : Le nœud de contrôle doit s'authentifier sur les workers.\nVérification : ssh ubuntu@tp-hadoop-30 hostname",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-005",
+      "subject": "Ansible",
+      "chapter": "Test",
+      "prompt": "Comment tester l'inventaire Ansible ?",
+      "answer": "ansible all -i inventory.ini -m ping",
+      "explanation": "Explication : Le module ping vérifie Python et la connexion distante, pas ICMP.\nVérification : ansible all -i inventory.ini -m ping",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-006",
+      "subject": "Ansible",
+      "chapter": "Playbooks",
+      "prompt": "Comment vérifier la syntaxe d'un playbook ?",
+      "answer": "ansible-playbook -i inventory.ini cluster-hadoop.yml --syntax-check",
+      "explanation": "Explication : Analyse la structure YAML sans exécuter les tâches.\nVérification : Afficher playbook: cluster-hadoop.yml",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-007",
+      "subject": "Ansible",
+      "chapter": "Playbooks",
+      "prompt": "Comment simuler un playbook ?",
+      "answer": "ansible-playbook -i inventory.ini cluster-hadoop.yml --check --diff",
+      "explanation": "Explication : Estime les changements ; certains modules ne simulent pas entièrement.\nVérification : Examiner les tâches changed/ok",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-008",
+      "subject": "Ansible",
+      "chapter": "Playbooks",
+      "prompt": "Comment exécuter un playbook ?",
+      "answer": "ansible-playbook -i inventory.ini cluster-hadoop.yml",
+      "explanation": "Explication : Applique l'état désiré aux hôtes définis.\nVérification : Lire PLAY RECAP",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-009",
+      "subject": "Ansible",
+      "chapter": "Modules",
+      "prompt": "Que fait ansible.builtin.apt ?",
+      "answer": "ansible all -i inventory.ini -b -m ansible.builtin.apt -a 'name=git state=present update_cache=yes'",
+      "explanation": "Explication : Installe le paquet de manière idempotente, avec privilèges.\nVérification : ansible all -i inventory.ini -m command -a 'git --version'",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-010",
+      "subject": "Ansible",
+      "chapter": "Erreurs",
+      "prompt": "Comment traiter Host key verification failed ?",
+      "answer": "ssh ubuntu@tp-hadoop-29 hostname",
+      "explanation": "Explication : Vérifier l'empreinte et accepter la clé de l'hôte légitime ; ne pas désactiver aveuglément le contrôle.\nVérification : ansible workers -i inventory.ini -m ping",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-011",
+      "subject": "Ansible",
+      "chapter": "Architecture",
+      "prompt": "Faut-il installer Ansible sur tous les workers ?",
+      "answer": "ansible --version",
+      "explanation": "Explication : Le nœud de contrôle exécute Ansible ; les workers Linux nécessitent SSH et généralement Python.\nVérification : Tester le module ping",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-012",
+      "subject": "Ansible",
+      "chapter": "Fichiers",
+      "prompt": "Comment envoyer un fichier de configuration ?",
+      "answer": "ansible workers -i inventory.ini -b -m copy -a 'src=core-site.xml dest=/tmp/core-site.xml mode=0644'",
+      "explanation": "Explication : Le module copy transfère un fichier local vers les nœuds.\nVérification : ansible workers -i inventory.ini -m command -a 'ls -l /tmp/core-site.xml'",
+      "tags": [
+        "installation",
+        "commandes",
+        "ansible"
+      ]
+    },
+    {
+      "id": "infra-install-2026-013",
+      "subject": "DevStack",
+      "chapter": "Prérequis",
+      "prompt": "Pourquoi utiliser une VM dédiée pour DevStack ?",
+      "answer": "free -h; df -h; ip -br address",
+      "explanation": "Explication : DevStack modifie fortement le système, les réseaux et les services ; éviter un serveur de production.\nVérification : Vérifier les ressources et les services existants",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-014",
+      "subject": "DevStack",
+      "chapter": "Prérequis",
+      "prompt": "Comment installer Git pour DevStack ?",
+      "answer": "sudo apt update && sudo apt install -y git",
+      "explanation": "Explication : Git télécharge le code de DevStack et de ses dépendances.\nVérification : git --version",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-015",
+      "subject": "DevStack",
+      "chapter": "Utilisateur",
+      "prompt": "Comment créer le compte non-root stack ?",
+      "answer": "sudo useradd -s /bin/bash -d /opt/stack -m stack; sudo chmod +x /opt/stack; echo 'stack ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/stack",
+      "explanation": "Explication : DevStack ne doit pas être lancé en root ; utilisateur dédié avec sudo.\nVérification : sudo -iu stack whoami",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-016",
+      "subject": "DevStack",
+      "chapter": "Code",
+      "prompt": "Comment récupérer DevStack ?",
+      "answer": "sudo -iu stack; git clone https://opendev.org/openstack/devstack; cd devstack",
+      "explanation": "Explication : Récupérer les scripts d'installation OpenStack.\nVérification : test -f stack.sh && echo OK",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-017",
+      "subject": "DevStack",
+      "chapter": "Configuration",
+      "prompt": "À quoi sert local.conf ?",
+      "answer": "cat > local.conf <<'EOF'\n[[local|localrc]]\nADMIN_PASSWORD=MotDePasseLab123\nDATABASE_PASSWORD=MotDePasseLab123\nRABBIT_PASSWORD=MotDePasseLab123\nSERVICE_PASSWORD=MotDePasseLab123\nLOGFILE=/opt/stack/logs/stack.sh.log\nEOF",
+      "explanation": "Explication : Fournit les paramètres de déploiement ; utiliser un secret propre au laboratoire, jamais sur un dépôt public.\nVérification : grep '^LOGFILE=' local.conf",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-018",
+      "subject": "DevStack",
+      "chapter": "Déploiement",
+      "prompt": "Comment installer OpenStack avec DevStack ?",
+      "answer": "./stack.sh",
+      "explanation": "Explication : Déploie les services ; lancer comme stack, depuis le dossier devstack.\nVérification : Consulter résumé final et logs",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-019",
+      "subject": "DevStack",
+      "chapter": "CLI",
+      "prompt": "Comment charger les identifiants OpenStack ?",
+      "answer": "source openrc admin admin; openstack service list",
+      "explanation": "Explication : Charge les variables de connexion au projet administrateur.\nVérification : openstack endpoint list",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-020",
+      "subject": "DevStack",
+      "chapter": "Services",
+      "prompt": "Quels composants DevStack installe-t-il typiquement ?",
+      "answer": "openstack service list",
+      "explanation": "Explication : Keystone, Glance, Nova, Placement, Cinder, Neutron et Horizon.\nVérification : Vérifier chaque service",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-021",
+      "subject": "DevStack",
+      "chapter": "Diagnostic",
+      "prompt": "Comment retrouver le log stack.sh ?",
+      "answer": "ls -lh /opt/stack/logs/stack.sh.log; tail -n 80 /opt/stack/logs/stack.sh.log",
+      "explanation": "Explication : Le chemin dépend de LOGFILE, déclaré dans local.conf.\nVérification : grep -i -E 'error|failed' /opt/stack/logs/stack.sh.log | tail",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-022",
+      "subject": "DevStack",
+      "chapter": "Diagnostic",
+      "prompt": "Comment inspecter un service systemd DevStack en panne ?",
+      "answer": "systemctl --failed; journalctl -u devstack@etcd.service -n 80 --no-pager",
+      "explanation": "Explication : La journalisation explique pourquoi un processus n'a pas démarré.\nVérification : sudo ss -ltnp | grep -E ':2379|:2380'",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-023",
+      "subject": "DevStack",
+      "chapter": "Conflit",
+      "prompt": "Pourquoi vérifier les ports 2379 et 2380 ?",
+      "answer": "sudo ss -ltnp | grep -E ':2379|:2380'",
+      "explanation": "Explication : Un autre etcd (Kubernetes) peut monopoliser ces ports ; arrêter un service sans examen peut casser le cluster.\nVérification : Identifier le propriétaire du port",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-024",
+      "subject": "DevStack",
+      "chapter": "Arrêt",
+      "prompt": "Comment arrêter et nettoyer un laboratoire DevStack ?",
+      "answer": "./unstack.sh",
+      "explanation": "Explication : Arrête les services ; ./clean.sh nettoie davantage et peut supprimer des données de laboratoire.\nVérification : Réserver clean.sh à un environnement jetable",
+      "tags": [
+        "installation",
+        "commandes",
+        "devstack"
+      ]
+    },
+    {
+      "id": "infra-install-2026-025",
+      "subject": "Docker",
+      "chapter": "Prérequis",
+      "prompt": "Comment vérifier sa version Ubuntu avant Docker ?",
+      "answer": "cat /etc/os-release; dpkg --print-architecture",
+      "explanation": "Explication : Le dépôt apt doit correspondre à la distribution et à l'architecture.\nVérification : Vérifier VERSION_CODENAME",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-026",
+      "subject": "Docker",
+      "chapter": "Dépôt",
+      "prompt": "Comment ajouter la clé officielle Docker ?",
+      "answer": "sudo apt update; sudo apt install -y ca-certificates curl; sudo install -m 0755 -d /etc/apt/keyrings; sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc; sudo chmod a+r /etc/apt/keyrings/docker.asc",
+      "explanation": "Explication : La clé permet à apt de vérifier les paquets du dépôt.\nVérification : ls -l /etc/apt/keyrings/docker.asc",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-027",
+      "subject": "Docker",
+      "chapter": "Dépôt",
+      "prompt": "Comment configurer la source officielle Docker ?",
+      "answer": "sudo tee /etc/apt/sources.list.d/docker.sources >/dev/null <<EOF\nTypes: deb\nURIs: https://download.docker.com/linux/ubuntu\nSuites: $(. /etc/os-release && echo \"${UBUNTU_CODENAME:-$VERSION_CODENAME}\")\nComponents: stable\nArchitectures: $(dpkg --print-architecture)\nSigned-By: /etc/apt/keyrings/docker.asc\nEOF\nsudo apt update",
+      "explanation": "Explication : Indique à apt d'où télécharger les paquets signés.\nVérification : apt-cache policy docker-ce",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-028",
+      "subject": "Docker",
+      "chapter": "Installation",
+      "prompt": "Comment installer Docker Engine et Compose ?",
+      "answer": "sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin",
+      "explanation": "Explication : Installe moteur, client, runtime et plugins Buildx/Compose.\nVérification : docker --version; docker compose version",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-029",
+      "subject": "Docker",
+      "chapter": "Service",
+      "prompt": "Comment vérifier le service Docker ?",
+      "answer": "sudo systemctl enable --now docker; sudo systemctl status docker",
+      "explanation": "Explication : Démarre le démon et active son démarrage automatique.\nVérification : sudo docker info",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-030",
+      "subject": "Docker",
+      "chapter": "Test",
+      "prompt": "Comment tester Docker avec un conteneur ?",
+      "answer": "sudo docker run --rm hello-world",
+      "explanation": "Explication : Télécharge une image de test, lance un conteneur et le supprime après sortie.\nVérification : Message Hello from Docker!",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-031",
+      "subject": "Docker",
+      "chapter": "Conteneur",
+      "prompt": "Comment lancer un serveur web Nginx ?",
+      "answer": "sudo docker run -d --name web-demo -p 8080:80 nginx:alpine",
+      "explanation": "Explication : -d arrière-plan, --name nom, -p publie un port hôte:conteneur.\nVérification : sudo docker ps; curl http://localhost:8080",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-032",
+      "subject": "Docker",
+      "chapter": "Conteneur",
+      "prompt": "Comment voir les logs d'un conteneur ?",
+      "answer": "sudo docker logs web-demo",
+      "explanation": "Explication : Lit stdout/stderr du conteneur.\nVérification : sudo docker ps -a",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-033",
+      "subject": "Docker",
+      "chapter": "Conteneur",
+      "prompt": "Comment arrêter et supprimer un conteneur ?",
+      "answer": "sudo docker stop web-demo; sudo docker rm web-demo",
+      "explanation": "Explication : Arrêt propre puis suppression du conteneur ; l'image reste.\nVérification : sudo docker ps -a",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-034",
+      "subject": "Docker",
+      "chapter": "Compose",
+      "prompt": "Comment démarrer les services définis dans compose.yaml ?",
+      "answer": "sudo docker compose up -d",
+      "explanation": "Explication : Crée et lance les services définis dans le projet Compose.\nVérification : sudo docker compose ps",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-035",
+      "subject": "Docker",
+      "chapter": "Compose",
+      "prompt": "Comment arrêter les services Compose ?",
+      "answer": "sudo docker compose down",
+      "explanation": "Explication : Supprime les conteneurs et réseaux Compose ; les volumes nommés restent sauf option -v.\nVérification : sudo docker compose ps",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    },
+    {
+      "id": "infra-install-2026-036",
+      "subject": "Docker",
+      "chapter": "Sécurité",
+      "prompt": "Quel risque présente le groupe docker ?",
+      "answer": "sudo usermod -aG docker \"$USER\"",
+      "explanation": "Explication : Les membres de docker disposent de privilèges proches de root ; garder sudo est plus restrictif.\nVérification : newgrp docker (si ce choix est accepté)",
+      "tags": [
+        "installation",
+        "commandes",
+        "docker"
+      ]
+    }
+  ]
+}
